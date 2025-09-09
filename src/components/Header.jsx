@@ -31,9 +31,8 @@ const Header = () => {
         </div>
       )}
       
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo */}
+      <nav className="px-4 sm:px-6 lg:px-8 relative flex justify-between items-center flex-direction-column h-40">
+        {/* Logo */}
           <motion.div 
             className="flex-shrink-0 flex items-center"
             initial={{ opacity: 0, x: -20 }}
@@ -43,65 +42,70 @@ const Header = () => {
             <img 
               src={logoHokma} 
               alt="Hokma Technologies" 
-              className={`h-16 w-auto transition-all duration-500 ${
+              className={`w-auto transition-all duration-500 ${
                 isScrolled 
-                  ? '' 
-                  : 'filter brightness-110'
+                  ? 'h-[80px]'
+                  : 'h-[145px] filter brightness-110'
               }`}
             />
           </motion.div>
 
+          
+
           {/* Desktop Navigation - Glassmorphism Menu */}
-          <motion.div 
-            className="hidden md:block"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className={`backdrop-blur-md rounded-full px-8 py-3 border transition-all duration-500 ${
-              isScrolled 
-                ? 'bg-gray-100/80 border-gray-300/30' 
-                : 'bg-white/10 border-white/20'
-            }`}>
-              <div className="flex items-center space-x-8">
-                <a href="#inicio" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-blue-600' 
-                    : 'text-white hover:text-cyan-300'
-                }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                  Inicio
-                </a>
-                <a href="#servicios" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-blue-600' 
-                    : 'text-white hover:text-cyan-300'
-                }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                  Servicios
-                </a>
-                <a href="#nosotros" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-blue-600' 
-                    : 'text-white hover:text-cyan-300'
-                }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                  Acerca
-                </a>
-                <a href="#blog" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-blue-600' 
-                    : 'text-white hover:text-cyan-300'
-                }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                  Blog
-                </a>
-                <a href="#contacto" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-blue-600' 
-                    : 'text-white hover:text-cyan-300'
-                }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                  Contáctanos
-                </a>
+          <div className="">
+            <motion.div 
+              className="hidden md:block"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className={`backdrop-blur-md rounded-full px-8 py-3 border transition-all duration-500 ${
+                isScrolled 
+                  ? 'bg-gray-100/80 border-gray-300/30' 
+                  : 'bg-white/10 border-white/20'
+              }`}>
+                <div className="flex items-center space-x-8">
+                  <a href="#inicio" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    isScrolled 
+                      ? 'text-gray-800 hover:text-blue-600' 
+                      : 'text-white hover:text-cyan-300'
+                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
+                    Inicio
+                  </a>
+                  <a href="#servicios" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    isScrolled 
+                      ? 'text-gray-800 hover:text-blue-600' 
+                      : 'text-white hover:text-cyan-300'
+                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
+                    Servicios
+                  </a>
+                  <a href="#nosotros" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    isScrolled 
+                      ? 'text-gray-800 hover:text-blue-600' 
+                      : 'text-white hover:text-cyan-300'
+                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
+                    Acerca
+                  </a>
+                  <a href="#blog" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    isScrolled 
+                      ? 'text-gray-800 hover:text-blue-600' 
+                      : 'text-white hover:text-cyan-300'
+                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
+                    Blog
+                  </a>
+                  <a href="#contacto" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    isScrolled 
+                      ? 'text-gray-800 hover:text-blue-600' 
+                      : 'text-white hover:text-cyan-300'
+                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
+                    Contáctanos
+                  </a>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
+          
 
           {/* CTA Button - Neon Style - Solo visible cuando hay scroll */}
           {isScrolled && (
@@ -142,7 +146,6 @@ const Header = () => {
               </svg>
             </button>
           </div>
-        </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
