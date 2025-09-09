@@ -134,11 +134,7 @@ const About = () => {
                 delay={0.1 * index}
               >
                 <div 
-                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform border-l-4 card-expand"
-                  style={{ 
-                    borderLeftColor: '#92be23',
-                    boxShadow: '0 4px 15px rgba(146, 190, 35, 0.1)'
-                  }}
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform card-expand"
                 >
                   <div className="flex items-center space-x-4">
                     {/* Icono */}

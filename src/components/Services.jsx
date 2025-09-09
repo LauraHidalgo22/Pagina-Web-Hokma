@@ -69,7 +69,7 @@ const Services = () => {
           {/* Primera tarjeta - más ancha */}
           <AnimatedSection animation="fadeInLeft" delay={0.2} className="flex-[3] hover:flex-[4] transition-all duration-500">
             <div 
-              className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-cyan-400 hover:shadow-lg transition-all duration-500 relative h-full"
+              className="group p-12 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 relative h-full"
             >
             <h3 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: 'Caviar Dreams' }}>
               {services[0].title}
@@ -89,7 +89,7 @@ const Services = () => {
           {/* Segunda tarjeta - más estrecha */}
           <AnimatedSection animation="fadeInRight" delay={0.4} className="flex-[2] hover:flex-[3] transition-all duration-500">
             <div 
-              className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-cyan-400 hover:shadow-lg transition-all duration-500 relative h-full"
+              className="group p-12 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 relative h-full"
             >
             <h3 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: 'Caviar Dreams' }}>
               {services[1].title}
@@ -110,7 +110,7 @@ const Services = () => {
         {/* Segunda fila - 1 tarjeta que ocupa todo el ancho */}
         <AnimatedSection animation="fadeInUp" delay={0.6} className="relative z-10">
           <div 
-            className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-cyan-400 hover:shadow-lg transition-all duration-500 relative w-full hover:scale-105 transform origin-center"
+            className="group p-12 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 relative w-full hover:scale-105 transform origin-center"
           >
             <h3 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: 'Caviar Dreams' }}>
               {services[2].title}

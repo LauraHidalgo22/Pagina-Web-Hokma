@@ -110,7 +110,7 @@ const EquipoTrabajo = () => {
                   delay={0.1 * index}
                   className="group"
                 >
-                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-gray-200 transition-all duration-300 transform hover:scale-105">
                     {/* Foto del empleado */}
                     <div className="aspect-[3/4] overflow-hidden relative">
                       <img 
