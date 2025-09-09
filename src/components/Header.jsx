@@ -21,9 +21,30 @@ const Header = () => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
+        ? 'backdrop-blur-md shadow-lg border-b border-gray-200/20' 
         : 'bg-transparent'
     }`}>
+      {/* Color block for scrolled state - 10% from left with diagonal transition */}
+      {isScrolled && (
+        <>
+          <div className="absolute inset-0 bg-white"></div>
+          <div className="absolute inset-y-0 left-0 w-[10%] bg-[#292C3A]"></div>
+          <div 
+            className="absolute inset-y-0 left-[10%] w-[12%] bg-[#292C3A]"
+            style={{
+              clipPath: 'polygon(0 0, 100% 0, 70% 100%, 0 100%)',
+              opacity: 0.9
+            }}
+          ></div>
+          <div 
+            className="absolute inset-y-0 left-[18%] w-[8%] bg-[#292C3A]"
+            style={{
+              clipPath: 'polygon(0 0, 100% 0, 30% 100%, 0 100%)',
+              opacity: 0.4
+            }}
+          ></div>
+        </>
+      )}
       {/* Animated background pattern - solo visible cuando no está scrolleado */}
       {!isScrolled && (
         <div className="absolute inset-0 opacity-10">
@@ -31,7 +52,9 @@ const Header = () => {
         </div>
       )}
       
-      <nav className="px-4 sm:px-6 lg:px-8 relative flex justify-between items-center flex-direction-column h-40">
+      <nav className={`px-4 sm:px-6 lg:px-8 relative flex justify-between items-center flex-direction-column transition-all duration-500 ${
+        isScrolled ? 'h-18' : 'h-40'
+      }`}>
         {/* Logo */}
           <motion.div 
             className="flex-shrink-0 flex items-center"
