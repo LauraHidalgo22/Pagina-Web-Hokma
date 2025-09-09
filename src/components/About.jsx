@@ -36,33 +36,33 @@ const About = () => {
   const cards = [
     { 
       text: "Impulsamos su crecimiento real", 
-      icon: "📈",
-      iconBg: "bg-green-100"
+      shape: "circle",
+      color: "bg-green-500"
     },
     { 
       text: "Procesos diseñados para su éxito", 
-      icon: "⚙️",
-      iconBg: "bg-blue-100"
+      shape: "square",
+      color: "bg-blue-500"
     },
     { 
       text: "Entregas rápidas y organizadas", 
-      icon: "🚀",
-      iconBg: "bg-purple-100"
+      shape: "triangle",
+      color: "bg-purple-500"
     },
     { 
       text: "Decisiones rápidas y seguras", 
-      icon: "🛡️",
-      iconBg: "bg-orange-100"
+      shape: "diamond",
+      color: "bg-orange-500"
     },
     { 
       text: "Innovación y tecnología", 
-      icon: "💡",
-      iconBg: "bg-yellow-100"
+      shape: "hexagon",
+      color: "bg-cyan-500"
     },
     { 
       text: "Soporte especializado", 
-      icon: "🎯",
-      iconBg: "bg-red-100"
+      shape: "star",
+      color: "bg-indigo-500"
     }
   ]
 
@@ -112,7 +112,7 @@ const About = () => {
         }
         
         .card-expand:hover .card-icon {
-          transform: scale(1.2) rotate(5deg);
+          transform: scale(1.5) rotate(15deg);
         }
       `}} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,12 +136,22 @@ const About = () => {
                 <div 
                   className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform card-expand"
                 >
-                  <div className="flex items-center space-x-4">
-                    {/* Icono */}
-                    <div 
-                      className={`w-12 h-12 rounded-full flex items-center justify-center card-icon ${card.iconBg}`}
-                    >
-                      <span className="text-2xl">{card.icon}</span>
+                  <div className="flex items-center space-x-6">
+                    {/* Elemento geométrico minimalista */}
+                    <div className="flex-shrink-0">
+                      <div 
+                        className={`w-4 h-4 ${card.color} card-icon transition-all duration-300`}
+                        style={{
+                          clipPath: 
+                            card.shape === 'circle' ? 'circle(50%)' :
+                            card.shape === 'square' ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' :
+                            card.shape === 'triangle' ? 'polygon(50% 0%, 0% 100%, 100% 100%)' :
+                            card.shape === 'diamond' ? 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' :
+                            card.shape === 'hexagon' ? 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' :
+                            card.shape === 'star' ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' :
+                            'circle(50%)'
+                        }}
+                      ></div>
                     </div>
                     
                     {/* Texto */}
