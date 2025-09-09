@@ -58,7 +58,7 @@ const Hero = () => {
           >
             {/* Corporate border image behind text with infinite rotation */}
             <motion.div 
-              className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20"
+              className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50"
               style={{
                 backgroundImage: `url(${bordeCorporativo})`,
                 backgroundSize: 'contain',
