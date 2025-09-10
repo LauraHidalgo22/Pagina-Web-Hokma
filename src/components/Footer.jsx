@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#292C3A]/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#3a3f52]/30 rounded-full blur-3xl"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Columna Izquierda - Logo e información de contacto */}
           <motion.div
@@ -180,10 +180,8 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="border-t border-[#3a3f52]/50 pt-6 mt-8"
         >
-          <p className="text-gray-400 text-xs leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-            La Sociedad Nacional de la Cruz Roja Colombiana (SNCRC) es una institución privada de carácter humanitario, sin ánimo de lucro que tiene por finalidad "Prevenir y aliviar el sufrimiento de las personas en toda circunstancia".
-          </p>
-          <div className="flex flex-col md:flex-row justify-between items-center mt-4">
+          
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-xs" style={{ fontFamily: 'Caviar Dreams' }}>
               © 2025 Hokma Technologies Colombia. Todos los derechos reservados.
             </p>
