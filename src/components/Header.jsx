@@ -18,6 +18,25 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Función para scroll suave a las secciones
+  const smoothScrollTo = (e, targetId) => {
+    e.preventDefault()
+    const targetElement = document.querySelector(targetId)
+    
+    if (targetElement) {
+      const headerHeight = isScrolled ? 72 : 160 // altura del header
+      const targetPosition = targetElement.offsetTop - headerHeight
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      })
+      
+      // Cerrar menú móvil después del click
+      setIsMenuOpen(false)
+    }
+  }
+
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -89,35 +108,35 @@ const Header = () => {
                   : 'bg-white/10 border-white/20'
               }`}>
                 <div className="flex items-center space-x-8">
-                  <a href="#inicio" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#inicio" onClick={(e) => smoothScrollTo(e, '#inicio')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Inicio
                   </a>
-                  <a href="#servicios" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Servicios
                   </a>
-                  <a href="#nosotros" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Acerca
                   </a>
-                  <a href="#blog" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Blog
                   </a>
-                  <a href="#contacto" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
@@ -184,35 +203,35 @@ const Header = () => {
                 ? 'bg-gray-100/90 border-gray-300/30' 
                 : 'bg-white/10 border-white/20'
             }`}>
-              <a href="#inicio" className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#inicio" onClick={(e) => smoothScrollTo(e, '#inicio')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
                 Inicio
               </a>
-              <a href="#servicios" className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
                 Servicios
               </a>
-              <a href="#nosotros" className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
                 Acerca
               </a>
-              <a href="#blog" className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
                 Blog
               </a>
-              <a href="#contacto" className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
