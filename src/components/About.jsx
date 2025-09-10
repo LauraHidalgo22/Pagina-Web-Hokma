@@ -1,19 +1,26 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import ImagenPagina from '../assets/CarruselProductos/ImagenPagina.png'
-import ProductoCelular from '../assets/CarruselProductos/Producto_celular.png'
-import ProductoPagina2 from '../assets/CarruselProductos/Producto_Pagina2.png'
+import ImpulsoCrecimiento from '../assets/CarruselProductos/impulso_crecimiento 1.jpg'
+import DisenoExitoso from '../assets/CarruselProductos/diseño_exitoso.jpg'
+import EficienciaEmpresarial from '../assets/CarruselProductos/eficiencia_empresarial.jpg'
+import DecisionesEmpresariales from '../assets/CarruselProductos/decisiones_empresariales.jpg'
+import InnovacionTecnologica from '../assets/CarruselProductos/innovacion_tecnológica.jpg'
+import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializado.jpg'
 import { useState, useEffect } from 'react'
 
 const About = () => {
   const [scrollY, setScrollY] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [activeCardIndex, setActiveCardIndex] = useState(0)
 
   // Array de imágenes para el carrusel
   const images = [
-    { src: ImagenPagina, alt: "Página web corporativa" },
-    { src: ProductoCelular, alt: "Aplicación móvil" },
-    { src: ProductoPagina2, alt: "Solución web empresarial" }
+    { src: ImpulsoCrecimiento, alt: "Impulso al crecimiento empresarial" },
+    { src: DisenoExitoso, alt: "Diseño exitoso de soluciones" },
+    { src: EficienciaEmpresarial, alt: "Eficiencia empresarial" },
+    { src: DecisionesEmpresariales, alt: "Decisiones empresariales inteligentes" },
+    { src: InnovacionTecnologica, alt: "Innovación tecnológica" },
+    { src: SoporteEspecializado, alt: "Soporte especializado" }
   ]
 
   useEffect(() => {
@@ -25,9 +32,11 @@ const About = () => {
   // Efecto para el carrusel automático cada 5 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      )
+      setCurrentImageIndex((prevIndex) => {
+        const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        setActiveCardIndex(nextIndex) // Sincroniza la card activa con la imagen
+        return nextIndex
+      })
     }, 5000)
 
     return () => clearInterval(interval)
@@ -36,33 +45,39 @@ const About = () => {
   const cards = [
     { 
       text: "Impulsamos su crecimiento real", 
-      shape: "circle",
-      color: "bg-green-500"
+      emoji: "🚀",
+      color: "#292C3A",
+      imageIndex: 0  // impulso_crecimiento 1.jpg
     },
     { 
       text: "Procesos diseñados para su éxito", 
-      shape: "square",
-      color: "bg-blue-500"
+      emoji: "⚡",
+      color: "#292C3A",
+      imageIndex: 1  // diseño_exitoso.jpg
     },
     { 
       text: "Entregas rápidas y organizadas", 
-      shape: "triangle",
-      color: "bg-purple-500"
+      emoji: "📈",
+      color: "#292C3A",
+      imageIndex: 2  // eficiencia_empresarial.jpg
     },
     { 
       text: "Decisiones rápidas y seguras", 
-      shape: "diamond",
-      color: "bg-orange-500"
+      emoji: "🎯",
+      color: "#292C3A",
+      imageIndex: 3  // decisiones_empresariales.jpg
     },
     { 
       text: "Innovación y tecnología", 
-      shape: "hexagon",
-      color: "bg-cyan-500"
+      emoji: "💡",
+      color: "#292C3A",
+      imageIndex: 4  // innovacion_tecnológica.jpg
     },
     { 
       text: "Soporte especializado", 
-      shape: "star",
-      color: "bg-indigo-500"
+      emoji: "🤝",
+      color: "#292C3A",
+      imageIndex: 5  // soporte_especializado.jpg
     }
   ]
 
@@ -111,8 +126,17 @@ const About = () => {
           transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
         }
         
-        .card-expand:hover .card-icon {
-          transform: scale(1.5) rotate(15deg);
+        .card-expand:hover .card-emoji,
+        .card-active .card-emoji {
+          transform: scale(1.2) rotate(15deg);
+          background-color: #DCE39E !important;
+        }
+        
+        .card-active {
+          width: calc(100% + 20px);
+          height: calc(100% + 20px);
+          transform: scale(1.02);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
       `}} />
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,24 +158,23 @@ const About = () => {
                 delay={0.1 * index}
               >
                 <div 
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform card-expand"
+                  className={`bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform card-expand cursor-pointer ${
+                    activeCardIndex === index ? 'card-active' : ''
+                  }`}
+                  onClick={() => {
+                    setCurrentImageIndex(card.imageIndex)
+                    setActiveCardIndex(index)
+                  }}
                 >
                   <div className="flex items-center space-x-6">
-                    {/* Elemento geométrico minimalista */}
+                    {/* Emoji con fondo circular */}
                     <div className="flex-shrink-0">
                       <div 
-                        className={`w-4 h-4 ${card.color} card-icon transition-all duration-300`}
-                        style={{
-                          clipPath: 
-                            card.shape === 'circle' ? 'circle(50%)' :
-                            card.shape === 'square' ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' :
-                            card.shape === 'triangle' ? 'polygon(50% 0%, 0% 100%, 100% 100%)' :
-                            card.shape === 'diamond' ? 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' :
-                            card.shape === 'hexagon' ? 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' :
-                            card.shape === 'star' ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' :
-                            'circle(50%)'
-                        }}
-                      ></div>
+                        className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xl transition-all duration-300 card-emoji"
+                        style={{ backgroundColor: card.color }}
+                      >
+                        {card.emoji}
+                      </div>
                     </div>
                     
                     {/* Texto */}
@@ -232,7 +255,10 @@ const About = () => {
                           ? 'bg-white scale-110' 
                           : 'bg-white/50 hover:bg-white/70'
                       }`}
-                      onClick={() => setCurrentImageIndex(index)}
+                      onClick={() => {
+                        setCurrentImageIndex(index)
+                        setActiveCardIndex(index)
+                      }}
                     />
                   ))}
                 </div>
