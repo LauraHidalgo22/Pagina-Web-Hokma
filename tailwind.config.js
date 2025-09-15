@@ -33,7 +33,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        caviar: ["Caviar Dreams", "sans-serif"],
       },
     },
   },
