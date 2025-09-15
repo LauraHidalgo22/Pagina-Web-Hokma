@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import logoHokma from '../assets/logo-hokma-light-menu.png'
+import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import CTAButton from './CTAButton'
 
 const Header = () => {
