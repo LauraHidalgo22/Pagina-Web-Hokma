@@ -24,6 +24,26 @@ export const CustomProvider = ({ children }) => {
   const [scrollY, setScrollY] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [activeCardIndex, setActiveCardIndex] = useState(0)
+  
+  // Estados para las animaciones
+  const [visibleElements, setVisibleElements] = useState(new Set())
+  
+  // Función para manejar la visibilidad de elementos animados
+  const setElementVisible = (elementId) => {
+    setVisibleElements(prev => new Set([...prev, elementId]))
+  }
+  
+  const setElementHidden = (elementId) => {
+    setVisibleElements(prev => {
+      const newSet = new Set([...prev])
+      newSet.delete(elementId)
+      return newSet
+    })
+  }
+  
+  const isElementVisible = (elementId) => {
+    return visibleElements.has(elementId)
+  }
 
   // Array de imágenes para el carrusel (movido desde About.jsx)
   const images = [
@@ -114,6 +134,7 @@ export const CustomProvider = ({ children }) => {
     activeCardIndex,
     images,
     cards,
+    visibleElements,
     
     // Setters
     setScrollY,
@@ -122,7 +143,12 @@ export const CustomProvider = ({ children }) => {
     
     // Funciones
     handleCardClick,
-    handleIndicatorClick
+    handleIndicatorClick,
+    
+    // Funciones de animación
+    setElementVisible,
+    setElementHidden,
+    isElementVisible
   }
 
   return (

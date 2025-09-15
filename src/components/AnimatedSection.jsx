@@ -1,4 +1,5 @@
-import useScrollAnimation from '../hooks/useScrollAnimation'
+import { useRef, useEffect } from 'react'
+import useScrollAnimationWithContext from '../hooks/useScrollAnimationWithContext'
 
 const AnimatedSection = ({ 
   children, 
@@ -6,9 +7,11 @@ const AnimatedSection = ({
   animation = 'fadeInUp',
   delay = 0,
   duration = 0.8,
-  threshold = 0.1 
+  threshold = 0.1,
+  elementId // Nuevo prop para ID único, si no se proporciona se genera automáticamente
 }) => {
-  const [ref, isVisible] = useScrollAnimation({ threshold })
+  const idRef = useRef(elementId || `animated-section-${Math.random().toString(36).substr(2, 9)}`)
+  const [ref, isVisible] = useScrollAnimationWithContext(idRef.current, { threshold })
 
   const animations = {
     fadeInUp: {
