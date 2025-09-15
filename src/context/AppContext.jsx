@@ -5,6 +5,7 @@ import EficienciaEmpresarial from '../assets/CarruselProductos/eficiencia_empres
 import DecisionesEmpresariales from '../assets/CarruselProductos/decisiones_empresariales.jpg'
 import InnovacionTecnologica from '../assets/CarruselProductos/innovacion_tecnológica.jpg'
 import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializado.jpg'
+import EmpleadaImg from '../assets/empleada.jpg'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -37,6 +38,10 @@ export const CustomProvider = ({ children }) => {
     service: '',
     message: ''
   })
+
+  // Estados del componente EquipoTrabajo
+  const [activeCard, setActiveCard] = useState(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
   
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
@@ -105,6 +110,75 @@ export const CustomProvider = ({ children }) => {
     }
   ]
 
+  // Array de miembros del equipo
+  const teamMembers = [
+    {
+      id: 1,
+      name: "Valeria Rojas Sanchez",
+      position: "Desarrollador FullStack",
+      photo: EmpleadaImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 2,
+      name: "Alfonso Vasquez Sepulveda", 
+      position: "Gerente General",
+      photo: EmpleadaImg,
+      description: "Líder estratégico con más de 10 años de experiencia en gestión empresarial y desarrollo de negocios tecnológicos. Enfocado en la excelencia operacional."
+    },
+    {
+      id: 3,
+      name: "Paulo Cesar De La Cruz",
+      position: "CEO",
+      photo: EmpleadaImg,
+      description: "Visionario tecnológico y emprendedor con amplia experiencia en la industria del software. Especializado en transformación digital y estrategia empresarial."
+    },
+    {
+      id: 4,
+      name: "Laura Valentina Hidalgo",
+      position: "Desarrollador FullStack", 
+      photo: EmpleadaImg,
+      description: "Desarrolladora versátil con expertise en tecnologías frontend y backend. Comprometida con la calidad del código y las mejores prácticas de desarrollo."
+    },
+    {
+      id: 5,
+      name: "Carlos Eduardo Martinez",
+      position: "Analista de Sistemas",
+      photo: EmpleadaImg,
+      description: "Experto en análisis y diseño de sistemas empresariales. Especializado en optimización de procesos y arquitectura de software escalable."
+    },
+    {
+      id: 6,
+      name: "Maria Fernanda Lopez",
+      position: "UX/UI Designer",
+      photo: EmpleadaImg,
+      description: "Diseñadora creativa con enfoque en experiencia de usuario. Apasionada por crear interfaces intuitivas y visualmente atractivas que mejoren la interacción."
+    },
+    {
+      id: 7,
+      name: "Andrés Felipe Torres",
+      position: "DevOps Engineer",
+      photo: EmpleadaImg,
+      description: "Ingeniero especializado en infraestructura y automatización. Experto en deployment continuo, containerización y optimización de sistemas en la nube."
+    },
+    {
+      id: 8,
+      name: "Isabella Rodriguez Castro",
+      position: "Product Manager",
+      photo: EmpleadaImg,
+      description: "Gestora de productos con visión estratégica. Enfocada en el desarrollo de soluciones que generen valor real para los usuarios y el negocio."
+    }
+  ]
+
+  // clases base del CTAButton
+  const baseClasses = "group relative px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-lg w-[300px] h-[70px] flex items-center justify-center"
+  
+  // clases variantes del base del CTAButton
+  const variants = {
+    primary: "bg-gradient-to-r from-cyan-400 to-blue-500 text-white hover:from-cyan-300 hover:to-blue-400 hover:shadow-cyan-500/25",
+    secondary: "border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900"
+  }
+
   // Efecto para manejar el scroll (movido desde About.jsx)
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -160,13 +234,24 @@ export const CustomProvider = ({ children }) => {
     })
   }
 
-  // clases base del CTAButton
-  const baseClasses = "group relative px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-lg w-[300px] h-[70px] flex items-center justify-center"
-  
-  // clases variantes del base del CTAButton
-  const variants = {
-    primary: "bg-gradient-to-r from-cyan-400 to-blue-500 text-white hover:from-cyan-300 hover:to-blue-400 hover:shadow-cyan-500/25",
-    secondary: "border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900"
+  // Funciones del componente EquipoTrabajo
+  const teamSlides = []
+  for (let i = 0; i < teamMembers.length; i += 4) {
+    teamSlides.push(teamMembers.slice(i, i + 4))
+  }
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
+    setActiveCard(null) // Reset active card when changing slide
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
+    setActiveCard(null) // Reset active card when changing slide
+  }
+
+  const handleEmployeeCardClick = (memberId) => {
+    setActiveCard(activeCard === memberId ? null : memberId)
   }
 
   // Valores que se pasarán al contexto
@@ -179,27 +264,33 @@ export const CustomProvider = ({ children }) => {
     cards,
     visibleElements,
     formData,
+    baseClasses,
+    variants,
+    activeCard,
+    currentSlide,
+    teamSlides,
     
     // Setters
     setScrollY,
     setCurrentImageIndex,
     setActiveCardIndex,
     setFormData,
+    setActiveCard,
+    setCurrentSlide,
     
     // Funciones
     handleCardClick,
     handleIndicatorClick,
     handleChange,
     handleSubmit,
+    nextSlide,
+    prevSlide,
+    handleEmployeeCardClick,
     
     // Funciones de animación
     setElementVisible,
     setElementHidden,
     isElementVisible,
-
-    // CTAButton
-    baseClasses,
-    variants
   }
 
   return (

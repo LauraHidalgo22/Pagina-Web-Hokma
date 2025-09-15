@@ -2,92 +2,19 @@ import { useState, useEffect } from 'react'
 import AnimatedSection from './AnimatedSection'
 import FondoEquipoTrabajo from '../assets/fondo_equipo_trabajo.png'
 import BordeCorporativo from '../assets/borde_corporativo.png'
-import EmpleadaImg from '../assets/empleada.jpg'
+import { useAppContext } from '../context/AppContext'
 
 const EquipoTrabajo = () => {
-  const [activeCard, setActiveCard] = useState(null)
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  // Array de miembros del equipo
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Valeria Rojas Sanchez",
-      position: "Desarrollador FullStack",
-      photo: EmpleadaImg,
-      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
-    },
-    {
-      id: 2,
-      name: "Alfonso Vasquez Sepulveda", 
-      position: "Gerente General",
-      photo: EmpleadaImg,
-      description: "Líder estratégico con más de 10 años de experiencia en gestión empresarial y desarrollo de negocios tecnológicos. Enfocado en la excelencia operacional."
-    },
-    {
-      id: 3,
-      name: "Paulo Cesar De La Cruz",
-      position: "CEO",
-      photo: EmpleadaImg,
-      description: "Visionario tecnológico y emprendedor con amplia experiencia en la industria del software. Especializado en transformación digital y estrategia empresarial."
-    },
-    {
-      id: 4,
-      name: "Laura Valentina Hidalgo",
-      position: "Desarrollador FullStack", 
-      photo: EmpleadaImg,
-      description: "Desarrolladora versátil con expertise en tecnologías frontend y backend. Comprometida con la calidad del código y las mejores prácticas de desarrollo."
-    },
-    {
-      id: 5,
-      name: "Carlos Eduardo Martinez",
-      position: "Analista de Sistemas",
-      photo: EmpleadaImg,
-      description: "Experto en análisis y diseño de sistemas empresariales. Especializado en optimización de procesos y arquitectura de software escalable."
-    },
-    {
-      id: 6,
-      name: "Maria Fernanda Lopez",
-      position: "UX/UI Designer",
-      photo: EmpleadaImg,
-      description: "Diseñadora creativa con enfoque en experiencia de usuario. Apasionada por crear interfaces intuitivas y visualmente atractivas que mejoren la interacción."
-    },
-    {
-      id: 7,
-      name: "Andrés Felipe Torres",
-      position: "DevOps Engineer",
-      photo: EmpleadaImg,
-      description: "Ingeniero especializado en infraestructura y automatización. Experto en deployment continuo, containerización y optimización de sistemas en la nube."
-    },
-    {
-      id: 8,
-      name: "Isabella Rodriguez Castro",
-      position: "Product Manager",
-      photo: EmpleadaImg,
-      description: "Gestora de productos con visión estratégica. Enfocada en el desarrollo de soluciones que generen valor real para los usuarios y el negocio."
-    }
-  ]
-
-  // Dividir empleados en grupos de 4
-  const teamSlides = []
-  for (let i = 0; i < teamMembers.length; i += 4) {
-    teamSlides.push(teamMembers.slice(i, i + 4))
-  }
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
-  }
-
-  const handleCardClick = (memberId) => {
-    setActiveCard(activeCard === memberId ? null : memberId)
-  }
-
+  const { 
+    activeCard, 
+    setActiveCard, 
+    currentSlide, 
+    setCurrentSlide, 
+    teamSlides, 
+    nextSlide, 
+    prevSlide, 
+    handleEmployeeCardClick 
+  } = useAppContext();
   return (
     <section className="py-20 relative overflow-hidden min-h-screen">
       {/* Background image - behind all elements */}
@@ -250,7 +177,7 @@ const EquipoTrabajo = () => {
                             
                             {/* Icono de plus azul */}
                             <button 
-                              onClick={() => handleCardClick(member.id)}
+                              onClick={() => handleEmployeeCardClick(member.id)}
                               className={`absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                                 activeCard === member.id 
                                   ? 'bg-red-500 hover:bg-red-400 rotate-45' 
