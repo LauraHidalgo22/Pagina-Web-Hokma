@@ -1,3 +1,4 @@
+import { useAppContext } from '../context/AppContext'
 import { motion } from 'framer-motion'
 
 const CTAButton = ({ 
@@ -7,12 +8,7 @@ const CTAButton = ({
   className = "",
   ...props 
 }) => {
-  const baseClasses = "group relative px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-lg w-[300px] h-[70px] flex items-center justify-center"
-  
-  const variants = {
-    primary: "bg-gradient-to-r from-cyan-400 to-blue-500 text-white hover:from-cyan-300 hover:to-blue-400 hover:shadow-cyan-500/25",
-    secondary: "border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900"
-  }
+  const { baseClasses, variants } = useAppContext();
 
   return (
     <motion.a
