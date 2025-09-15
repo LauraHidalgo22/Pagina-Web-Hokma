@@ -7,10 +7,10 @@ const CardUnidadNegocio = ({
 }) => {
   return (
     <div 
-      className="rounded-3xl p-6 shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+      className="rounded-3xl px-6 shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer"
       style={{ backgroundColor }}
     >
-      <div className="grid grid-cols-2 gap-6 items-center">
+      <div className="grid grid-cols-[1fr_3fr] items-center">
         {/* Primera columna - Icono Hokma */}
         <div className="flex justify-center">
           <IconoHokma size={60} color={color} />
@@ -21,7 +21,7 @@ const CardUnidadNegocio = ({
           <img 
             src={imagen} 
             alt="Unidad de Negocio"
-            className="w-24 h-24 object-contain"
+            className="w-64 h-64 object-contain"
           />
         </div>
       </div>
