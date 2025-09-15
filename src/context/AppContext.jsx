@@ -46,6 +46,9 @@ export const CustomProvider = ({ children }) => {
   // Estados del componente Header.jsx
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  // Estados del componente Hero.jsx
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0)
   
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
@@ -174,6 +177,34 @@ export const CustomProvider = ({ children }) => {
     }
   ]
 
+  const carouselSlides = [
+    {
+      title: "Los cambios te confrontan",
+      subtitle: "La tecnología los transforma",
+      description: "Transformamos ideas en soluciones tecnológicas innovadoras. En Hokma Technologies, cada desafío es una oportunidad para crear el futuro."
+    },
+    {
+      title: "Tu visión empresarial",
+      subtitle: "Nuestra innovación tecnológica",
+      description: "Potenciamos tu negocio con herramientas digitales avanzadas. Convierte tus objetivos estratégicos en realidades tecnológicas medibles."
+    },
+    {
+      title: "Desafíos complejos",
+      subtitle: "Soluciones inteligentes",
+      description: "Analizamos, diseñamos e implementamos sistemas que optimizan procesos. La complejidad de hoy es la eficiencia de mañana."
+    },
+    {
+      title: "El futuro de tu negocio",
+      subtitle: "Comienza con decisiones digitales",
+      description: "Adelántate a las tendencias del mercado con tecnología de vanguardia. Tu competitividad depende de las decisiones que tomes hoy."
+    },
+    {
+      title: "Transformación digital",
+      subtitle: "Resultados exponenciales",
+      description: "Impulsa el crecimiento sostenible de tu empresa. Conectamos estrategia, tecnología y resultados para maximizar tu ROI."
+    }
+  ]
+
   // clases base del CTAButton
   const baseClasses = "group relative px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-lg w-[300px] h-[70px] flex items-center justify-center"
   
@@ -213,6 +244,14 @@ export const CustomProvider = ({ children }) => {
 
     return () => clearInterval(interval)
   }, [images.length])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [carouselSlides.length])
 
   // Funciones auxiliares
   const handleCardClick = (imageIndex, cardIndex) => {
@@ -306,6 +345,8 @@ export const CustomProvider = ({ children }) => {
     teamSlides,
     isMenuOpen,
     isScrolled,
+    currentHeroSlide,
+    carouselSlides,
     
     // Setters
     setScrollY,
@@ -316,6 +357,7 @@ export const CustomProvider = ({ children }) => {
     setCurrentSlide,
     setIsMenuOpen,
     setIsScrolled,
+    setCurrentHeroSlide,
     
     // Funciones
     handleCardClick,
