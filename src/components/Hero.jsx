@@ -115,8 +115,8 @@ const Hero = () => {
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
-                  width: '600px',
-                  height: '600px'
+                  width: '700px',
+                  height: '700px'
                 }}
               />
             </motion.div>
