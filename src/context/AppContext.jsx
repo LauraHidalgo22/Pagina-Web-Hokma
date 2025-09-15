@@ -28,6 +28,16 @@ export const CustomProvider = ({ children }) => {
   // Estados para las animaciones
   const [visibleElements, setVisibleElements] = useState(new Set())
   
+  // Estados del componente Contact
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    service: '',
+    message: ''
+  })
+  
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
     setVisibleElements(prev => new Set([...prev, elementId]))
@@ -126,6 +136,30 @@ export const CustomProvider = ({ children }) => {
     setActiveCardIndex(index)
   }
 
+  // Funciones del componente Contact
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Aquí se manejaría el envío del formulario
+    console.log('Form submitted:', formData)
+    alert('¡Gracias por tu mensaje! Te contactaremos pronto.')
+    // Limpiar el formulario después del envío
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      service: '',
+      message: ''
+    })
+  }
+
   // Valores que se pasarán al contexto
   const contextValue = {
     // Estados
@@ -135,15 +169,19 @@ export const CustomProvider = ({ children }) => {
     images,
     cards,
     visibleElements,
+    formData,
     
     // Setters
     setScrollY,
     setCurrentImageIndex,
     setActiveCardIndex,
+    setFormData,
     
     // Funciones
     handleCardClick,
     handleIndicatorClick,
+    handleChange,
+    handleSubmit,
     
     // Funciones de animación
     setElementVisible,
