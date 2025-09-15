@@ -104,35 +104,28 @@ const Header = () => {
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Inicio
+                    Home
                   </a>
                   <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Servicios
+                    Ecosistema y Servicios
                   </a>
                   <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Acerca
-                  </a>
-                  <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                    isScrolled 
-                      ? 'text-gray-800 hover:text-blue-600' 
-                      : 'text-white hover:text-cyan-300'
-                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Blog
+                    Insights
                   </a>
                   <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Contáctanos
+                    Conversemos
                   </a>
                 </div>
               </div>
@@ -199,35 +192,28 @@ const Header = () => {
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Inicio
+                Home
               </a>
               <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Servicios
+                Ecosistema y Servicios
               </a>
               <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Acerca
-              </a>
-              <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`block px-3 py-2 text-base font-medium transition-colors ${
-                isScrolled 
-                  ? 'text-gray-800 hover:text-blue-600' 
-                  : 'text-white hover:text-cyan-300'
-              }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Blog
+                Insights
               </a>
               <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Contáctanos
+                Conversemos
               </a>
               {/* CTA Button - Solo visible cuando hay scroll en móvil */}
               {isScrolled && (
