@@ -7,6 +7,7 @@ import NuestrosAliados from './components/NuestrosAliados'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Background from './components/Background'
+import UnidadesNegocio from './components/UnidadesNegocio'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Background />
       <Header />
       <Hero />
+      <UnidadesNegocio />
       <Services />
       <About />
       <EquipoTrabajo />
