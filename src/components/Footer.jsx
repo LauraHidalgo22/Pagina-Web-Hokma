@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-light-menu.png'
+import iso9001 from '../assets/icontec_iso_9001.png'
+import iso14001 from '../assets/icontec_iso_14001.png'
+import iso45001 from '../assets/icontec_iso_45001.png'
+import iqnet from '../assets/iqnet.png'
 
 const Footer = () => {
   return (
@@ -101,45 +105,47 @@ const Footer = () => {
               <h3 className="text-xl font-bold text-gray-200" style={{ fontFamily: 'Caviar Dreams' }}>
                 Directorio de Seccionales
               </h3>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#3a3f52] to-[#292C3A] mx-auto rounded-full"></div>
               <p className="text-gray-300 text-sm leading-relaxed max-w-xs" style={{ fontFamily: 'Caviar Dreams' }}>
                 Políticas y Normatividad Institucional
               </p>
             </div>
             
-            {/* Certificaciones mejoradas */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#292C3A]/60 to-[#3a3f52]/60 rounded-xl flex flex-col items-center justify-center border border-gray-500/20 group-hover:border-gray-400/40 shadow-lg">
-                  <span className="text-gray-200 text-xs font-bold mb-1" style={{ fontFamily: 'Caviar Dreams' }}>ISO</span>
-                  <span className="text-gray-300 text-xs font-semibold" style={{ fontFamily: 'Caviar Dreams' }}>9001</span>
-                </div>
+            {/* Certificaciones con imágenes reales */}
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
+                <img 
+                  src={iso9001} 
+                  alt="ISO 9001 Calidad"
+                  className="w-20 h-20 object-contain mx-auto"
+                />
                 <p className="text-gray-400 text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Calidad</p>
               </div>
               
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#292C3A]/60 to-[#3a3f52]/60 rounded-xl flex flex-col items-center justify-center border border-gray-500/20 group-hover:border-gray-400/40 shadow-lg">
-                  <span className="text-gray-200 text-xs font-bold mb-1" style={{ fontFamily: 'Caviar Dreams' }}>ISO</span>
-                  <span className="text-gray-300 text-xs font-semibold" style={{ fontFamily: 'Caviar Dreams' }}>14001</span>
-                </div>
+              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
+                <img 
+                  src={iso14001} 
+                  alt="ISO 14001 Ambiental"
+                  className="w-20 h-20 object-contain mx-auto"
+                />
                 <p className="text-gray-400 text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Ambiental</p>
               </div>
               
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#292C3A]/60 to-[#3a3f52]/60 rounded-xl flex flex-col items-center justify-center border border-gray-500/20 group-hover:border-gray-400/40 shadow-lg">
-                  <span className="text-gray-200 text-xs font-bold mb-1" style={{ fontFamily: 'Caviar Dreams' }}>ISO</span>
-                  <span className="text-gray-300 text-xs font-semibold" style={{ fontFamily: 'Caviar Dreams' }}>45001</span>
-                </div>
+              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
+                <img 
+                  src={iso45001} 
+                  alt="ISO 45001 Seguridad"
+                  className="w-20 h-20 object-contain mx-auto"
+                />
                 <p className="text-gray-400 text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Seguridad</p>
               </div>
-            </div>
 
-            {/* Icono adicional decorativo */}
-            <div className="mt-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#3a3f52]/40 to-[#292C3A]/40 rounded-full flex items-center justify-center border border-gray-500/20">
-                <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
+                <img 
+                  src={iqnet} 
+                  alt="IQNET Certified Management System"
+                  className="w-20 h-20 object-contain mx-auto"
+                />
+                <p className="text-gray-400 text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>IQNET</p>
               </div>
             </div>
           </motion.div>
