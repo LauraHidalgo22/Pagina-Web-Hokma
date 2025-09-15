@@ -166,12 +166,6 @@ const Footer = () => {
                 </button>
               </div>
             </div>
-            
-            <div className="pt-4 border-t border-[#3a3f52]/50">
-              <p className="text-gray-400 text-xs text-center" style={{ fontFamily: 'Caviar Dreams' }}>
-                Creado por Ideas-tico | Hokma Technologies Colombia 2025
-              </p>
-            </div>
           </motion.div>
         </div>
 
