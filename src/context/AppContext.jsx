@@ -6,6 +6,8 @@ import DecisionesEmpresariales from '../assets/CarruselProductos/decisiones_empr
 import InnovacionTecnologica from '../assets/CarruselProductos/innovacion_tecnológica.jpg'
 import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializado.jpg'
 import EmpleadaImg from '../assets/empleada.jpg'
+import HokmaFedesoft from '../assets/hokma_fedesoft.png'
+import HokmaMicrosoft from '../assets/hokma_microsoft.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -43,12 +45,15 @@ export const CustomProvider = ({ children }) => {
   const [activeCard, setActiveCard] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Estados del componente Header.jsx
+  // Estados del componente Header
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // Estados del componente Hero.jsx
+  // Estados del componente Hero
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0)
+
+  // Estados del componente NuestrosAliados
+  const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
   
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
@@ -214,6 +219,22 @@ export const CustomProvider = ({ children }) => {
     secondary: "border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900"
   }
 
+  // Array de aliados
+    const allies = [
+        {
+            id: 1,
+            name: "Fedesoft",
+            image: HokmaFedesoft,
+            alt: "Hokma Technologies - Aliado Fedesoft"
+        },
+        {
+            id: 2,
+            name: "Microsoft",
+            image: HokmaMicrosoft,
+            alt: "Hokma Technologies - Aliado Microsoft"
+        }
+    ]
+
   // Efecto para manejar el scroll (movido desde About.jsx)
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -252,6 +273,17 @@ export const CustomProvider = ({ children }) => {
 
     return () => clearInterval(interval)
   }, [carouselSlides.length])
+
+  // Efecto para el slider automático cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentAllyIndex((prevIndex) => 
+        prevIndex === allies.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [allies.length])
 
   // Funciones auxiliares
   const handleCardClick = (imageIndex, cardIndex) => {
@@ -347,6 +379,8 @@ export const CustomProvider = ({ children }) => {
     isScrolled,
     currentHeroSlide,
     carouselSlides,
+    currentAllyIndex,
+    allies,
     
     // Setters
     setScrollY,
@@ -358,6 +392,7 @@ export const CustomProvider = ({ children }) => {
     setIsMenuOpen,
     setIsScrolled,
     setCurrentHeroSlide,
+    setCurrentAllyIndex,
     
     // Funciones
     handleCardClick,

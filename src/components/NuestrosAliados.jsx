@@ -1,38 +1,10 @@
 import { useState, useEffect } from 'react'
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import HokmaFedesoft from '../assets/hokma_fedesoft.png'
-import HokmaMicrosoft from '../assets/hokma_microsoft.png'
+import { useAppContext } from '../context/AppContext'
 
 const NuestrosAliados = () => {
-  const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
-
-  // Array de aliados
-  const allies = [
-    {
-      id: 1,
-      name: "Fedesoft",
-      image: HokmaFedesoft,
-      alt: "Hokma Technologies - Aliado Fedesoft"
-    },
-    {
-      id: 2,
-      name: "Microsoft",
-      image: HokmaMicrosoft,
-      alt: "Hokma Technologies - Aliado Microsoft"
-    }
-  ]
-
-  // Efecto para el slider automático cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAllyIndex((prevIndex) => 
-        prevIndex === allies.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [allies.length])
+  const { currentAllyIndex, setCurrentAllyIndex, allies } = useAppContext();
 
   return (
     <section className="py-20 bg-white">
