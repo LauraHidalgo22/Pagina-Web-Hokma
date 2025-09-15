@@ -1,63 +1,9 @@
-import { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import CardUnidadNegocio from './CardUnidadNegocio'
-import logoHokmaLight from '../assets/logo-hokma-technologies.png'
-import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
-import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
-import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
-import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
+import { useAppContext } from '../context/AppContext'
 
 const UnidadesNegocio = () => {
-  // Estado para manejar la card seleccionada
-  const [selectedCard, setSelectedCard] = useState(null)
-
-  // Lista de imágenes para el carrusel
-  const unidades = [
-    {
-      id: 1,
-      imagen: logoHokmaLight,
-      alt: "Hokma Technologies",
-      color: "#ffffff"
-    },
-    {
-      id: 2,
-      imagen: logoHokmaRobotics,
-      alt: "Hokma Robotics",
-      color: "#ff9900"
-    },
-    {
-      id: 3,
-      imagen: logoHokmaEnergy,
-      alt: "Hokma Energy",
-      color: "#A6C139"
-    },
-    {
-      id: 4,
-      imagen: logoHokmaGlobalComunications,
-      alt: "Hokma Global Communications",
-      color: "#0097DA"
-    },
-    {
-      id: 5,
-      imagen: logoHokmaBiotech,
-      alt: "Hokma BioTech",
-      color: "#913B8E"
-    }
-  ]
-
-  // Función para manejar la selección de cards
-  const handleCardSelect = (unidadId) => {
-    setSelectedCard(selectedCard === unidadId ? null : unidadId)
-  }
-
-  // Obtener el color del contenedor basado en la card seleccionada
-  const getContainerColor = () => {
-    if (selectedCard) {
-      const selectedUnidad = unidades.find(unidad => unidad.id === selectedCard)
-      return selectedUnidad ? selectedUnidad.color : '#292C3A'
-    }
-    return '#F3F4F6'
-  }
+  const { selectedCard, setSelectedCard, unidades, handleCardSelect, getContainerColor } = useAppContext();
 
   return (
     <section className="w-full h-auto md:h-[300px] relative" style={{backgroundColor:"#ffffff"}}>

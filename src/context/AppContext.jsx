@@ -8,6 +8,11 @@ import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializ
 import EmpleadaImg from '../assets/empleada.jpg'
 import HokmaFedesoft from '../assets/hokma_fedesoft.png'
 import HokmaMicrosoft from '../assets/hokma_microsoft.png'
+import logoHokmaLight from '../assets/logo-hokma-technologies.png'
+import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
+import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
+import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
+import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -54,6 +59,9 @@ export const CustomProvider = ({ children }) => {
 
   // Estados del componente NuestrosAliados
   const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
+
+  // Estados del componente UnidadesNegocio
+  const [selectedCard, setSelectedCard] = useState(null)
   
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
@@ -268,6 +276,40 @@ export const CustomProvider = ({ children }) => {
         }
     ]
 
+    // Lista de imágenes para el carrusel
+    const unidades = [
+        {
+            id: 1,
+            imagen: logoHokmaLight,
+            alt: "Hokma Technologies",
+            color: "#ffffff"
+        },
+        {
+            id: 2,
+            imagen: logoHokmaRobotics,
+            alt: "Hokma Robotics",
+            color: "#ff9900"
+        },
+        {
+            id: 3,
+            imagen: logoHokmaEnergy,
+            alt: "Hokma Energy",
+            color: "#A6C139"
+        },
+        {
+            id: 4,
+            imagen: logoHokmaGlobalComunications,
+            alt: "Hokma Global Communications",
+            color: "#0097DA"
+        },
+        {
+            id: 5,
+            imagen: logoHokmaBiotech,
+            alt: "Hokma BioTech",
+            color: "#913B8E"
+        }
+    ]
+
   // Efecto para manejar el scroll (movido desde About.jsx)
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -373,6 +415,21 @@ export const CustomProvider = ({ children }) => {
     setActiveCard(activeCard === memberId ? null : memberId)
   }
 
+  // Funciones del componente UnidadesNegocio
+  // Función para manejar la selección de cards
+  const handleCardSelect = (unidadId) => {
+    setSelectedCard(selectedCard === unidadId ? null : unidadId)
+  }
+
+  // Obtener el color del contenedor basado en la card seleccionada
+  const getContainerColor = () => {
+    if (selectedCard) {
+      const selectedUnidad = unidades.find(unidad => unidad.id === selectedCard)
+      return selectedUnidad ? selectedUnidad.color : '#292C3A'
+    }
+    return '#F3F4F6'
+  }
+
   // Funciones del componente Header
   // Función para scroll suave a las secciones
   const smoothScrollTo = (e, targetId) => {
@@ -415,6 +472,8 @@ export const CustomProvider = ({ children }) => {
     currentAllyIndex,
     allies,
     services,
+    selectedCard,
+    unidades,
     
     // Setters
     setScrollY,
@@ -427,6 +486,7 @@ export const CustomProvider = ({ children }) => {
     setIsScrolled,
     setCurrentHeroSlide,
     setCurrentAllyIndex,
+    setSelectedCard,
     
     // Funciones
     handleCardClick,
@@ -437,6 +497,9 @@ export const CustomProvider = ({ children }) => {
     prevSlide,
     handleEmployeeCardClick,
     smoothScrollTo,
+    handleCardSelect,
+    getContainerColor,
+    
     
     // Funciones de animación
     setElementVisible,
