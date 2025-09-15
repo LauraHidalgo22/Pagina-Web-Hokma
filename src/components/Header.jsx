@@ -43,23 +43,14 @@ const Header = () => {
         ? 'backdrop-blur-md shadow-lg border-b border-gray-200/20' 
         : 'bg-transparent'
     }`}>
-      {/* Color block for scrolled state - 10% from left with diagonal transition */}
+      {/* Gradient background for scrolled state - left to right transition */}
       {isScrolled && (
         <>
           <div className="absolute inset-0 bg-white"></div>
-          <div className="absolute inset-y-0 left-0 w-[10%] bg-[#292C3A]"></div>
           <div 
-            className="absolute inset-y-0 left-[10%] w-[12%] bg-[#292C3A]"
+            className="absolute inset-0"
             style={{
-              clipPath: 'polygon(0 0, 100% 0, 70% 100%, 0 100%)',
-              opacity: 0.9
-            }}
-          ></div>
-          <div 
-            className="absolute inset-y-0 left-[18%] w-[8%] bg-[#292C3A]"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 30% 100%, 0 100%)',
-              opacity: 0.4
+              background: 'linear-gradient(to right, #292C3A 0%, #292C3A 8%, rgba(41, 44, 58, 0.6) 15%, rgba(41, 44, 58, 0.2) 22%, transparent 30%)'
             }}
           ></div>
         </>
