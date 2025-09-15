@@ -235,6 +235,39 @@ export const CustomProvider = ({ children }) => {
         }
     ]
 
+    const services = [
+        {
+        icon: (
+            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
+            </svg>
+        ),
+        title: "Desarrollo de software a la medida",
+        description: "Creamos aplicaciones y plataformas personalizadas que se ajustan 100% a las necesidades de tu negocio"
+        },
+        {
+        icon: (
+            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
+            </svg>
+        ),
+        title: "Integración de sistemas",
+        description: "Conectamos tus sistemas y herramientas para que trabajen juntos de forma ágil y eficiente."
+        },
+        {
+        icon: (
+            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
+            </svg>
+        ),
+        title: "Consultoría tecnológica",
+        description: "Te asesoramos para definir la mejor estrategia digital y optimizar tus procesos con soluciones innovadoras."
+        }
+    ]
+
   // Efecto para manejar el scroll (movido desde About.jsx)
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -381,6 +414,7 @@ export const CustomProvider = ({ children }) => {
     carouselSlides,
     currentAllyIndex,
     allies,
+    services,
     
     // Setters
     setScrollY,
