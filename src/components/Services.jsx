@@ -5,7 +5,9 @@ import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
 
 const Services = () => {
-  const { services, getContainerColor } = useAppContext();
+  const { getCurrentServices, getContainerColor, isServicesAnimating } = useAppContext();
+  const services = getCurrentServices();
+  
   return (
     <section id="servicios" className="py-20 relative overflow-hidden">
       {/* Background with solid white color behind the image */}
@@ -35,7 +37,11 @@ const Services = () => {
         </div>
 
         {/* Layout principal: Grid de cards con patrón alternado dinámico */}
-        <div className="grid grid-cols-4 gap-4 auto-rows-fr">
+        <div 
+          className={`grid grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
+            isServicesAnimating ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
           {services.map((service, index) => {
             // Calculamos la posición en el patrón de 6 cards
             const patternPosition = index % 6;

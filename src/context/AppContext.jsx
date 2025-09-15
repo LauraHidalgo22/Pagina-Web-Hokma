@@ -63,6 +63,9 @@ export const CustomProvider = ({ children }) => {
   // Estados del componente UnidadesNegocio
   const [selectedCard, setSelectedCard] = useState(null)
   
+  // Estados para la animación de Services
+  const [isServicesAnimating, setIsServicesAnimating] = useState(false)
+  
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
     setVisibleElements(prev => new Set([...prev, elementId]))
@@ -245,6 +248,27 @@ export const CustomProvider = ({ children }) => {
 
     const services = [
         {
+          title: "Automatización de procesos industriales y empresariales."
+        },
+        {
+          title: "Robótica aplicada a manufactura, logística y servicios.",
+        },
+        {
+          title: "Desarrollo de sistemas autónomos e inteligentes.",
+        },
+        {
+          title: "Integración de IA en soluciones robóticas.",
+        },
+        {
+          title: "Innovación en cibernética para mejorar productividad y precisión.",
+        },
+        {
+          title: "La robótica convierte la tecnología en acción. Su impacto se multiplica al integrarse con TI para el control inteligente, con comunicaciones para la conectividad en tiempo real y con energía para operar de manera sostenible. Es el puente entre lo digital y lo físico."
+        },
+    ]
+
+    const techServices = [
+        {
           title: "Desarrollo de software a la medida y plataformas digitales"
         },
         {
@@ -265,6 +289,72 @@ export const CustomProvider = ({ children }) => {
           "con datos, garantiza la seguridad de las comunicaciones y optimiza " +
           "el uso de la energía. Sin esta base digital, ninguna transformación " +
           "sería posible."
+        },
+    ]
+
+    const energyServices = [
+        {
+          title: "Soluciones de energías renovables (solar, eólica)."
+        },
+        {
+          title: "Eficiencia energética para empresas e industrias.",
+        },
+        {
+          title: "Proyectos de autogeneración y sostenibilidad.",
+        },
+        {
+          title: "Implementación de tecnologías limpias y sostenibles.",
+        },
+        {
+          title: "Consultoría y diseño de proyectos energéticos innovadores.",
+        },
+        {
+          title: "La energía es la base que da vida a todas las demás líneas. Sin ella no hay datos, ni robótica, ni comunicaciones. Cuando se integra con TI, se vuelve inteligente; con biotecnología, se vuelve sostenible; con comunicaciones, se vuelve distribuida."
+        },
+    ]
+
+    const globalCommunicationsServices = [
+        {
+          title: "Infraestructura de telecomunicaciones y redes seguras."
+        },
+        {
+          title: "Gestión integral de proyectos en telecomunicaciones.",
+        },
+        {
+          title: "Implementación de conectividad con tecnologías innovadoras.",
+        },
+        {
+          title: "Soluciones IoT (Internet de las cosas) para empresas.",
+        },
+        {
+          title: "Plataformas de comunicación unificada y colaborativa.",
+        },
+        {
+          title: "Las comunicaciones son el sistema nervioso del ecosistema. Permiten que la TI, la robótica, la biotecnología y la energía se hablen entre sí. Sin conectividad no hay integración, y sin integración no hay transformación. Es la red que lo hace todo posible."
+        },
+    ]
+
+    const biotechServices = [
+        {
+          title: "Desarrollo de bioproductos y bioprocesos sostenibles."
+        },
+        {
+          title: "Producción de biocombustibles y biomateriales",
+        },
+        {
+          title: "Soluciones ambientales basadas en biotecnología",
+        },
+        {
+          title: "Aplicaciones en salud: fármacos, vacunas y bioensayos",
+        },
+        {
+          title: "Biotecnología agrícola para cultivos más productivos",
+        },
+        {
+          title: "La biotecnología representa el impacto humano y ambiental " +
+          "del ecosistema. Al integrarse con TI, gana capacidad de análisis; con " +
+          "comunicaciones, logra escalabilidad; con energía, alcanza sostenibilidad; " +
+          "y con robótica, adquiere precisión. Es la línea que une la innovación."
         },
     ]
 
@@ -410,7 +500,17 @@ export const CustomProvider = ({ children }) => {
   // Funciones del componente UnidadesNegocio
   // Función para manejar la selección de cards
   const handleCardSelect = (unidadId) => {
-    setSelectedCard(selectedCard === unidadId ? null : unidadId)
+    // Solo animar si hay un cambio real
+    if (selectedCard !== unidadId && selectedCard !== null) {
+      setIsServicesAnimating(true)
+      // Restaurar la animación después de un breve delay
+      setTimeout(() => {
+        setSelectedCard(selectedCard === unidadId ? null : unidadId)
+        setIsServicesAnimating(false)
+      }, 300) // 300ms para el fade out
+    } else {
+      setSelectedCard(selectedCard === unidadId ? null : unidadId)
+    }
   }
 
   // Obtener el color del contenedor basado en la card seleccionada
@@ -420,6 +520,21 @@ export const CustomProvider = ({ children }) => {
       return selectedUnidad ? selectedUnidad.color : '#292C3A'
     }
     return '#F3F4F6'
+  }
+
+  // Obtener los servicios según la unidad de negocio seleccionada
+  const getCurrentServices = () => {
+    if (selectedCard) {
+      switch (selectedCard) {
+        case 1: return techServices
+        case 2: return services
+        case 3: return energyServices
+        case 4: return globalCommunicationsServices
+        case 5: return biotechServices
+        default: return techServices
+      }
+    }
+    return services // Servicios por defecto
   }
 
   // Funciones del componente Header
@@ -464,8 +579,13 @@ export const CustomProvider = ({ children }) => {
     currentAllyIndex,
     allies,
     services,
+    techServices,
+    energyServices,
+    globalCommunicationsServices,
+    biotechServices,
     selectedCard,
     unidades,
+    isServicesAnimating,
     
     // Setters
     setScrollY,
@@ -479,6 +599,7 @@ export const CustomProvider = ({ children }) => {
     setCurrentHeroSlide,
     setCurrentAllyIndex,
     setSelectedCard,
+    setIsServicesAnimating,
     
     // Funciones
     handleCardClick,
@@ -491,6 +612,7 @@ export const CustomProvider = ({ children }) => {
     smoothScrollTo,
     handleCardSelect,
     getContainerColor,
+    getCurrentServices,
     
     
     // Funciones de animación
