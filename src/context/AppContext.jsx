@@ -245,35 +245,27 @@ export const CustomProvider = ({ children }) => {
 
     const services = [
         {
-        icon: (
-            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
-            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
-            </svg>
-        ),
-        title: "Desarrollo de software a la medida",
-        description: "Creamos aplicaciones y plataformas personalizadas que se ajustan 100% a las necesidades de tu negocio"
+          title: "Desarrollo de software a la medida y plataformas digitales"
         },
         {
-        icon: (
-            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
-            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
-            </svg>
-        ),
-        title: "Integración de sistemas",
-        description: "Conectamos tus sistemas y herramientas para que trabajen juntos de forma ágil y eficiente."
+          title: "Integración de sistemas y soluciones de software",
         },
         {
-        icon: (
-            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
-            <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
-            </svg>
-        ),
-        title: "Consultoría tecnológica",
-        description: "Te asesoramos para definir la mejor estrategia digital y optimizar tus procesos con soluciones innovadoras."
-        }
+          title: "Desarrollo de arquitecturas de software y plataformas tecnológicas",
+        },
+        {
+          title: "Transformación digital y modernización de procesos",
+        },
+        {
+          title: "Analítica de datos e inteligencia de negocio.",
+        },
+        {
+          title: "La TI es el corazón que conecta todo el ecosistema: " +
+          "alimenta la robótica con inteligencia, potencia la biotecnología " +
+          "con datos, garantiza la seguridad de las comunicaciones y optimiza " +
+          "el uso de la energía. Sin esta base digital, ninguna transformación " +
+          "sería posible."
+        },
     ]
 
     // Lista de imágenes para el carrusel
