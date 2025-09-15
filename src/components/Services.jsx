@@ -2,9 +2,10 @@ import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
 import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
+import IconoHokma from './IconoHokma'
 
 const Services = () => {
-  const { services } = useAppContext();
+  const { services, getContainerColor } = useAppContext();
   return (
     <section id="servicios" className="py-20 relative overflow-hidden">
       {/* Background with solid white color behind the image */}
@@ -68,18 +69,17 @@ const Services = () => {
                   >
                     {service.title}
                   </h3>
-                  <button 
-                    className={`absolute ${isLarge ? 'bottom-4 right-4 w-10 h-10' : 'bottom-3 right-3 w-8 h-8'} bg-cyan-400 hover:bg-cyan-300 rounded-full flex items-center justify-center transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 transform translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0`}
+                  <p 
+                    className={`text-gray-600 leading-relaxed ${isLarge ? 'mb-6' : 'mb-4 text-sm'}`}
+                    style={{ fontFamily: 'Caviar Dreams' }}
                   >
-                    <svg 
-                      className={`${isLarge ? 'w-5 h-5' : 'w-4 h-4'} text-white`} 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                  </button>
+                    {service.description}
+                  </p>
+                  <div 
+                    className={`absolute ${isLarge ? 'bottom-4 right-4' : 'bottom-3 right-3'}`}
+                  >
+                    <IconoHokma size={isLarge ? 42 : 32} color={getContainerColor()}/>
+                  </div>
                 </div>
               </AnimatedSection>
             );
