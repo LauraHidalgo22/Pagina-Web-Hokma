@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import CardUnidadNegocio from './CardUnidadNegocio'
-import logoHokmaLight from '../assets/logo-hokma-light-menu.png'
-import logoHokmaGlobal from '../assets/logo-hokma-global-group-menu.png'
+import logoHokmaLight from '../assets/logo-hokma-technologies.png'
+import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
+import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
+import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
+import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
 
 const UnidadesNegocio = () => {
   // Estado para manejar la card seleccionada
@@ -18,25 +21,25 @@ const UnidadesNegocio = () => {
     },
     {
       id: 2,
-      imagen: logoHokmaGlobal,
+      imagen: logoHokmaRobotics,
       alt: "Hokma Robotics",
       color: "#ff9900"
     },
     {
       id: 3,
-      imagen: logoHokmaGlobal,
+      imagen: logoHokmaEnergy,
       alt: "Hokma Energy",
       color: "#A6C139"
     },
     {
       id: 4,
-      imagen: logoHokmaGlobal,
+      imagen: logoHokmaGlobalComunications,
       alt: "Hokma Global Communications",
       color: "#0097DA"
     },
     {
       id: 5,
-      imagen: logoHokmaGlobal,
+      imagen: logoHokmaBiotech,
       alt: "Hokma BioTech",
       color: "#913B8E"
     }
