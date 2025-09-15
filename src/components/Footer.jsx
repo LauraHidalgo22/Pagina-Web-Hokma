@@ -156,13 +156,15 @@ const Footer = () => {
                 Envío de Devolución y Consultas Distribuidores
               </button>
               
-              <button className="w-full bg-[#292C3A]/60 hover:bg-[#3a3f52]/80 border border-gray-500/30 rounded-lg px-4 py-3 text-gray-200 text-sm font-medium transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                Intranet
-              </button>
-              
-              <button className="w-full bg-[#292C3A]/60 hover:bg-[#3a3f52]/80 border border-gray-500/30 rounded-lg px-4 py-3 text-gray-200 text-sm font-medium transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                Portal de Servicios
-              </button>
+              <div className="flex space-x-2">
+                <button className="w-1/2 bg-[#292C3A]/60 hover:bg-[#3a3f52]/80 border border-gray-500/30 rounded-lg px-4 py-3 text-gray-200 text-sm font-medium transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'Caviar Dreams' }}>
+                  Intranet
+                </button>
+                
+                <button className="w-1/2 bg-[#292C3A]/60 hover:bg-[#3a3f52]/80 border border-gray-500/30 rounded-lg px-4 py-3 text-gray-200 text-sm font-medium transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'Caviar Dreams' }}>
+                  Portal de Servicios
+                </button>
+              </div>
             </div>
             
             <div className="pt-4 border-t border-[#3a3f52]/50">
