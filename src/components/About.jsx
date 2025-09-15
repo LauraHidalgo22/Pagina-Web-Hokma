@@ -1,85 +1,18 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import ImpulsoCrecimiento from '../assets/CarruselProductos/impulso_crecimiento 1.jpg'
-import DisenoExitoso from '../assets/CarruselProductos/diseño_exitoso.jpg'
-import EficienciaEmpresarial from '../assets/CarruselProductos/eficiencia_empresarial.jpg'
-import DecisionesEmpresariales from '../assets/CarruselProductos/decisiones_empresariales.jpg'
-import InnovacionTecnologica from '../assets/CarruselProductos/innovacion_tecnológica.jpg'
-import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializado.jpg'
-import { useState, useEffect } from 'react'
+import { useAppContext } from '../context/AppContext'
 
 const About = () => {
-  const [scrollY, setScrollY] = useState(0)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [activeCardIndex, setActiveCardIndex] = useState(0)
-
-  // Array de imágenes para el carrusel
-  const images = [
-    { src: ImpulsoCrecimiento, alt: "Impulso al crecimiento empresarial" },
-    { src: DisenoExitoso, alt: "Diseño exitoso de soluciones" },
-    { src: EficienciaEmpresarial, alt: "Eficiencia empresarial" },
-    { src: DecisionesEmpresariales, alt: "Decisiones empresariales inteligentes" },
-    { src: InnovacionTecnologica, alt: "Innovación tecnológica" },
-    { src: SoporteEspecializado, alt: "Soporte especializado" }
-  ]
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Efecto para el carrusel automático cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => {
-        const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        setActiveCardIndex(nextIndex) // Sincroniza la card activa con la imagen
-        return nextIndex
-      })
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const cards = [
-    { 
-      text: "Impulsamos su crecimiento real", 
-      emoji: "🚀",
-      color: "#292C3A",
-      imageIndex: 0  // impulso_crecimiento 1.jpg
-    },
-    { 
-      text: "Procesos diseñados para su éxito", 
-      emoji: "⚡",
-      color: "#292C3A",
-      imageIndex: 1  // diseño_exitoso.jpg
-    },
-    { 
-      text: "Entregas rápidas y organizadas", 
-      emoji: "📈",
-      color: "#292C3A",
-      imageIndex: 2  // eficiencia_empresarial.jpg
-    },
-    { 
-      text: "Decisiones rápidas y seguras", 
-      emoji: "🎯",
-      color: "#292C3A",
-      imageIndex: 3  // decisiones_empresariales.jpg
-    },
-    { 
-      text: "Innovación y tecnología", 
-      emoji: "💡",
-      color: "#292C3A",
-      imageIndex: 4  // innovacion_tecnológica.jpg
-    },
-    { 
-      text: "Soporte especializado", 
-      emoji: "🤝",
-      color: "#292C3A",
-      imageIndex: 5  // soporte_especializado.jpg
-    }
-  ]
+  // Usar el contexto en lugar de estados locales
+  const {
+    scrollY,
+    currentImageIndex,
+    activeCardIndex,
+    images,
+    cards,
+    handleCardClick,
+    handleIndicatorClick
+  } = useAppContext()
 
   return (
     <section id="nosotros" className="py-20 bg-gray-100 min-h-screen">
@@ -161,10 +94,7 @@ const About = () => {
                   className={`bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform card-expand cursor-pointer ${
                     activeCardIndex === index ? 'card-active' : ''
                   }`}
-                  onClick={() => {
-                    setCurrentImageIndex(card.imageIndex)
-                    setActiveCardIndex(index)
-                  }}
+                  onClick={() => handleCardClick(card.imageIndex, index)}
                 >
                   <div className="flex items-center space-x-6">
                     {/* Emoji con fondo circular */}
@@ -255,10 +185,7 @@ const About = () => {
                           ? 'bg-white scale-110' 
                           : 'bg-white/50 hover:bg-white/70'
                       }`}
-                      onClick={() => {
-                        setCurrentImageIndex(index)
-                        setActiveCardIndex(index)
-                      }}
+                      onClick={() => handleIndicatorClick(index)}
                     />
                   ))}
                 </div>
