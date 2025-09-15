@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-global-group-menu.png'
+import IconoHokma from './IconoHokma'
 import CTAButton from './CTAButton'
 
 const Header = () => {
@@ -99,6 +100,7 @@ const Header = () => {
                   : 'bg-white/10 border-white/20'
               }`}>
                 <div className="flex items-center space-x-8">
+                  {!isScrolled ? <IconoHokma /> : <IconoHokma color='#292C3A'/>}
                   <a href="#inicio" onClick={(e) => smoothScrollTo(e, '#inicio')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
