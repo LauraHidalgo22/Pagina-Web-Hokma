@@ -61,7 +61,7 @@ export const CustomProvider = ({ children }) => {
   const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
 
   // Estados del componente UnidadesNegocio
-  const [selectedCard, setSelectedCard] = useState(null)
+  const [selectedCard, setSelectedCard] = useState(1) // Por defecto selecciona el primer elemento
   
   // Estados para la animación de Services
   const [isServicesAnimating, setIsServicesAnimating] = useState(false)
@@ -195,29 +195,24 @@ export const CustomProvider = ({ children }) => {
 
   const carouselSlides = [
     {
-      title: "Los cambios te confrontan",
-      subtitle: "La tecnología los transforma",
-      description: "Transformamos ideas en soluciones tecnológicas innovadoras. En Hokma Technologies, cada desafío es una oportunidad para crear el futuro."
+      title: "Desarrollo de software a la medida y plataformas digitales",
+      description: "Integramos tecnologías de la información, robótica, energía, comunicaciones y biotecnología para crear soluciones sostenibles y de impacto global."
     },
     {
-      title: "Tu visión empresarial",
-      subtitle: "Nuestra innovación tecnológica",
-      description: "Potenciamos tu negocio con herramientas digitales avanzadas. Convierte tus objetivos estratégicos en realidades tecnológicas medibles."
+      title: "El poder de la tecnología al servicio de la vida, la industria y el futuro",
+      description: "Desde la biotecnología hasta la robótica, construimos un ecosistema que impacta personas, empresas y sectores estratégicos."
     },
     {
-      title: "Desafíos complejos",
-      subtitle: "Soluciones inteligentes",
-      description: "Analizamos, diseñamos e implementamos sistemas que optimizan procesos. La complejidad de hoy es la eficiencia de mañana."
+      title: "Donde la visión se convierte en soluciones reales",
+      description: "Conectamos estrategia, tecnología y talento para convertir desafíos empresariales en oportunidades de crecimiento exponencial."
     },
     {
-      title: "El futuro de tu negocio",
-      subtitle: "Comienza con decisiones digitales",
-      description: "Adelántate a las tendencias del mercado con tecnología de vanguardia. Tu competitividad depende de las decisiones que tomes hoy."
+      title: "Más que empresas: un ecosistema de impacto y vanguardia",
+      description: "Somos un grupo que integra ciencia, tecnología e innovación para generar valor sostenible y liderar la transformación digital y social."
     },
     {
-      title: "Transformación digital",
-      subtitle: "Resultados exponenciales",
-      description: "Impulsa el crecimiento sostenible de tu empresa. Conectamos estrategia, tecnología y resultados para maximizar tu ROI."
+      title: "Transformamos desafíos en oportunidades globales",
+      description: "Nuestro grupo empresarial impulsa la competitividad con innovación disruptiva, ciencia aplicada y tecnología de vanguardia."
     }
   ]
 
@@ -534,7 +529,7 @@ export const CustomProvider = ({ children }) => {
         default: return techServices
       }
     }
-    return services // Servicios por defecto
+    return techServices // Servicios por defecto
   }
 
   // Funciones del componente Header
