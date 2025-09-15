@@ -3,40 +3,16 @@ import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import IconoHokma from './IconoHokma'
 import CTAButton from './CTAButton'
+import { useAppContext } from '../context/AppContext'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  // Detectar el scroll para cambiar el fondo del header
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Función para scroll suave a las secciones
-  const smoothScrollTo = (e, targetId) => {
-    e.preventDefault()
-    const targetElement = document.querySelector(targetId)
-    
-    if (targetElement) {
-      const headerHeight = isScrolled ? 72 : 160 // altura del header
-      const targetPosition = targetElement.offsetTop - headerHeight
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
-      
-      // Cerrar menú móvil después del click
-      setIsMenuOpen(false)
-    }
-  }
+  const { 
+    isMenuOpen,
+    setIsMenuOpen,
+    isScrolled,
+    setIsScrolled,
+    smoothScrollTo
+   } = useAppContext();
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${

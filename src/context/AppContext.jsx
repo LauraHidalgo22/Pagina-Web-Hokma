@@ -42,6 +42,10 @@ export const CustomProvider = ({ children }) => {
   // Estados del componente EquipoTrabajo
   const [activeCard, setActiveCard] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Estados del componente Header.jsx
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   
   // Función para manejar la visibilidad de elementos animados
   const setElementVisible = (elementId) => {
@@ -186,6 +190,17 @@ export const CustomProvider = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Detectar el scroll para cambiar el fondo del header
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   // Efecto para el carrusel automático (movido desde About.jsx)
   useEffect(() => {
     const interval = setInterval(() => {
@@ -254,6 +269,26 @@ export const CustomProvider = ({ children }) => {
     setActiveCard(activeCard === memberId ? null : memberId)
   }
 
+  // Funciones del componente Header
+  // Función para scroll suave a las secciones
+  const smoothScrollTo = (e, targetId) => {
+    e.preventDefault()
+    const targetElement = document.querySelector(targetId)
+    
+    if (targetElement) {
+      const headerHeight = isScrolled ? 72 : 160 // altura del header
+      const targetPosition = targetElement.offsetTop - headerHeight
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      })
+      
+      // Cerrar menú móvil después del click
+      setIsMenuOpen(false)
+    }
+  }
+
   // Valores que se pasarán al contexto
   const contextValue = {
     // Estados
@@ -269,6 +304,8 @@ export const CustomProvider = ({ children }) => {
     activeCard,
     currentSlide,
     teamSlides,
+    isMenuOpen,
+    isScrolled,
     
     // Setters
     setScrollY,
@@ -277,6 +314,8 @@ export const CustomProvider = ({ children }) => {
     setFormData,
     setActiveCard,
     setCurrentSlide,
+    setIsMenuOpen,
+    setIsScrolled,
     
     // Funciones
     handleCardClick,
@@ -286,6 +325,7 @@ export const CustomProvider = ({ children }) => {
     nextSlide,
     prevSlide,
     handleEmployeeCardClick,
+    smoothScrollTo,
     
     // Funciones de animación
     setElementVisible,
