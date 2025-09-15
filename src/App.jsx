@@ -8,10 +8,12 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Background from './components/Background'
 import UnidadesNegocio from './components/UnidadesNegocio'
+import { CustomProvider } from './context/AppContext'
 
 function App() {
   return (
-    <div className="relative min-h-screen">
+    <CustomProvider>
+      <div className="relative min-h-screen">
       <Background />
       <Header />
       <Hero />
@@ -54,6 +56,7 @@ function App() {
         </a>
       </div>
     </div>
+    </CustomProvider>
   )
 }
 
