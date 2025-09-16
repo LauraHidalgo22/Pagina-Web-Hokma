@@ -38,7 +38,7 @@ const Services = () => {
 
         {/* Layout principal: Grid de cards con patrón alternado dinámico */}
         <div 
-          className={`grid grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
+          className={`grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
             isServicesAnimating ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -61,7 +61,7 @@ const Services = () => {
                 key={index}
                 animation="fadeInUp" 
                 delay={0.2 + (index * 0.2)} 
-                className={colSpan === 2 ? "col-span-2" : ""}
+                className={colSpan === 2 ? "md:col-span-2" : ""}
               >
                 <div 
                   className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 relative h-full transform hover:scale-[1.02] hover:z-10"
