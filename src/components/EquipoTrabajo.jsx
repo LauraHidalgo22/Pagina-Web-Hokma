@@ -8,7 +8,7 @@ const EquipoTrabajo = () => {
     <section className="py-20 relative overflow-hidden bg-white">
       {/* Título */}
       <AnimatedSection animation="fadeInUp" className="mb-16">
-        <SectionTitle className="mb-4">
+        <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
           El talento que impulsa nuestra Innovaci&oacute;n
         </SectionTitle>
       </AnimatedSection>
