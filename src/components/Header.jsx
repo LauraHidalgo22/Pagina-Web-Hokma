@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import IconoHokma from './IconoHokma'
 import CTAButton from './CTAButton'
+import Idioma from './Idioma'
 import { useAppContext } from '../context/AppContext'
 
 const Header = () => {
@@ -42,6 +43,18 @@ const Header = () => {
       <nav className={`px-4 sm:px-6 lg:px-8 relative flex justify-between items-center flex-direction-column transition-all duration-500 ${
         isScrolled ? 'h-18' : 'h-40'
       }`}>
+        {/* Componente Idioma - Solo visible cuando no hay scroll */}
+        {!isScrolled && (
+          <motion.div 
+            className="absolute top-4 right-4 z-10"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <Idioma />
+          </motion.div>
+        )}
+
         {/* Logo */}
           <motion.div 
             className="flex-shrink-0 flex items-center"
