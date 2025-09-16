@@ -55,7 +55,7 @@ const Header = () => {
               className={`w-auto transition-all duration-500 ${
                 isScrolled 
                   ? 'h-[80px]'
-                  : 'h-[145px] filter brightness-110'
+                  : 'h-[200px] filter brightness-110 mt-9'
               }`}
             />
           </motion.div>
