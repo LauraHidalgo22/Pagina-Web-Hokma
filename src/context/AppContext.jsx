@@ -507,22 +507,32 @@ export const CustomProvider = ({ children }) => {
   // Funciones del componente EquipoTrabajo
   const teamSlides = []
   for (let i = 0; i < teamMembers.length; i += 4) {
-    teamSlides.push(teamMembers.slice(i, i + 4))
+    const slide = teamMembers.slice(i, i + 4)
+    if (slide.length > 0) { // Solo agregar slides que tengan al menos un miembro
+      teamSlides.push(slide)
+    }
   }
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
+    if (teamSlides.length > 0) {
+      setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
+      setActiveCard(null) // Reset active card when changing slide
+    }
   }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
+    if (teamSlides.length > 0) {
+      setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
+      setActiveCard(null) // Reset active card when changing slide
+    }
   }
 
   const handleEmployeeCardClick = (memberId) => {
     setActiveCard(activeCard === memberId ? null : memberId)
   }
+
+  // Asegurar que currentSlide esté dentro del rango válido
+  const validCurrentSlide = Math.min(currentSlide, teamSlides.length - 1)
 
   // Funciones del componente UnidadesNegocio
   // Función para manejar la selección de cards
@@ -597,7 +607,7 @@ export const CustomProvider = ({ children }) => {
     baseClasses,
     variants,
     activeCard,
-    currentSlide,
+    currentSlide: validCurrentSlide,
     teamSlides,
     isMenuOpen,
     isScrolled,

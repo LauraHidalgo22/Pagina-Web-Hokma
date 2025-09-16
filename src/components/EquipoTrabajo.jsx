@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
 import AnimatedSection from './AnimatedSection'
-import FondoEquipoTrabajo from '../assets/fondo_equipo_trabajo.png'
-import BordeCorporativo from '../assets/borde_corporativo.png'
+import SectionTitle from './SectionTitle'
+import IconoHokma from './IconoHokma'
 import { useAppContext } from '../context/AppContext'
 
 const EquipoTrabajo = () => {
@@ -16,66 +15,18 @@ const EquipoTrabajo = () => {
     handleEmployeeCardClick 
   } = useAppContext();
   return (
-    <section className="py-20 relative overflow-hidden min-h-screen">
-      {/* Background image - behind all elements */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${FondoEquipoTrabajo})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      />
-      
-      {/* Dark overlay for better content readability */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
-      
-      <div className="px-4 sm:px-6 lg:px-8 relative z-20">
-        {/* Layout de dos columnas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-          
-          {/* Columna izquierda - Logo corporativo y slogan */}
-          <AnimatedSection animation="fadeInLeft" className="flex flex-col items-center justify-center text-center space-y-8">
-            {/* Logo corporativo con animación de rotación */}
-            <div className="relative">
-              <img 
-                src={BordeCorporativo}
-                alt="Hokma Technologies - Borde Corporativo"
-                className="w-64 h-64 object-contain animate-spin"
-                style={{
-                  animation: 'spin 20s linear infinite',
-                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
-                }}
-              />
-            </div>
-            
-            {/* Slogan y texto */}
-            <div className="space-y-6">
-              <h2 
-                className="text-4xl md:text-5xl font-bold text-white leading-tight"
-                style={{ fontFamily: 'Caviar Dreams' }}
-              >
-                Las personas detrás de nuestro éxito
-              </h2>
-              
-              <p 
-                className="text-lg md:text-xl text-gray-200 max-w-lg mx-auto leading-relaxed"
-                style={{ fontFamily: 'Caviar Dreams' }}
-              >
-                En Hokma Technologies desarrollamos software que transforma ideas en soluciones reales. 
-                Sabemos que el corazón de nuestra empresa son nuestros trabajadores: su talento, dedicación 
-                y creatividad son la clave de cada proyecto. Valoramos a nuestro equipo, invertimos en su 
-                crecimiento y fomentamos un ambiente de colaboración donde cada persona puede aportar lo mejor de sí. 
-                Porque cuando nuestros trabajadores crecen, nuestra empresa también crece.
-              </p>
-            </div>
-          </AnimatedSection>
-
-          {/* Columna derecha - Grid de 4 cards del equipo con slider */}
+    <section className="py-20 relative overflow-hidden bg-white">
+      {/* Título */}
+      <AnimatedSection animation="fadeInUp" className="mb-16">
+        <SectionTitle className="mb-4">
+          El talento que impulsa nuestra Innovaci&oacute;n
+        </SectionTitle>
+      </AnimatedSection>
+      <div className="px-4 py-4 sm:px-6 lg:px-8 bg-[#2A2D3B]">
+        {/* Columna derecha - Grid de 4 cards del equipo con slider */}
           <AnimatedSection animation="fadeInRight" delay={0.3} className="w-full relative">
             {/* Flechas de navegación */}
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center">
               <button 
                 onClick={prevSlide}
                 className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
@@ -111,7 +62,7 @@ const EquipoTrabajo = () => {
               >
                 {teamSlides.map((slide, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div className="grid grid-cols-4 gap-8 max-w-1xl mx-auto py-4 px-4">
                       {slide.map((member, index) => (
                         <AnimatedSection 
                           key={member.id}
@@ -188,6 +139,11 @@ const EquipoTrabajo = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                               </svg>
                             </button>
+
+                            {/* IconoHokma en la esquina inferior derecha */}
+                            <div className="absolute bottom-4 right-4">
+                              <IconoHokma size={42} color="#dfdfdf" />
+                            </div>
                           </div>
                         </AnimatedSection>
                       ))}
@@ -215,7 +171,6 @@ const EquipoTrabajo = () => {
               ))}
             </div>
           </AnimatedSection>
-        </div>
       </div>
     </section>
   )
