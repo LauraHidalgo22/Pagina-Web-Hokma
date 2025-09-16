@@ -9,7 +9,8 @@ const CardCarrusel = ({
   imageAspect = "aspect-[3/4]",
   showOverlay = true,
   buttonColor = "bg-blue-500 hover:bg-blue-400",
-  objectFit = "object-cover"
+  objectFit = "object-cover",
+  showImage = true
 }) => {
   // Estructura de datos esperada:
   // item: { id, name, image/photo, position/subtitle, description }
@@ -19,7 +20,8 @@ const CardCarrusel = ({
     name: item.name,
     image: item.image || item.photo,
     subtitle: item.position || item.subtitle || '',
-    description: item.description || ''
+    description: item.description || '',
+    color: item.color || ''
   }
 
   return (
@@ -30,15 +32,28 @@ const CardCarrusel = ({
       className="group"
     >
       <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-gray-200 transition-all duration-300 transform hover:scale-105">
-        {/* Imagen principal */}
+        {/* Imagen principal o contenido de texto */}
         <div className={`${imageAspect} overflow-hidden relative p-6`}>
-          <img 
-            src={displayData.image}
-            alt={displayData.name}
-            className={`w-full h-full ${objectFit} transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0 ${
+          {showImage ? (
+            <img 
+              src={displayData.image}
+              alt={displayData.name}
+              className={`w-full h-full ${objectFit} transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0 ${
+                activeCard === displayData.id ? 'blur-sm' : ''
+              }`}
+            />
+          ) : (
+            <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br from-white to-gray-50 rounded-2xl transition-all duration-300 ${
               activeCard === displayData.id ? 'blur-sm' : ''
-            }`}
-          />
+            }`}>
+              <h3 
+                className="text-center text-gray-800 font-bold text-2xl px-4"
+                style={{ fontFamily: 'Caviar Dreams', color: displayData.color }}
+              >
+                {displayData.name}
+              </h3>
+            </div>
+          )}
           
           {/* Overlay de texto cuando está activo */}
           {activeCard === displayData.id && showOverlay && (

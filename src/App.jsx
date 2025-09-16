@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Background from './components/Background'
 import UnidadesNegocio from './components/UnidadesNegocio'
+import NuestrosClientes from './components/NuestrosClientes'
 import { CustomProvider } from './context/AppContext'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <EquipoTrabajo />
       <NuestrosAliados />
       <Contact />
+      <NuestrosClientes />
       <Footer />
       
       {/* WhatsApp Sticky Button */}

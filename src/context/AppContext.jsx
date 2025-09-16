@@ -13,7 +13,6 @@ import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
 import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
-import { title } from 'framer-motion/client'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -60,6 +59,9 @@ export const CustomProvider = ({ children }) => {
 
   // Estados del componente NuestrosAliados
   const [activeAllyCard, setActiveAllyCard] = useState(null)
+
+  // Estados del componente NuestrosClientes
+  const [activeClientCard, setActiveClientCard] = useState(null)
 
   // Estados del componente UnidadesNegocio
   const [selectedCard, setSelectedCard] = useState(1) // Por defecto selecciona el primer elemento
@@ -243,6 +245,34 @@ export const CustomProvider = ({ children }) => {
             alt: "Hokma Technologies - Aliado Microsoft",
             subtitle: "Tecnología de clase mundial",
             description: "Partner estratégico que nos permite ofrecer soluciones empresariales con tecnología Microsoft de última generación."
+        }
+    ]
+
+    // Array de clientes
+    const clients = [
+        {
+            id: 201,
+            name: "Sector Logístico",
+            description: "“¿Curioso por saber a quién ayudamos ?  Llámanos y lo hablamos.”",
+            color: "#36A9E1"
+        },
+        {
+            id: 202,
+            name: "Sector Salud",
+            description: "“Sí, la innovación también salva vidas pero esa historia te la contamos en privado.”",
+            color: "#95C11F"
+        },
+        {
+            id: 203,
+            name: "Sector Financiero",
+            description: "“Ya ayudamos a que los números cuadren  ¿te da intriga? Descúbrelo con nosotros.”",
+            color: "#F39323"
+        },
+        {
+            id: 204,
+            name: "Sector Gobierno",
+            description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
+            color: "#8E3089"
         }
     ]
 
@@ -540,6 +570,11 @@ export const CustomProvider = ({ children }) => {
     setActiveAllyCard(activeAllyCard === allyId ? null : allyId)
   }
 
+  // Función para manejar el click en cards de clientes
+  const handleClientCardClick = (clientId) => {
+    setActiveClientCard(activeClientCard === clientId ? null : clientId)
+  }
+
   // Asegurar que currentSlide esté dentro del rango válido
   const validCurrentSlide = Math.min(currentSlide, teamSlides.length - 1)
 
@@ -625,6 +660,8 @@ export const CustomProvider = ({ children }) => {
     // currentAllyIndex, - REMOVIDO porque no se necesita
     allies,
     activeAllyCard,
+    clients,
+    activeClientCard,
     services,
     techServices,
     energyServices,
@@ -647,6 +684,7 @@ export const CustomProvider = ({ children }) => {
     setCurrentHeroSlide,
     // setCurrentAllyIndex, - REMOVIDO porque no se necesita
     setActiveAllyCard,
+    setActiveClientCard,
     setSelectedCard,
     setIsServicesAnimating,
     
@@ -659,6 +697,7 @@ export const CustomProvider = ({ children }) => {
     prevSlide,
     handleEmployeeCardClick,
     handleAllyCardClick,
+    handleClientCardClick,
     smoothScrollTo,
     handleCardSelect,
     getContainerColor,
