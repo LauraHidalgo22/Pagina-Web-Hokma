@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
+import { style } from 'framer-motion/client'
 
 const Services = () => {
   const { getCurrentServices, getContainerColor, isServicesAnimating } = useAppContext();
@@ -19,7 +20,7 @@ const Services = () => {
         <div className="mb-16">
           <AnimatedSection animation="fadeInUp">
             <SectionTitle className="mb-4">
-              Soluciones de software a la medida
+              Soluciones tecnol&oacute;gicas
             </SectionTitle>
           </AnimatedSection>
         </div>
@@ -58,21 +59,15 @@ const Services = () => {
                   }}
                 >
                   <h3 
-                    className={`font-semibold text-gray-900 ${isLarge ? 'text-xl mb-4' : 'text-lg mb-3'}`}
-                    style={{ fontFamily: 'Caviar Dreams' }}
+                    className={`font-semibold ${isLarge ? 'text-2xl mb-4' : 'text-xl mb-3'}`}
+                    style={{ color: getContainerColor() != '#F3F4F6' ? getContainerColor() != "#ffffff" ? getContainerColor() : "#000000" : "#000000" }}
                   >
                     {service.title}
                   </h3>
-                  <p 
-                    className={`text-gray-600 leading-relaxed ${isLarge ? 'mb-6' : 'mb-4 text-sm'}`}
-                    style={{ fontFamily: 'Caviar Dreams' }}
-                  >
-                    {service.description}
-                  </p>
                   <div 
                     className={`absolute ${isLarge ? 'bottom-4 right-4' : 'bottom-3 right-3'}`}
                   >
-                    <IconoHokma size={isLarge ? 42 : 32} color={getContainerColor()}/>
+                    <IconoHokma size={isLarge ? 42 : 32} color="#dfdfdf" />
                   </div>
                 </div>
               </AnimatedSection>
