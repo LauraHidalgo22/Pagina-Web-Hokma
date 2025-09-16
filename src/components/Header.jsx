@@ -1,41 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import logoHokma from '../assets/logo-hokma-light-menu.png'
+import logoHokma from '../assets/logo-hokma-global-group-menu.png'
+import IconoHokma from './IconoHokma'
 import CTAButton from './CTAButton'
+import { useAppContext } from '../context/AppContext'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  // Detectar el scroll para cambiar el fondo del header
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Función para scroll suave a las secciones
-  const smoothScrollTo = (e, targetId) => {
-    e.preventDefault()
-    const targetElement = document.querySelector(targetId)
-    
-    if (targetElement) {
-      const headerHeight = isScrolled ? 72 : 160 // altura del header
-      const targetPosition = targetElement.offsetTop - headerHeight
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
-      
-      // Cerrar menú móvil después del click
-      setIsMenuOpen(false)
-    }
-  }
+  const { 
+    isMenuOpen,
+    setIsMenuOpen,
+    isScrolled,
+    setIsScrolled,
+    smoothScrollTo
+   } = useAppContext();
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${
@@ -43,23 +20,14 @@ const Header = () => {
         ? 'backdrop-blur-md shadow-lg border-b border-gray-200/20' 
         : 'bg-transparent'
     }`}>
-      {/* Color block for scrolled state - 10% from left with diagonal transition */}
+      {/* Gradient background for scrolled state - left to right transition */}
       {isScrolled && (
         <>
           <div className="absolute inset-0 bg-white"></div>
-          <div className="absolute inset-y-0 left-0 w-[10%] bg-[#292C3A]"></div>
           <div 
-            className="absolute inset-y-0 left-[10%] w-[12%] bg-[#292C3A]"
+            className="absolute inset-0"
             style={{
-              clipPath: 'polygon(0 0, 100% 0, 70% 100%, 0 100%)',
-              opacity: 0.9
-            }}
-          ></div>
-          <div 
-            className="absolute inset-y-0 left-[18%] w-[8%] bg-[#292C3A]"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 30% 100%, 0 100%)',
-              opacity: 0.4
+              background: 'linear-gradient(to right, #292C3A 0%, #292C3A 8%, rgba(41, 44, 58, 0.6) 15%, rgba(41, 44, 58, 0.2) 22%, transparent 30%)'
             }}
           ></div>
         </>
@@ -108,40 +76,34 @@ const Header = () => {
                   : 'bg-white/10 border-white/20'
               }`}>
                 <div className="flex items-center space-x-8">
+                  {!isScrolled ? <IconoHokma /> : <IconoHokma color='#292C3A'/>}
                   <a href="#inicio" onClick={(e) => smoothScrollTo(e, '#inicio')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Inicio
+                    Home
                   </a>
                   <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Servicios
+                    Ecosistema y Servicios
                   </a>
                   <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Acerca
-                  </a>
-                  <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                    isScrolled 
-                      ? 'text-gray-800 hover:text-blue-600' 
-                      : 'text-white hover:text-cyan-300'
-                  }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Blog
+                    Insights
                   </a>
                   <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Contáctanos
+                    Conversemos
                   </a>
                 </div>
               </div>
@@ -208,35 +170,28 @@ const Header = () => {
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Inicio
+                Home
               </a>
               <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Servicios
+                Ecosistema y Servicios
               </a>
               <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Acerca
-              </a>
-              <a href="#blog" onClick={(e) => smoothScrollTo(e, '#blog')} className={`block px-3 py-2 text-base font-medium transition-colors ${
-                isScrolled 
-                  ? 'text-gray-800 hover:text-blue-600' 
-                  : 'text-white hover:text-cyan-300'
-              }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Blog
+                Insights
               </a>
               <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                Contáctanos
+                Conversemos
               </a>
               {/* CTA Button - Solo visible cuando hay scroll en móvil */}
               {isScrolled && (

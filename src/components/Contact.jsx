@@ -1,29 +1,9 @@
-import { useState } from 'react'
 import AnimatedSection from './AnimatedSection'
+import { useAppContext } from '../context/AppContext'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    service: '',
-    message: ''
-  })
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Aquí se manejaría el envío del formulario
-    console.log('Form submitted:', formData)
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.')
-  }
+  // Usar el contexto en lugar de estados y funciones locales
+  const { formData, handleChange, handleSubmit } = useAppContext()
 
   return (
     <section id="contacto" className="py-20 bg-white">

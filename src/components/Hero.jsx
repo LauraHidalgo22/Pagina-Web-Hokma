@@ -3,45 +3,11 @@ import { useState, useEffect } from 'react'
 import fondoPrincipal from '../assets/fondo_principal.jpg'
 import bordeCorporativo from '../assets/borde_corporativo.png'
 import CTAButton from './CTAButton'
+import { useAppContext } from '../context/AppContext'
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  
-  const carouselSlides = [
-    {
-      title: "Los cambios te confrontan",
-      subtitle: "La tecnología los transforma",
-      description: "Transformamos ideas en soluciones tecnológicas innovadoras. En Hokma Technologies, cada desafío es una oportunidad para crear el futuro."
-    },
-    {
-      title: "Tu visión empresarial",
-      subtitle: "Nuestra innovación tecnológica",
-      description: "Potenciamos tu negocio con herramientas digitales avanzadas. Convierte tus objetivos estratégicos en realidades tecnológicas medibles."
-    },
-    {
-      title: "Desafíos complejos",
-      subtitle: "Soluciones inteligentes",
-      description: "Analizamos, diseñamos e implementamos sistemas que optimizan procesos. La complejidad de hoy es la eficiencia de mañana."
-    },
-    {
-      title: "El futuro de tu negocio",
-      subtitle: "Comienza con decisiones digitales",
-      description: "Adelántate a las tendencias del mercado con tecnología de vanguardia. Tu competitividad depende de las decisiones que tomes hoy."
-    },
-    {
-      title: "Transformación digital",
-      subtitle: "Resultados exponenciales",
-      description: "Impulsa el crecimiento sostenible de tu empresa. Conectamos estrategia, tecnología y resultados para maximizar tu ROI."
-    }
-  ]
+  const { currentHeroSlide, setCurrentHeroSlide, carouselSlides } = useAppContext();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [carouselSlides.length])
   return (
     <section 
       id="inicio" 
@@ -115,39 +81,39 @@ const Hero = () => {
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
-                  width: '600px',
-                  height: '600px'
+                  width: '700px',
+                  height: '700px'
                 }}
               />
             </motion.div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight relative z-10" style={{ fontFamily: 'Caviar Dreams' }}>
               <motion.span
-                key={`title-${currentSlide}`}
+                key={`title-${currentHeroSlide}`}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 50 }}
                 transition={{ duration: 0.8 }}
                 className="block"
               >
-                {carouselSlides[currentSlide].title}
+                {carouselSlides[currentHeroSlide].title}
               </motion.span>
               <motion.span
-                key={`subtitle-${currentSlide}`}
+                key={`subtitle-${currentHeroSlide}`}
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
               >
-                {carouselSlides[currentSlide].subtitle}
+                {carouselSlides[currentHeroSlide].subtitle}
               </motion.span>
             </h1>
           </motion.div>
 
           {/* Subtitle */}
           <motion.p
-            key={`description-${currentSlide}`}
+            key={`description-${currentHeroSlide}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
@@ -155,7 +121,7 @@ const Hero = () => {
             className="mt-8 text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
             style={{ fontFamily: 'Caviar Dreams' }}
           >
-            {carouselSlides[currentSlide].description}
+            {carouselSlides[currentHeroSlide].description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -187,9 +153,9 @@ const Hero = () => {
             {carouselSlides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => setCurrentHeroSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
+                  index === currentHeroSlide 
                     ? 'bg-cyan-400 scale-125' 
                     : 'bg-white/30 hover:bg-white/50'
                 }`}
