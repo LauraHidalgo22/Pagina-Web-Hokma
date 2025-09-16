@@ -9,7 +9,7 @@ const UnidadesNegocio = () => {
     <section className="w-full h-auto md:h-[300px] relative" style={{backgroundColor:"#ffffff"}}>
       {/* Contenedor padre con SectionTitle */}
       <div 
-        className="w-full h-[110px] flex items-center px-7 transition-colors duration-300"
+        className="w-full h-[170px] md:h-[110px] flex items-center px-7 transition-colors duration-300"
         style={{ backgroundColor: getContainerColor() }}
       >
         <SectionTitle titleClassName={getContainerColor() == '#ffffff' || getContainerColor() == '#F3F4F6' ? 'text-black' : 'text-white'}>
@@ -17,8 +17,8 @@ const UnidadesNegocio = () => {
         </SectionTitle>
       </div>
 
-      {/* Sección de carrusel */}
-      <div className="md:absolute md:left-0 md:right-0 md:pt-2 px-4 md:z-10 flex justify-center py-4 md:py-0">
+      {/* Sección de carrusel - Posicionada en el centro */}
+      <div className="relative md:absolute left-0 right-0 top-1/2 bottom-5 transform md:-translate-y-12 px-4 z-20 flex justify-center mt-10 md:my-5">
         <div className="flex flex-col md:flex-row gap-5 justify-center items-center max-w-screen-xl w-full transition-all duration-500">
           {unidades.map((unidad, index) => {
             const isSelected = selectedCard === unidad.id;
@@ -27,10 +27,17 @@ const UnidadesNegocio = () => {
             // Calcular el desplazamiento hacia la card seleccionada
             let transformStyle = '';
             if (selectedCard && !isSelected) {
-              const direction = index < selectedIndex ? 1 : -1; // 1 = hacia la derecha, -1 = hacia la izquierda
+              const direction = index < selectedIndex ? 1 : -1; // 1 = hacia abajo/derecha, -1 = hacia arriba/izquierda
               const distance = Math.abs(index - selectedIndex);
               const displacement = Math.min(distance * 15, 30); // Máximo 30px de desplazamiento
-              transformStyle = `translateX(${direction * displacement}px)`;
+              
+              // En pantallas pequeñas usa translateY, en pantallas medianas y grandes usa translateX
+              const isMobile = window.innerWidth < 768; // md breakpoint es 768px
+              if (isMobile) {
+                transformStyle = `translateY(${direction * displacement}px)`;
+              } else {
+                transformStyle = `translateX(${direction * displacement}px)`;
+              }
             }
             
             return (
