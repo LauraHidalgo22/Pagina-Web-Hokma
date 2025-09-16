@@ -13,6 +13,7 @@ import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
 import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
+import { title } from 'framer-motion/client'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -353,6 +354,37 @@ export const CustomProvider = ({ children }) => {
         },
     ]
 
+    const cardsAbout = [
+      {
+        title: "1. Crecimiento exponencial impulsado por tecnología",
+        description: "Aceleramos la evolución de su negocio mediante soluciones digitales de última generación que generan valor sostenible y escalable."
+      },
+      {
+        title: "2. Procesos inteligentes, diseñados para ganar",
+        description: "Integramos metodologías ágiles y herramientas tecnológicas que optimizan cada operación, alineadas con los objetivos estratégicos de su organización."
+      },
+      {
+        title: "3. Entregas ágiles y de alto impacto",
+        description: "Con plataformas avanzadas y equipos especializados, garantizamos resultados rápidos, organizados y medibles, en el momento que su empresa los necesita."
+      },
+      {
+        title: "4. Decisiones estratégicas basadas en datos",
+        description: "Potenciamos su capacidad de decisión con analítica avanzada, inteligencia artificial y tableros de control que aseguran precisión y minimizan riesgos."
+      },
+      {
+        title: "5. Innovación disruptiva como ventaja competitiva",
+        description: "Le damos acceso a tecnologías emergentes que transforman procesos tradicionales en experiencias digitales únicas, adelantando a su empresa frente al mercado."
+      },
+      {
+        title: "6. Acompañamiento experto, siempre conectado",
+        description: "Más que soporte, ofrecemos un ecosistema de especialistas y soluciones digitales que garantizan continuidad, seguridad y confianza en cada etapa del camino."
+      },
+      {
+        title: "7. Futuro asegurado con tecnología de vanguardia",
+        description: "No solo resolvemos los retos inmediatos de su organización: construimos junto a usted una visión sostenible a largo plazo, apalancada en transformación digital, innovación disruptiva e inteligencia tecnológica que garantizan que su compañía lidere su sector hoy y esté preparada para los desafíos del mañana."
+      }
+    ]
+
     // Lista de imágenes para el carrusel
     const unidades = [
         {
@@ -581,6 +613,7 @@ export const CustomProvider = ({ children }) => {
     selectedCard,
     unidades,
     isServicesAnimating,
+    cardsAbout,
     
     // Setters
     setScrollY,

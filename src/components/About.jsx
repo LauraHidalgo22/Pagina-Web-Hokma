@@ -1,5 +1,6 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
+import IconoHokma from './IconoHokma'
 import { useAppContext } from '../context/AppContext'
 
 const About = () => {
@@ -11,7 +12,8 @@ const About = () => {
     images,
     cards,
     handleCardClick,
-    handleIndicatorClick
+    handleIndicatorClick,
+    cardsAbout
   } = useAppContext()
 
   return (
@@ -26,69 +28,35 @@ const About = () => {
 
         {/* Contenedor principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {/* Card 1 */}
-          <AnimatedSection animation="fadeInUp" delay={0.1}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer">
-              <div className="bg-[#95C121] p-4 text-center">
-                <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Innovación
-                </h3>
-              </div>
-              <div className="p-6">
-                <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Desarrollamos soluciones tecnológicas innovadoras que transforman la manera en que las empresas operan y se conectan con sus clientes.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Card 2 */}
-          <AnimatedSection animation="fadeInUp" delay={0.2}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer">
-              <div className="bg-[#3BBEE8] p-4 text-center">
-                <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Experiencia
-                </h3>
-              </div>
-              <div className="p-6">
-                <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Más de una década de experiencia en el desarrollo de software empresarial y soluciones digitales personalizadas para diversos sectores.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Card 3 */}
-          <AnimatedSection animation="fadeInUp" delay={0.3}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer">
-              <div className="bg-[#F39323] p-4 text-center">
-                <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Calidad
-                </h3>
-              </div>
-              <div className="p-6">
-                <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Nos comprometemos con los más altos estándares de calidad en cada proyecto, garantizando soluciones robustas y escalables.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Card 4 */}
-          <AnimatedSection animation="fadeInUp" delay={0.4}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer">
-              <div className="bg-[#8E3089] p-4 text-center">
-                <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Soporte
-                </h3>
-              </div>
-              <div className="p-6">
-                <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Brindamos soporte continuo y mantenimiento especializado para asegurar el óptimo funcionamiento de todas nuestras soluciones.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
+          {cardsAbout.map((card, index) => {
+            // Array de colores para los encabezados
+            const colors = ['#95C121', '#3BBEE8', '#F39323', '#8E3089', '#0097DA', '#913B8E'];
+            const headerColor = colors[index % colors.length];
+            
+            return (
+              <AnimatedSection key={index} animation="fadeInUp" delay={0.1 + (index * 0.1)}>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col">
+                  <div 
+                    className="p-4 text-center h-20"
+                    style={{ backgroundColor: headerColor }}
+                  >
+                    <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
+                      {card.title}
+                    </h3>
+                  </div>
+                  <div className="p-6 flex-grow">
+                    <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
+                      {card.description}
+                    </p>
+                  </div>
+                  {/* Card Footer */}
+                  <div className="p-4 flex justify-end items-center">
+                    <IconoHokma size={42} color="#dfdfdf" />
+                  </div>
+                </div>
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>
