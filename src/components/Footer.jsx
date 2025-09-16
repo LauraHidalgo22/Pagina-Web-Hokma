@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import logoHokma from '../assets/logo-hokma-light-menu.png'
+import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import iso9001 from '../assets/icontec_iso_9001.png'
 import iso14001 from '../assets/icontec_iso_14001.png'
 import iso45001 from '../assets/icontec_iso_45001.png'
