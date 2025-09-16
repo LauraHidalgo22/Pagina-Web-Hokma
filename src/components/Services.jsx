@@ -15,18 +15,6 @@ const Services = () => {
         className="absolute inset-0 z-0 bg-white"
       ></div>
       
-      {/* Background image - behind all elements */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${fondoSeccionDos})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.3
-        }}
-      ></div>
-      
       <div className="mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-16">
           <AnimatedSection animation="fadeInUp">
