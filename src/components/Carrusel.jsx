@@ -1,6 +1,7 @@
 import AnimatedSection from './AnimatedSection'
 import CardCarrusel from './CardCarrusel'
 import { useAppContext } from '../context/AppContext'
+import { useState } from 'react'
 
 const Carrusel = ({
   slides = null,
@@ -16,6 +17,10 @@ const Carrusel = ({
   showIndicators = true,
   cardProps = {}
 }) => {
+  // Estado local para carruseles independientes
+  const [localCurrentSlide, setLocalCurrentSlide] = useState(0)
+  const [localActiveCard, setLocalActiveCard] = useState(null)
+  
   const { 
     activeCard, 
     setActiveCard, 
@@ -29,13 +34,33 @@ const Carrusel = ({
 
   // Usar props personalizadas o valores por defecto del contexto
   const slidesData = slides || teamSlides;
-  const currentIndex = currentSlideIndex !== null ? currentSlideIndex : currentSlide;
-  const handlePrevSlide = onPrevSlide || prevSlide;
-  const handleNextSlide = onNextSlide || nextSlide;
-  const handleSlideChange = onSlideChange || setCurrentSlide;
+  
+  // Si se proporcionan slides personalizados, usar estado local
+  const currentIndex = slides ? 
+    (currentSlideIndex !== null ? currentSlideIndex : localCurrentSlide) : 
+    (currentSlideIndex !== null ? currentSlideIndex : currentSlide);
+    
+  const handlePrevSlide = slides ? 
+    (onPrevSlide || (() => setLocalCurrentSlide(prev => (prev - 1 + slidesData.length) % slidesData.length))) : 
+    (onPrevSlide || prevSlide);
+    
+  const handleNextSlide = slides ? 
+    (onNextSlide || (() => setLocalCurrentSlide(prev => (prev + 1) % slidesData.length))) : 
+    (onNextSlide || nextSlide);
+    
+  const handleSlideChange = slides ? 
+    (onSlideChange || setLocalCurrentSlide) : 
+    (onSlideChange || setCurrentSlide);
+    
   const handleCardClick = onCardClick || handleEmployeeCardClick;
-  const activeCardData = activeItem !== null ? activeItem : activeCard;
-  const setActiveCardData = setActiveItem || setActiveCard;
+  
+  const activeCardData = slides ? 
+    (activeItem !== null ? activeItem : localActiveCard) : 
+    (activeItem !== null ? activeItem : activeCard);
+    
+  const setActiveCardData = slides ? 
+    (setActiveItem || setLocalActiveCard) : 
+    (setActiveItem || setActiveCard);
 
   return (
     <AnimatedSection animation="fadeInRight" delay={0.3} className="w-full relative">

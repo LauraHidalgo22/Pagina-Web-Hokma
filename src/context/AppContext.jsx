@@ -59,7 +59,7 @@ export const CustomProvider = ({ children }) => {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0)
 
   // Estados del componente NuestrosAliados
-  const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
+  const [activeAllyCard, setActiveAllyCard] = useState(null)
 
   // Estados del componente UnidadesNegocio
   const [selectedCard, setSelectedCard] = useState(1) // Por defecto selecciona el primer elemento
@@ -229,16 +229,20 @@ export const CustomProvider = ({ children }) => {
   // Array de aliados
     const allies = [
         {
-            id: 1,
+            id: 101,
             name: "Fedesoft",
             image: HokmaFedesoft,
-            alt: "Hokma Technologies - Aliado Fedesoft"
+            alt: "Hokma Technologies - Aliado Fedesoft",
+            subtitle: "Federación Colombiana de Software y TI",
+            description: "Trabajamos con la principal gremio tecnológico de Colombia para fortalecer el ecosistema de software y tecnología del país."
         },
         {
-            id: 2,
+            id: 102,
             name: "Microsoft",
             image: HokmaMicrosoft,
-            alt: "Hokma Technologies - Aliado Microsoft"
+            alt: "Hokma Technologies - Aliado Microsoft",
+            subtitle: "Tecnología de clase mundial",
+            description: "Partner estratégico que nos permite ofrecer soluciones empresariales con tecnología Microsoft de última generación."
         }
     ]
 
@@ -458,16 +462,16 @@ export const CustomProvider = ({ children }) => {
     return () => clearInterval(interval)
   }, [carouselSlides.length])
 
-  // Efecto para el slider automático cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAllyIndex((prevIndex) => 
-        prevIndex === allies.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
+  // Efecto para el slider automático cada 5 segundos - DESACTIVADO porque ahora mostramos todas las cards juntas
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentAllyIndex((prevIndex) => 
+  //       prevIndex === allies.length - 1 ? 0 : prevIndex + 1
+  //     )
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [allies.length])
+  //   return () => clearInterval(interval)
+  // }, [allies.length])
 
   // Funciones auxiliares
   const handleCardClick = (imageIndex, cardIndex) => {
@@ -529,6 +533,11 @@ export const CustomProvider = ({ children }) => {
 
   const handleEmployeeCardClick = (memberId) => {
     setActiveCard(activeCard === memberId ? null : memberId)
+  }
+
+  // Función para manejar el click en cards de aliados
+  const handleAllyCardClick = (allyId) => {
+    setActiveAllyCard(activeAllyCard === allyId ? null : allyId)
   }
 
   // Asegurar que currentSlide esté dentro del rango válido
@@ -613,8 +622,9 @@ export const CustomProvider = ({ children }) => {
     isScrolled,
     currentHeroSlide,
     carouselSlides,
-    currentAllyIndex,
+    // currentAllyIndex, - REMOVIDO porque no se necesita
     allies,
+    activeAllyCard,
     services,
     techServices,
     energyServices,
@@ -635,7 +645,8 @@ export const CustomProvider = ({ children }) => {
     setIsMenuOpen,
     setIsScrolled,
     setCurrentHeroSlide,
-    setCurrentAllyIndex,
+    // setCurrentAllyIndex, - REMOVIDO porque no se necesita
+    setActiveAllyCard,
     setSelectedCard,
     setIsServicesAnimating,
     
@@ -647,6 +658,7 @@ export const CustomProvider = ({ children }) => {
     nextSlide,
     prevSlide,
     handleEmployeeCardClick,
+    handleAllyCardClick,
     smoothScrollTo,
     handleCardSelect,
     getContainerColor,

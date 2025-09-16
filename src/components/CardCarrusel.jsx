@@ -8,7 +8,8 @@ const CardCarrusel = ({
   handleCardClick,
   imageAspect = "aspect-[3/4]",
   showOverlay = true,
-  buttonColor = "bg-blue-500 hover:bg-blue-400"
+  buttonColor = "bg-blue-500 hover:bg-blue-400",
+  objectFit = "object-cover"
 }) => {
   // Estructura de datos esperada:
   // item: { id, name, image/photo, position/subtitle, description }
@@ -30,11 +31,11 @@ const CardCarrusel = ({
     >
       <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-gray-200 transition-all duration-300 transform hover:scale-105">
         {/* Imagen principal */}
-        <div className={`${imageAspect} overflow-hidden relative`}>
+        <div className={`${imageAspect} overflow-hidden relative p-6`}>
           <img 
             src={displayData.image}
             alt={displayData.name}
-            className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0 ${
+            className={`w-full h-full ${objectFit} transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0 ${
               activeCard === displayData.id ? 'blur-sm' : ''
             }`}
           />
@@ -70,8 +71,8 @@ const CardCarrusel = ({
           )}
         </div>
         
-        {/* Overlay con información básica (solo visible cuando no está activo) */}
-        {activeCard !== displayData.id && showOverlay && (
+        {/* Overlay con información básica (solo visible cuando no está activo o no hay función de click) */}
+        {(activeCard !== displayData.id || !handleCardClick) && showOverlay && (
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4">
             <h4 
               className="text-white font-bold text-sm mb-1"
@@ -81,10 +82,19 @@ const CardCarrusel = ({
             </h4>
             {displayData.subtitle && (
               <p 
-                className="text-gray-200 text-xs"
+                className="text-gray-200 text-xs mb-1"
                 style={{ fontFamily: 'Caviar Dreams' }}
               >
                 {displayData.subtitle}
+              </p>
+            )}
+            {/* Mostrar descripción cuando no hay función de click o cuando no está activo */}
+            {!handleCardClick && displayData.description && (
+              <p 
+                className="text-gray-200 text-xs leading-relaxed"
+                style={{ fontFamily: 'Caviar Dreams' }}
+              >
+                {displayData.description}
               </p>
             )}
           </div>
