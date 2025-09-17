@@ -47,7 +47,7 @@ const CardCarrusel = ({
               activeCard === displayData.id ? 'blur-sm' : ''
             }`}>
               <h3 
-                className="text-center text-gray-800 font-bold text-2xl px-4"
+                className="text-center text-gray-800 font-bold text-4xl px-4"
                 style={{ fontFamily: 'Caviar Dreams', color: displayData.color }}
               >
                 {displayData.name}
