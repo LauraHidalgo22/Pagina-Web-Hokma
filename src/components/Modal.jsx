@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
-const Modal = ({ isOpen, onClose, children, title = "" }) => {
+const Modal = ({ isOpen, onClose, children, title = "", maxWidth = "max-w-4xl" }) => {
   // Cerrar modal al presionar Escape
   useEffect(() => {
     const handleEscape = (event) => {
@@ -38,7 +38,7 @@ const Modal = ({ isOpen, onClose, children, title = "" }) => {
       />
       
       {/* Modal Container */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl max-h-[90vh] w-full mx-4 overflow-hidden animate-in zoom-in duration-300">
+      <div className={`relative bg-white rounded-2xl shadow-2xl ${maxWidth} max-h-[90vh] w-full mx-4 overflow-hidden animate-in zoom-in duration-300`}>
         {/* Header con botón de cierre */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           {title && (

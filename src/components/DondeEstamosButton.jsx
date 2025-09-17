@@ -34,6 +34,7 @@ const DondeEstamosButton = () => {
         isOpen={isModalOpen} 
         onClose={handleCloseModal}
         title="¡Estamos en constante crecimiento!"
+        maxWidth="max-w-[80%]"
       >
         <div className="space-y-6">
           <div className="text-center">
