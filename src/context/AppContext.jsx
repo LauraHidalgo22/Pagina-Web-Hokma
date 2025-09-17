@@ -68,7 +68,7 @@ export const CustomProvider = ({ children }) => {
   const [activeClientCard, setActiveClientCard] = useState(null)
 
   // Estados del componente UnidadesNegocio
-  const [selectedCard, setSelectedCard] = useState(1) // Por defecto selecciona el primer elemento
+  const [selectedCard, setSelectedCard] = useState(0) // Por defecto selecciona el primer elemento
   
   // Estados para la animación de Services
   const [isServicesAnimating, setIsServicesAnimating] = useState(false)
