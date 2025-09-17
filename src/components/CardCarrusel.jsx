@@ -68,7 +68,7 @@ const CardCarrusel = ({
                   <img 
                     src={displayData.overlayImage}
                     alt={`${displayData.name} overlay`}
-                    className="max-w-full max-h-full object-contain rounded-lg"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
               ) : overlayType === "image" && !displayData.overlayImage ? (

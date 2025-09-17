@@ -13,6 +13,7 @@ import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
 import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
+import SorpresaLogistica from '../assets/Sorpresa-card-logistica.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -255,7 +256,7 @@ export const CustomProvider = ({ children }) => {
             name: "Sector Logístico",
             description: "“¿Curioso por saber a quién ayudamos ?  Llámanos y lo hablamos.”",
             color: "#36A9E1",
-            imageOverlay: HokmaFedesoft
+            imageOverlay: SorpresaLogistica
         },
         {
             id: 202,
