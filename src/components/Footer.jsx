@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import sellosIcontec from '../assets/sellos_icontec.png'
 
 const Footer = () => {
@@ -20,11 +19,6 @@ const Footer = () => {
             className="space-y-6"
           >
             <div>
-              <img 
-                src={logoHokma} 
-                alt="Hokma Technologies" 
-                className="h-12 mb-4 filter brightness-110"
-              />
               <p className="text-white text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
                 Hokma Technologies Colombia es una empresa tecnológica especializada en desarrollo de software, sin ánimo de lucro que tiene por finalidad "Transformar ideas en soluciones digitales innovadoras".
               </p>
