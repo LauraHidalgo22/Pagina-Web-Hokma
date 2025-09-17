@@ -1,0 +1,34 @@
+@import './styles/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aplicar Caviar Dreams como fuente por defecto para todo el proyecto */
+* {
+  font-family: 'Caviar Dreams', sans-serif;
+}
+
+body {
+  font-family: 'Caviar Dreams', sans-serif;
+}
+
+/* Asegurar que headings también usen Caviar Dreams */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caviar Dreams', sans-serif;
+}
+
+/* Asegurar que elementos de formulario también usen Caviar Dreams */
+input, textarea, select, button {
+  font-family: 'Caviar Dreams', sans-serif;
+}
+
+/* Animación de flotado */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
