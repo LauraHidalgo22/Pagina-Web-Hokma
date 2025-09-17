@@ -1,4 +1,5 @@
 import AnimatedSection from './AnimatedSection'
+import SectionTitle from './SectionTitle'
 import IconoHokma from './IconoHokma'
 import { useAppContext } from '../context/AppContext'
 
@@ -7,28 +8,26 @@ const Contact = () => {
   const { formData, handleChange, handleSubmit } = useAppContext()
 
   return (
-    <section id="contacto" style={{ backgroundColor: '#A6C138' }}>
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <>
+      <section id="contacto" className='bg-white'>
+              {/* Título */}
         <AnimatedSection animation="fadeInUp" className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Caviar Dreams' }}>
+          <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
             Conectemos tu idea con la tecnolog&iacute;a
-          </h2>
+          </SectionTitle>
         </AnimatedSection>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20" style={{ backgroundColor: '#A6C138' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">
           {/* Icono Hokma Superior */}
           <AnimatedSection animation="fadeInLeft" className="flex justify-center">
-            <IconoHokma size={500} />
+            <IconoHokma size={200} />
           </AnimatedSection>
 
           {/* Contact Form */}
-          <AnimatedSection animation="fadeInUp" delay={0.3} className="lg:col-span-1">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg">
+          <AnimatedSection animation="fadeInUp" delay={0.3} className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                    Nombre completo *
-                  </label>
                   <input
                     type="text"
                     id="name"
@@ -36,16 +35,13 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="Tu nombre completo"
+                    className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors text-gray-800 placeholder-gray-500"
+                    placeholder="Nombre completo *"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                    Email *
-                  </label>
                   <input
                     type="email"
                     id="email"
@@ -53,8 +49,8 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="tu@email.com"
+                    className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors text-gray-800 placeholder-gray-500"
+                    placeholder="Email *"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   />
                 </div>
@@ -62,64 +58,52 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                    Empresa
-                  </label>
                   <input
                     type="text"
                     id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="Nombre de tu empresa"
+                    className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors text-gray-800 placeholder-gray-500"
+                    placeholder="Empresa"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                    Teléfono
-                  </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="+57 300 123 4567"
+                    className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors text-gray-800 placeholder-gray-500"
+                    placeholder="Teléfono"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Servicio de interés
-                </label>
                 <select
                   id="service"
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors text-gray-800"
                   style={{ fontFamily: 'Caviar Dreams' }}
                 >
-                  <option value="">Selecciona un servicio</option>
-                  <option value="desarrollo-web">Desarrollo Web</option>
-                  <option value="aplicaciones-moviles">Aplicaciones Móviles</option>
-                  <option value="automatizacion">Automatización</option>
-                  <option value="consultoria">Consultoría Digital</option>
-                  <option value="analytics">Analytics & BI</option>
-                  <option value="ciberseguridad">Ciberseguridad</option>
+                  <option value="" className="text-gray-500">Servicio de interés</option>
+                  <option value="desarrollo-web" className="text-gray-800">Desarrollo Web</option>
+                  <option value="aplicaciones-moviles" className="text-gray-800">Aplicaciones Móviles</option>
+                  <option value="automatizacion" className="text-gray-800">Automatización</option>
+                  <option value="consultoria" className="text-gray-800">Consultoría Digital</option>
+                  <option value="analytics" className="text-gray-800">Analytics & BI</option>
+                  <option value="ciberseguridad" className="text-gray-800">Ciberseguridad</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-secondary-700 mb-2" style={{ fontFamily: 'Caviar Dreams' }}>
-                  Mensaje *
-                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -127,8 +111,8 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                  placeholder="Cuéntanos sobre tu proyecto o necesidades..."
+                  className="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white transition-colors resize-none text-gray-800 placeholder-gray-500"
+                  placeholder="Mensaje *"
                   style={{ fontFamily: 'Caviar Dreams' }}
                 ></textarea>
               </div>
@@ -136,7 +120,7 @@ const Contact = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-700 transition-colors shadow-lg"
+                  className="w-full bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-[#A6C138] transition-colors"
                   style={{ fontFamily: 'Caviar Dreams' }}
                 >
                   Enviar Mensaje
@@ -147,11 +131,12 @@ const Contact = () => {
 
           {/* Icono Hokma Inferior */}
           <AnimatedSection animation="fadeInRight" delay={0.6} className="flex justify-center">
-            <IconoHokma size={500} />
+            <IconoHokma size={200} />
           </AnimatedSection>
         </div>
       </div>
     </section>
+    </>
   )
 }
 
