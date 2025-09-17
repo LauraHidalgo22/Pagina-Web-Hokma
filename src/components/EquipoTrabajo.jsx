@@ -13,8 +13,11 @@ const EquipoTrabajo = () => {
         </SectionTitle>
       </AnimatedSection>
       <div className="px-4 py-4 sm:px-6 lg:px-8 bg-[#2A2D3B]">
-        {/* Columna derecha - Grid de 4 cards del equipo con slider */}
-        <Carrusel maxWidth="max-w-6xl" />
+        {/* Columna derecha - Grid de 5 cards del equipo con slider */}
+        <Carrusel 
+          maxWidth="max-w-[100rem]" 
+          gridCols="grid-cols-1 md:grid-cols-3 lg:grid-cols-5"
+        />
       </div>
     </section>
   )

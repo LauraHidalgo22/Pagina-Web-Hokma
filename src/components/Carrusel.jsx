@@ -199,7 +199,7 @@ const Carrusel = ({
                 setActiveCardData(null)
               }}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                safeCurrentIndex === index 
+                currentIndex === index 
                   ? 'bg-white scale-110' 
                   : 'bg-white/50 hover:bg-white/70'
               }`}
