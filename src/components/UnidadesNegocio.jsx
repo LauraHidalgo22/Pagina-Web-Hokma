@@ -6,15 +6,15 @@ const UnidadesNegocio = () => {
   const { selectedCard, setSelectedCard, unidades, handleCardSelect, getContainerColor } = useAppContext();
 
   return (
-    <section className="w-full h-auto md:h-[300px] relative" style={{backgroundColor:"#ffffff"}}>
+    <section className="w-full h-auto md:h-[250px] relative" style={{backgroundColor:"#ffffff"}}>
       {/* Contenedor padre con SectionTitle */}
       <div 
-        className="w-full h-[170px] md:h-[110px] flex items-center px-7 transition-colors duration-300"
+        className="w-full h-[170px] md:h-[80px] flex items-center px-7 transition-colors duration-300"
         style={{ backgroundColor: getContainerColor() }}
       >
-        <SectionTitle titleClassName={getContainerColor() == '#ffffff' || getContainerColor() == '#F3F4F6' ? 'text-black' : 'text-white'}>
+        <h5 className={`${getContainerColor() == '#ffffff' || getContainerColor() == '#F3F4F6' ? 'text-black' : 'text-white'} text-3xl font-bold mb-12`}>
           Unidades de Negocio
-        </SectionTitle>
+        </h5>
       </div>
 
       {/* Sección de carrusel - Posicionada en el centro */}
