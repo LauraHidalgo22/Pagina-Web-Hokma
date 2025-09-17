@@ -10,7 +10,9 @@ const CardCarrusel = ({
   showOverlay = true,
   buttonColor = "bg-blue-500 hover:bg-blue-400",
   objectFit = "object-cover",
-  showImage = true
+  showImage = true,
+  overlayType = "text", // "text" o "image"
+  imageOverlay = null // imagen para mostrar en el overlay
 }) => {
   // Estructura de datos esperada:
   // item: { id, name, image/photo, position/subtitle, description }
@@ -21,7 +23,9 @@ const CardCarrusel = ({
     image: item.image || item.photo,
     subtitle: item.position || item.subtitle || '',
     description: item.description || '',
-    color: item.color || ''
+    color: item.color || '',
+    // Priorizar la imagen del item, luego la prop, luego null
+    overlayImage: item.imageOverlay || imageOverlay || null
   }
 
   return (
@@ -55,33 +59,61 @@ const CardCarrusel = ({
             </div>
           )}
           
-          {/* Overlay de texto cuando está activo */}
+          {/* Overlay cuando está activo */}
           {activeCard === displayData.id && showOverlay && (
             <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-4 animate-in fade-in duration-300">
-              <div className="text-center space-y-3">
-                <h4 
-                  className="text-white font-bold text-lg"
-                  style={{ fontFamily: 'Caviar Dreams' }}
-                >
-                  {displayData.name}
-                </h4>
-                {displayData.subtitle && (
-                  <p 
-                    className="text-blue-300 font-medium text-sm"
+              {overlayType === "image" && displayData.overlayImage ? (
+                // Mostrar imagen en el overlay
+                <div className="w-full h-full flex items-center justify-center">
+                  <img 
+                    src={displayData.overlayImage}
+                    alt={`${displayData.name} overlay`}
+                    className="max-w-full max-h-full object-contain rounded-lg"
+                  />
+                </div>
+              ) : overlayType === "image" && !displayData.overlayImage ? (
+                // Fallback cuando no hay imagen específica para el overlay tipo imagen
+                <div className="text-center space-y-3">
+                  <h4 
+                    className="text-white font-bold text-lg"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   >
-                    {displayData.subtitle}
-                  </p>
-                )}
-                {displayData.description && (
+                    {displayData.name}
+                  </h4>
                   <p 
-                    className="text-gray-200 text-sm leading-relaxed"
+                    className="text-gray-300 text-sm"
                     style={{ fontFamily: 'Caviar Dreams' }}
                   >
-                    {displayData.description}
+                    Imagen no disponible
                   </p>
-                )}
-              </div>
+                </div>
+              ) : (
+                // Mostrar texto en el overlay (comportamiento original)
+                <div className="text-center space-y-3">
+                  <h4 
+                    className="text-white font-bold text-lg"
+                    style={{ fontFamily: 'Caviar Dreams' }}
+                  >
+                    {displayData.name}
+                  </h4>
+                  {displayData.subtitle && (
+                    <p 
+                      className="text-blue-300 font-medium text-sm"
+                      style={{ fontFamily: 'Caviar Dreams' }}
+                    >
+                      {displayData.subtitle}
+                    </p>
+                  )}
+                  {displayData.description && (
+                    <p 
+                      className="text-gray-200 text-sm leading-relaxed"
+                      style={{ fontFamily: 'Caviar Dreams' }}
+                    >
+                      {displayData.description}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -254,25 +254,29 @@ export const CustomProvider = ({ children }) => {
             id: 201,
             name: "Sector Logístico",
             description: "“¿Curioso por saber a quién ayudamos ?  Llámanos y lo hablamos.”",
-            color: "#36A9E1"
+            color: "#36A9E1",
+            imageOverlay: HokmaFedesoft
         },
         {
             id: 202,
             name: "Sector Salud",
             description: "“Sí, la innovación también salva vidas pero esa historia te la contamos en privado.”",
-            color: "#95C11F"
+            color: "#95C11F",
+            imageOverlay: HokmaFedesoft
         },
         {
             id: 203,
             name: "Sector Financiero",
             description: "“Ya ayudamos a que los números cuadren  ¿te da intriga? Descúbrelo con nosotros.”",
-            color: "#F39323"
+            color: "#F39323",
+            imageOverlay: HokmaFedesoft
         },
         {
             id: 204,
             name: "Sector Gobierno",
             description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
-            color: "#8E3089"
+            color: "#8E3089",
+            imageOverlay: HokmaFedesoft
         }
     ]
 

@@ -120,6 +120,8 @@ const Carrusel = ({
             handleCardClick={handleCardClick}
             buttonColor='bg-[#40BAEC]'
             {...cardProps}
+            // Pasar la imagen de overlay específica del item si existe
+            imageOverlay={item.imageOverlay || cardProps.imageOverlay}
           />
         );
     }

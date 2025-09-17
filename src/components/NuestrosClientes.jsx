@@ -2,6 +2,7 @@ import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
+import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 
 const NuestrosClientes = () => {
   const { clients, activeClientCard, handleClientCardClick } = useAppContext();
@@ -37,7 +38,8 @@ const NuestrosClientes = () => {
                   showOverlay: true,
                   buttonColor: "bg-blue-600 hover:bg-blue-500",
                   objectFit: "object-contain",
-                  showImage: false // Nueva prop para no mostrar imagen
+                  showImage: false, // No mostrar imagen principal
+                  overlayType: "image", // Mostrar imagen en el overlay
                 }}
               />
             </div>
