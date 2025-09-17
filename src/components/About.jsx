@@ -29,14 +29,23 @@ const About = () => {
 
         {/* Contenedor principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {cardsAbout.map((card, index) => (
-            <CardInformativa
-              key={index}
-              card={card}
-              index={index}
-              delay={0.1}
-            />
-          ))}
+          {cardsAbout.map((card, index) => {
+            const isLastCard = index === cardsAbout.length - 1;
+            const shouldSpanTwoColumns = isLastCard && cardsAbout.length % 4 !== 0;
+            
+            return (
+              <div
+                key={index}
+                className={shouldSpanTwoColumns ? 'md:col-span-2 lg:col-span-2' : ''}
+              >
+                <CardInformativa
+                  card={card}
+                  index={index}
+                  delay={0.1}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
