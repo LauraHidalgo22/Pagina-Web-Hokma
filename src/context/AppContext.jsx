@@ -471,26 +471,26 @@ export const CustomProvider = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Efecto para el carrusel automático (movido desde About.jsx)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => {
-        const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        setActiveCardIndex(nextIndex)
-        return nextIndex
-      })
-    }, 5000)
+  // Efecto para el carrusel automático (movido desde About.jsx) - DESACTIVADO
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImageIndex((prevIndex) => {
+  //       const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //       setActiveCardIndex(nextIndex)
+  //       return nextIndex
+  //     })
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [images.length])
+  //   return () => clearInterval(interval)
+  // }, [images.length])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
-    }, 5000)
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [carouselSlides.length])
+  //   return () => clearInterval(interval)
+  // }, [carouselSlides.length])
 
   // Efecto para el slider automático cada 5 segundos - DESACTIVADO porque ahora mostramos todas las cards juntas
   // useEffect(() => {

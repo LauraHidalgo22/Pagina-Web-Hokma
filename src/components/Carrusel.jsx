@@ -20,7 +20,8 @@ const Carrusel = ({
   cardProps = {},
   cardType = "carrusel", // Nuevo: tipo de card a renderizar
   customCardRenderer = null, // Nuevo: renderizador personalizado
-  navigationTextColor = "text-white" // Nuevo: color del texto de navegación
+  navigationTextColor = "text-white", // Nuevo: color del texto de navegación
+  maxWidth = "max-w-1xl" // Nuevo: tamaño máximo del contenedor
 }) => {
   // Estado local para carruseles independientes
   const [localCurrentSlide, setLocalCurrentSlide] = useState(0)
@@ -164,7 +165,7 @@ const Carrusel = ({
         >
           {slidesData.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
-              <div className={`grid ${gridCols} gap-8 max-w-1xl mx-auto py-4 px-4`}>
+              <div className={`grid ${gridCols} gap-8 ${maxWidth} mx-auto py-4 px-4`}>
                 {slide.map((item, index) => 
                   renderCard(item, index, slideIndex)
                 )}
