@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-global-group-menu.png'
-import iso9001 from '../assets/icontec_iso_9001.png'
-import iso14001 from '../assets/icontec_iso_14001.png'
-import iso45001 from '../assets/icontec_iso_45001.png'
-import iqnet from '../assets/iqnet.png'
+import sellosIcontec from '../assets/sellos_icontec.png'
 
 const Footer = () => {
   return (
@@ -110,42 +107,14 @@ const Footer = () => {
               </p>
             </div>
             
-            {/* Certificaciones con imágenes reales */}
-            <div className="grid grid-cols-2 md:grid-cols-4">
+            {/* Certificaciones con imagen unificada */}
+            <div className="flex justify-center">
               <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
                 <img 
-                  src={iso9001} 
-                  alt="ISO 9001 Calidad"
-                  className="w-20 h-20 object-contain mx-auto"
+                  src={sellosIcontec} 
+                  alt="Certificaciones ICONTEC - ISO 9001, ISO 14001, ISO 45001"
+                  className="w-auto h-32 object-contain mx-auto"
                 />
-                <p className="text-white text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Calidad</p>
-              </div>
-              
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
-                <img 
-                  src={iso14001} 
-                  alt="ISO 14001 Ambiental"
-                  className="w-20 h-20 object-contain mx-auto"
-                />
-                <p className="text-white text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Ambiental</p>
-              </div>
-              
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
-                <img 
-                  src={iso45001} 
-                  alt="ISO 45001 Seguridad"
-                  className="w-20 h-20 object-contain mx-auto"
-                />
-                <p className="text-white text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>Seguridad</p>
-              </div>
-
-              <div className="group cursor-pointer transform hover:scale-105 transition-all duration-300 text-center">
-                <img 
-                  src={iqnet} 
-                  alt="IQNET Certified Management System"
-                  className="w-20 h-20 object-contain mx-auto"
-                />
-                <p className="text-white text-xs mt-2" style={{ fontFamily: 'Caviar Dreams' }}>IQNET</p>
               </div>
             </div>
           </motion.div>
