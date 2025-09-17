@@ -28,7 +28,22 @@ const Header = () => {
           <div 
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, #292C3A 0%, #292C3A 8%, rgba(41, 44, 58, 0.6) 15%, rgba(41, 44, 58, 0.2) 22%, transparent 30%)'
+              background: `
+                linear-gradient(to right, #292C3A 0%, #292C3A 10%, transparent 20%),
+                radial-gradient(circle at 2% 20%, #292C3A 35px, transparent 35px),
+                radial-gradient(circle at 4% 60%, #292C3A 35px, transparent 35px),
+                radial-gradient(circle at 6% 40%, #292C3A 30px, transparent 30px),
+                radial-gradient(circle at 8% 80%, #292C3A 25px, transparent 25px),
+                radial-gradient(circle at 10% 30%, rgba(41, 44, 58, 0.9) 25px, transparent 25px),
+                radial-gradient(circle at 12% 70%, rgba(41, 44, 58, 0.8) 20px, transparent 20px),
+                radial-gradient(circle at 14% 50%, rgba(41, 44, 58, 0.7) 20px, transparent 20px),
+                radial-gradient(circle at 16% 90%, rgba(41, 44, 58, 0.6) 15px, transparent 15px),
+                radial-gradient(circle at 18% 35%, rgba(41, 44, 58, 0.5) 15px, transparent 15px),
+                radial-gradient(circle at 20% 75%, rgba(41, 44, 58, 0.3) 10px, transparent 10px),
+                radial-gradient(circle at 22% 55%, rgba(41, 44, 58, 0.2) 10px, transparent 10px),
+                radial-gradient(circle at 24% 25%, rgba(41, 44, 58, 0.1) 8px, transparent 8px)
+              `,
+              backgroundSize: '100% 100%'
             }}
           ></div>
         </>
