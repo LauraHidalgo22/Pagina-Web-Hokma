@@ -1,6 +1,6 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import Carrusel from './Carrusel'
+import CardInformativa from './CardInformativa'
 import { useAppContext } from '../context/AppContext'
 
 const About = () => {
@@ -27,15 +27,17 @@ const About = () => {
           </SectionTitle>
         </AnimatedSection>
 
-        {/* Carrusel de Cards Informativas */}
-        <Carrusel
-          slides={slides}
-          cardType="informativa"
-          gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-          showNavigation={slides.length > 1}
-          showIndicators={slides.length > 1}
-          navigationTextColor="text-black"
-        />
+        {/* Contenedor principal */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {cardsAbout.map((card, index) => (
+            <CardInformativa
+              key={index}
+              card={card}
+              index={index}
+              delay={0.1}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )
