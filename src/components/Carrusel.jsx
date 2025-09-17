@@ -1,5 +1,7 @@
 import AnimatedSection from './AnimatedSection'
 import CardCarrusel from './CardCarrusel'
+import CardInformativa from './CardInformativa'
+import CardUnidadNegocio from './CardUnidadNegocio'
 import { useAppContext } from '../context/AppContext'
 import { useState } from 'react'
 
@@ -15,7 +17,10 @@ const Carrusel = ({
   gridCols = "grid-cols-4",
   showNavigation = true,
   showIndicators = true,
-  cardProps = {}
+  cardProps = {},
+  cardType = "carrusel", // Nuevo: tipo de card a renderizar
+  customCardRenderer = null, // Nuevo: renderizador personalizado
+  navigationTextColor = "text-white" // Nuevo: color del texto de navegación
 }) => {
   // Estado local para carruseles independientes
   const [localCurrentSlide, setLocalCurrentSlide] = useState(0)
@@ -62,6 +67,62 @@ const Carrusel = ({
     (setActiveItem || setLocalActiveCard) : 
     (setActiveItem || setActiveCard);
 
+  // Función para renderizar el tipo de card apropiado
+  const renderCard = (item, index, slideIndex = 0) => {
+    const key = `${slideIndex}-${index}`;
+    const globalIndex = slideIndex * (slides?.[0]?.length || 4) + index;
+
+    // Si hay un renderizador personalizado, usarlo
+    if (customCardRenderer) {
+      return customCardRenderer(item, globalIndex, key);
+    }
+
+    // Calcular si es la última card de toda la lista (para cards informativas)
+    const totalItems = slidesData.flat().length;
+    const isLastCard = globalIndex === totalItems - 1;
+    const shouldSpanTwoColumns = cardType === 'informativa' && isLastCard;
+
+    // Renderizar según el tipo de card
+    switch (cardType) {
+      case 'informativa':
+        return (
+          <div
+            key={key}
+            className={shouldSpanTwoColumns ? 'col-span-2' : ''}
+          >
+            <CardInformativa
+              card={item}
+              index={globalIndex}
+              delay={0.1}
+              {...cardProps}
+            />
+          </div>
+        );
+        
+      case 'unidadNegocio':
+        return (
+          <CardUnidadNegocio
+            key={key}
+            {...item}
+            {...cardProps}
+          />
+        );
+        
+      case 'carrusel':
+      default:
+        return (
+          <CardCarrusel
+            key={key}
+            item={item}
+            index={index}
+            activeCard={activeCardData}
+            handleCardClick={handleCardClick}
+            {...cardProps}
+          />
+        );
+    }
+  };
+
   return (
     <AnimatedSection animation="fadeInRight" delay={0.3} className="w-full relative">
       {/* Flechas de navegación */}
@@ -72,12 +133,12 @@ const Carrusel = ({
             className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
             disabled={slidesData.length <= 1}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           
-          <div className="text-white text-center">
+          <div className={`text-center ${navigationTextColor}`}>
             <span className="text-sm opacity-75" style={{ fontFamily: 'Caviar Dreams' }}>
               {currentIndex + 1} de {slidesData.length}
             </span>
@@ -88,7 +149,7 @@ const Carrusel = ({
             className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
             disabled={slidesData.length <= 1}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -104,16 +165,9 @@ const Carrusel = ({
           {slidesData.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
               <div className={`grid ${gridCols} gap-8 max-w-1xl mx-auto py-4 px-4`}>
-                {slide.map((item, index) => (
-                  <CardCarrusel
-                    key={item.id}
-                    item={item}
-                    index={index}
-                    activeCard={activeCardData}
-                    handleCardClick={handleCardClick}
-                    {...cardProps}
-                  />
-                ))}
+                {slide.map((item, index) => 
+                  renderCard(item, index, slideIndex)
+                )}
               </div>
             </div>
           ))}

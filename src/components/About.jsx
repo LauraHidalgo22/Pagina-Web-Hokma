@@ -1,20 +1,21 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import CardInformativa from './CardInformativa'
+import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
 
 const About = () => {
   // Usar el contexto en lugar de estados locales
   const {
-    scrollY,
-    currentImageIndex,
-    activeCardIndex,
-    images,
-    cards,
-    handleCardClick,
-    handleIndicatorClick,
     cardsAbout
   } = useAppContext()
+
+  // Dividir las cards en grupos de 4 para el carrusel
+  const cardsPerSlide = 4
+  const slides = []
+  
+  for (let i = 0; i < cardsAbout.length; i += cardsPerSlide) {
+    slides.push(cardsAbout.slice(i, i + cardsPerSlide))
+  }
 
   return (
     <section id="nosotros" className="py-20 bg-gray-100">
@@ -26,17 +27,15 @@ const About = () => {
           </SectionTitle>
         </AnimatedSection>
 
-        {/* Contenedor principal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {cardsAbout.map((card, index) => (
-            <CardInformativa
-              key={index}
-              card={card}
-              index={index}
-              delay={0.1}
-            />
-          ))}
-        </div>
+        {/* Carrusel de Cards Informativas */}
+        <Carrusel
+          slides={slides}
+          cardType="informativa"
+          gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          showNavigation={slides.length > 1}
+          showIndicators={slides.length > 1}
+          navigationTextColor="text-black"
+        />
       </div>
     </section>
   )
