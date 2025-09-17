@@ -17,16 +17,14 @@ const CardInformativa = ({
           style={{ backgroundColor: headerColor }}
         >
           <h3 
-            className="text-white font-semibold text-lg text-center" 
-            style={{ fontFamily: 'Caviar Dreams' }}
+            className="text-white font-semibold text-lg text-center"
           >
             {card.title}
           </h3>
         </div>
         <div className="p-6 flex-grow">
           <p 
-            className="text-black text-sm leading-relaxed" 
-            style={{ fontFamily: 'Caviar Dreams' }}
+            className="text-black text-sm leading-relaxed"
           >
             {card.description}
           </p>

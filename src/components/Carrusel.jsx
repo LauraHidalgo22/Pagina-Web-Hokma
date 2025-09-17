@@ -181,7 +181,7 @@ const Carrusel = ({
       {showNavigation && (
         <div className="flex justify-center mt-4">
           <div className={`text-center ${navigationTextColor}`}>
-            <span className="text-sm opacity-75" style={{ fontFamily: 'Caviar Dreams' }}>
+            <span className="text-sm opacity-75">
               {safeCurrentIndex + 1} de {slidesData.length}
             </span>
           </div>
