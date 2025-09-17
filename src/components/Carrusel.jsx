@@ -118,6 +118,7 @@ const Carrusel = ({
             index={index}
             activeCard={activeCardData}
             handleCardClick={handleCardClick}
+            buttonColor='bg-[#40BAEC]'
             {...cardProps}
           />
         );
