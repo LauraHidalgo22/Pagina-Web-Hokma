@@ -22,3 +22,13 @@ h1, h2, h3, h4, h5, h6 {
 input, textarea, select, button {
   font-family: 'Caviar Dreams', sans-serif;
 }
+
+/* Animación de flotado */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

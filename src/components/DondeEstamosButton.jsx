@@ -19,32 +19,15 @@ const DondeEstamosButton = () => {
 
   return (
     <>
-      <div className="z-50 group">
-        <button 
-          onClick={handleButtonClick}
-          className="flex items-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden rounded-full shadow-lg cursor-pointer"
-          style={{ backgroundColor: '#36A9E1' }}
-        >
-          {/* Icono Donde Estamos */}
-          <div className="">
-            <img 
-              src={IconoDondeEstamos}
-              alt="Donde encontrarnos"
-              className="w-20 h-20" 
-            />
-          </div>
-          
-          {/* Message Text (only visible on hover) */}
-          <div className="max-w-0 group-hover:max-w-xs group-hover:pr-4 transition-all duration-300 ease-in-out overflow-hidden">
-            <span 
-              className="text-sm font-medium whitespace-nowrap text-white"
-              style={{ fontFamily: 'Caviar Dreams' }}
-            >
-              ¡Estamos en constante crecimiento!
-            </span>
-          </div>
-        </button>
-      </div>
+      <img 
+        src={IconoDondeEstamos}
+        alt="Donde encontrarnos"
+        onClick={handleButtonClick}
+        className="w-32 h-32 cursor-pointer transition-transform duration-300 hover:scale-110 hover:drop-shadow-lg" 
+        style={{
+          animation: 'float 3s ease-in-out infinite'
+        }}
+      />
 
       {/* Modal - ahora el ReactPortal está dentro del componente Modal */}
       <Modal 
