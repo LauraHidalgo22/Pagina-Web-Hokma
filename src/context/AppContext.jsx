@@ -14,6 +14,9 @@ import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
 import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
 import SorpresaLogistica from '../assets/Sorpresa-card-logistica.png'
+import SorpresaSalud from '../assets/Sorpresa-card-salud.png'
+import SorpresaFinanzas from '../assets/Sorpresa-card-finanzas.png'
+import SorpresaGobierno from '../assets/Sorpresa-card-gobierno.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -263,21 +266,21 @@ export const CustomProvider = ({ children }) => {
             name: "Sector Salud",
             description: "“Sí, la innovación también salva vidas pero esa historia te la contamos en privado.”",
             color: "#95C11F",
-            imageOverlay: HokmaFedesoft
+            imageOverlay: SorpresaSalud
         },
         {
             id: 203,
             name: "Sector Financiero",
             description: "“Ya ayudamos a que los números cuadren  ¿te da intriga? Descúbrelo con nosotros.”",
             color: "#F39323",
-            imageOverlay: HokmaFedesoft
+            imageOverlay: SorpresaFinanzas
         },
         {
             id: 204,
             name: "Sector Gobierno",
             description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
             color: "#8E3089",
-            imageOverlay: HokmaFedesoft
+            imageOverlay: SorpresaGobierno
         }
     ]
 
