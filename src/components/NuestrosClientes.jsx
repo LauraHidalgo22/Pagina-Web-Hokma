@@ -5,10 +5,10 @@ import { useAppContext } from '../context/AppContext'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 
 const NuestrosClientes = () => {
-  const { clients, activeClientCard, handleClientCardClick } = useAppContext();
+  const { clients, activeClientCard, handleClientCardClick, setActiveClientCard } = useAppContext();
   
-  // Mostrar todas las cards en una sola vista
-  const clientSlides = [clients]; // Todas las cards en un solo slide
+  // Mostrar todos los 4 clientes en un solo slide
+  const clientSlides = [clients];
 
   return (
     <section className="pt-10 bg-white">
@@ -28,15 +28,16 @@ const NuestrosClientes = () => {
               <Carrusel
                 slides={clientSlides}
                 gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-                showNavigation={false}
-                showIndicators={false}
+                showNavigation={true}
+                showIndicators={true}
+                navigationTextColor="text-gray-white"
                 onCardClick={handleClientCardClick}
                 activeItem={activeClientCard}
-                setActiveItem={handleClientCardClick}
+                setActiveItem={setActiveClientCard}
                 cardProps={{
                   imageAspect: "aspect-[3/2]",
                   showOverlay: true,
-                  buttonColor: "bg-blue-600 hover:bg-blue-500",
+                  buttonColor: "bg-[#40BAEC]",
                   objectFit: "object-contain",
                   showImage: false, // No mostrar imagen principal
                   overlayType: "image", // Mostrar imagen en el overlay

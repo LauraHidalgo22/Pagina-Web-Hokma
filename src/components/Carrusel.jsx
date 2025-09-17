@@ -41,10 +41,13 @@ const Carrusel = ({
   // Usar props personalizadas o valores por defecto del contexto
   const slidesData = slides || teamSlides;
   
-  // Si se proporcionan slides personalizados, usar estado local
+  // Si se proporcionan slides personalizados, usar estado local, sino usar contexto
   const currentIndex = slides ? 
     (currentSlideIndex !== null ? currentSlideIndex : localCurrentSlide) : 
     (currentSlideIndex !== null ? currentSlideIndex : currentSlide);
+    
+  // Asegurar que currentIndex esté dentro del rango válido
+  const safeCurrentIndex = Math.max(0, Math.min(currentIndex, slidesData.length - 1));
     
   const handlePrevSlide = slides ? 
     (onPrevSlide || (() => setLocalCurrentSlide(prev => (prev - 1 + slidesData.length) % slidesData.length))) : 
@@ -132,7 +135,7 @@ const Carrusel = ({
       {/* Container del slider */}
       <div className="overflow-hidden relative">
         {/* Flechas de navegación posicionadas en los extremos */}
-        {showNavigation && slidesData.length > 1 && (
+        {showNavigation && (
           <>
             {/* Flecha izquierda */}
             <button 
@@ -160,7 +163,7 @@ const Carrusel = ({
 
         <div 
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          style={{ transform: `translateX(-${safeCurrentIndex * 100}%)` }}
         >
           {slidesData.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
@@ -175,18 +178,18 @@ const Carrusel = ({
       </div>
 
       {/* Contador de slides centrado */}
-      {showNavigation && slidesData.length > 1 && (
+      {showNavigation && (
         <div className="flex justify-center mt-4">
           <div className={`text-center ${navigationTextColor}`}>
             <span className="text-sm opacity-75" style={{ fontFamily: 'Caviar Dreams' }}>
-              {currentIndex + 1} de {slidesData.length}
+              {safeCurrentIndex + 1} de {slidesData.length}
             </span>
           </div>
         </div>
       )}
 
       {/* Indicadores de slides */}
-      {showIndicators && slidesData.length > 1 && (
+      {showIndicators && (
         <div className="flex justify-center mt-6 space-x-2">
           {slidesData.map((_, index) => (
             <button
@@ -196,7 +199,7 @@ const Carrusel = ({
                 setActiveCardData(null)
               }}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentIndex === index 
+                safeCurrentIndex === index 
                   ? 'bg-white scale-110' 
                   : 'bg-white/50 hover:bg-white/70'
               }`}
