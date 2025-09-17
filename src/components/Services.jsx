@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
+import { style } from 'framer-motion/client'
 
 const Services = () => {
   const { getCurrentServices, getContainerColor, isServicesAnimating } = useAppContext();
@@ -15,30 +16,18 @@ const Services = () => {
         className="absolute inset-0 z-0 bg-white"
       ></div>
       
-      {/* Background image - behind all elements */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${fondoSeccionDos})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.3
-        }}
-      ></div>
-      
       <div className="mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-16">
           <AnimatedSection animation="fadeInUp">
             <SectionTitle className="mb-4">
-              Soluciones de software a la medida
+              Soluciones tecnol&oacute;gicas
             </SectionTitle>
           </AnimatedSection>
         </div>
 
         {/* Layout principal: Grid de cards con patrón alternado dinámico */}
         <div 
-          className={`grid grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
+          className={`grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
             isServicesAnimating ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -61,7 +50,7 @@ const Services = () => {
                 key={index}
                 animation="fadeInUp" 
                 delay={0.2 + (index * 0.2)} 
-                className={colSpan === 2 ? "col-span-2" : ""}
+                className={colSpan === 2 ? "md:col-span-2" : ""}
               >
                 <div 
                   className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 relative h-full transform hover:scale-[1.02] hover:z-10"
@@ -70,21 +59,15 @@ const Services = () => {
                   }}
                 >
                   <h3 
-                    className={`font-semibold text-gray-900 ${isLarge ? 'text-xl mb-4' : 'text-lg mb-3'}`}
-                    style={{ fontFamily: 'Caviar Dreams' }}
+                    className={`font-semibold ${isLarge ? 'text-2xl mb-4' : 'text-xl mb-3'}`}
+                    style={{ color: getContainerColor() != '#F3F4F6' ? getContainerColor() != "#ffffff" ? getContainerColor() : "#000000" : "#000000" }}
                   >
                     {service.title}
                   </h3>
-                  <p 
-                    className={`text-gray-600 leading-relaxed ${isLarge ? 'mb-6' : 'mb-4 text-sm'}`}
-                    style={{ fontFamily: 'Caviar Dreams' }}
-                  >
-                    {service.description}
-                  </p>
                   <div 
                     className={`absolute ${isLarge ? 'bottom-4 right-4' : 'bottom-3 right-3'}`}
                   >
-                    <IconoHokma size={isLarge ? 42 : 32} color={getContainerColor()}/>
+                    <IconoHokma size={isLarge ? 42 : 32} color="#dfdfdf" />
                   </div>
                 </div>
               </AnimatedSection>

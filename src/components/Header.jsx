@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import logoHokma from '../assets/logo-hokma-global-group-menu.png'
 import IconoHokma from './IconoHokma'
 import CTAButton from './CTAButton'
+import Idioma from './Idioma'
 import { useAppContext } from '../context/AppContext'
 
 const Header = () => {
@@ -27,7 +28,22 @@ const Header = () => {
           <div 
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, #292C3A 0%, #292C3A 8%, rgba(41, 44, 58, 0.6) 15%, rgba(41, 44, 58, 0.2) 22%, transparent 30%)'
+              background: `
+                linear-gradient(to right, #292C3A 0%, #292C3A 10%, transparent 20%),
+                radial-gradient(circle at 2% 20%, #292C3A 35px, transparent 35px),
+                radial-gradient(circle at 4% 60%, #292C3A 35px, transparent 35px),
+                radial-gradient(circle at 6% 40%, #292C3A 30px, transparent 30px),
+                radial-gradient(circle at 8% 80%, #292C3A 25px, transparent 25px),
+                radial-gradient(circle at 10% 30%, rgba(41, 44, 58, 0.9) 25px, transparent 25px),
+                radial-gradient(circle at 12% 70%, rgba(41, 44, 58, 0.8) 20px, transparent 20px),
+                radial-gradient(circle at 14% 50%, rgba(41, 44, 58, 0.7) 20px, transparent 20px),
+                radial-gradient(circle at 16% 90%, rgba(41, 44, 58, 0.6) 15px, transparent 15px),
+                radial-gradient(circle at 18% 35%, rgba(41, 44, 58, 0.5) 15px, transparent 15px),
+                radial-gradient(circle at 20% 75%, rgba(41, 44, 58, 0.3) 10px, transparent 10px),
+                radial-gradient(circle at 22% 55%, rgba(41, 44, 58, 0.2) 10px, transparent 10px),
+                radial-gradient(circle at 24% 25%, rgba(41, 44, 58, 0.1) 8px, transparent 8px)
+              `,
+              backgroundSize: '100% 100%'
             }}
           ></div>
         </>
@@ -42,6 +58,18 @@ const Header = () => {
       <nav className={`px-4 sm:px-6 lg:px-8 relative flex justify-between items-center flex-direction-column transition-all duration-500 ${
         isScrolled ? 'h-18' : 'h-40'
       }`}>
+        {/* Componente Idioma - Solo visible cuando no hay scroll */}
+        {!isScrolled && (
+          <motion.div 
+            className="absolute top-4 right-4 z-10"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <Idioma />
+          </motion.div>
+        )}
+
         {/* Logo */}
           <motion.div 
             className="flex-shrink-0 flex items-center"
@@ -55,7 +83,7 @@ const Header = () => {
               className={`w-auto transition-all duration-500 ${
                 isScrolled 
                   ? 'h-[80px]'
-                  : 'h-[145px] filter brightness-110'
+                  : 'h-[200px] filter brightness-110 mt-9'
               }`}
             />
           </motion.div>

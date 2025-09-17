@@ -33,6 +33,7 @@ export default {
         }
       },
       fontFamily: {
+        sans: ["Caviar Dreams", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"],
         caviar: ["Caviar Dreams", "sans-serif"],
       },
     },

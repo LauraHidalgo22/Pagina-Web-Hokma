@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import fondoPrincipal from '../assets/fondo_principal.jpg'
 import bordeCorporativo from '../assets/borde_corporativo.png'
 import CTAButton from './CTAButton'
+import DondeEstamosButton from './DondeEstamosButton'
 import { useAppContext } from '../context/AppContext'
 
 const Hero = () => {
@@ -189,6 +190,16 @@ const Hero = () => {
             className="w-1 h-3 bg-cyan-400 rounded-full mt-2"
           />
         </motion.div>
+      </motion.div>
+
+      {/* DondeEstamosButton en esquina inferior izquierda */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 2 }}
+        className="absolute bottom-8 right-8 z-20"
+      >
+        <DondeEstamosButton />
       </motion.div>
     </section>
   )

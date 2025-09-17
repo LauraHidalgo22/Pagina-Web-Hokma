@@ -13,6 +13,10 @@ import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
 import logoHokmaGlobalComunications from '../assets/logo-hokma-global-communications.png'
 import logoHokmaBiotech from '../assets/logo-hokma-biotech.png'
+import SorpresaLogistica from '../assets/Sorpresa-card-logistica.png'
+import SorpresaSalud from '../assets/Sorpresa-card-salud.png'
+import SorpresaFinanzas from '../assets/Sorpresa-card-finanzas.png'
+import SorpresaGobierno from '../assets/Sorpresa-card-gobierno.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -58,10 +62,13 @@ export const CustomProvider = ({ children }) => {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0)
 
   // Estados del componente NuestrosAliados
-  const [currentAllyIndex, setCurrentAllyIndex] = useState(0)
+  const [activeAllyCard, setActiveAllyCard] = useState(null)
+
+  // Estados del componente NuestrosClientes
+  const [activeClientCard, setActiveClientCard] = useState(null)
 
   // Estados del componente UnidadesNegocio
-  const [selectedCard, setSelectedCard] = useState(1) // Por defecto selecciona el primer elemento
+  const [selectedCard, setSelectedCard] = useState(0) // Por defecto selecciona el primer elemento
   
   // Estados para la animación de Services
   const [isServicesAnimating, setIsServicesAnimating] = useState(false)
@@ -228,16 +235,52 @@ export const CustomProvider = ({ children }) => {
   // Array de aliados
     const allies = [
         {
-            id: 1,
+            id: 101,
             name: "Fedesoft",
             image: HokmaFedesoft,
-            alt: "Hokma Technologies - Aliado Fedesoft"
+            alt: "Hokma Technologies - Aliado Fedesoft",
+            subtitle: "Federación Colombiana de Software y TI",
+            description: "Trabajamos con la principal gremio tecnológico de Colombia para fortalecer el ecosistema de software y tecnología del país."
         },
         {
-            id: 2,
+            id: 102,
             name: "Microsoft",
             image: HokmaMicrosoft,
-            alt: "Hokma Technologies - Aliado Microsoft"
+            alt: "Hokma Technologies - Aliado Microsoft",
+            subtitle: "Tecnología de clase mundial",
+            description: "Partner estratégico que nos permite ofrecer soluciones empresariales con tecnología Microsoft de última generación."
+        }
+    ]
+
+    // Array de clientes
+    const clients = [
+        {
+            id: 201,
+            name: "Sector Logístico",
+            description: "“¿Curioso por saber a quién ayudamos ?  Llámanos y lo hablamos.”",
+            color: "#36A9E1",
+            imageOverlay: SorpresaLogistica
+        },
+        {
+            id: 202,
+            name: "Sector Salud",
+            description: "“Sí, la innovación también salva vidas pero esa historia te la contamos en privado.”",
+            color: "#95C11F",
+            imageOverlay: SorpresaSalud
+        },
+        {
+            id: 203,
+            name: "Sector Financiero",
+            description: "“Ya ayudamos a que los números cuadren  ¿te da intriga? Descúbrelo con nosotros.”",
+            color: "#F39323",
+            imageOverlay: SorpresaFinanzas
+        },
+        {
+            id: 204,
+            name: "Sector Gobierno",
+            description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
+            color: "#8E3089",
+            imageOverlay: SorpresaGobierno
         }
     ]
 
@@ -353,6 +396,37 @@ export const CustomProvider = ({ children }) => {
         },
     ]
 
+    const cardsAbout = [
+      {
+        title: "1. Crecimiento exponencial impulsado por tecnología",
+        description: "Aceleramos la evolución de su negocio mediante soluciones digitales de última generación que generan valor sostenible y escalable."
+      },
+      {
+        title: "2. Procesos inteligentes, diseñados para ganar",
+        description: "Integramos metodologías ágiles y herramientas tecnológicas que optimizan cada operación, alineadas con los objetivos estratégicos de su organización."
+      },
+      {
+        title: "3. Entregas ágiles y de alto impacto",
+        description: "Con plataformas avanzadas y equipos especializados, garantizamos resultados rápidos, organizados y medibles, en el momento que su empresa los necesita."
+      },
+      {
+        title: "4. Decisiones estratégicas basadas en datos",
+        description: "Potenciamos su capacidad de decisión con analítica avanzada, inteligencia artificial y tableros de control que aseguran precisión y minimizan riesgos."
+      },
+      {
+        title: "5. Innovación disruptiva como ventaja competitiva",
+        description: "Le damos acceso a tecnologías emergentes que transforman procesos tradicionales en experiencias digitales únicas, adelantando a su empresa frente al mercado."
+      },
+      {
+        title: "6. Acompañamiento experto, siempre conectado",
+        description: "Más que soporte, ofrecemos un ecosistema de especialistas y soluciones digitales que garantizan continuidad, seguridad y confianza en cada etapa del camino."
+      },
+      {
+        title: "7. Futuro asegurado con tecnología de vanguardia",
+        description: "No solo resolvemos los retos inmediatos de su organización: construimos junto a usted una visión sostenible a largo plazo, apalancada en transformación digital, innovación disruptiva e inteligencia tecnológica que garantizan que su compañía lidere su sector hoy y esté preparada para los desafíos del mañana."
+      }
+    ]
+
     // Lista de imágenes para el carrusel
     const unidades = [
         {
@@ -405,37 +479,37 @@ export const CustomProvider = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Efecto para el carrusel automático (movido desde About.jsx)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => {
-        const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        setActiveCardIndex(nextIndex)
-        return nextIndex
-      })
-    }, 5000)
+  // Efecto para el carrusel automático (movido desde About.jsx) - DESACTIVADO
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImageIndex((prevIndex) => {
+  //       const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //       setActiveCardIndex(nextIndex)
+  //       return nextIndex
+  //     })
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [images.length])
+  //   return () => clearInterval(interval)
+  // }, [images.length])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
-    }, 5000)
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length)
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [carouselSlides.length])
+  //   return () => clearInterval(interval)
+  // }, [carouselSlides.length])
 
-  // Efecto para el slider automático cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAllyIndex((prevIndex) => 
-        prevIndex === allies.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
+  // Efecto para el slider automático cada 5 segundos - DESACTIVADO porque ahora mostramos todas las cards juntas
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentAllyIndex((prevIndex) => 
+  //       prevIndex === allies.length - 1 ? 0 : prevIndex + 1
+  //     )
+  //   }, 5000)
 
-    return () => clearInterval(interval)
-  }, [allies.length])
+  //   return () => clearInterval(interval)
+  // }, [allies.length])
 
   // Funciones auxiliares
   const handleCardClick = (imageIndex, cardIndex) => {
@@ -474,23 +548,43 @@ export const CustomProvider = ({ children }) => {
 
   // Funciones del componente EquipoTrabajo
   const teamSlides = []
-  for (let i = 0; i < teamMembers.length; i += 4) {
-    teamSlides.push(teamMembers.slice(i, i + 4))
+  for (let i = 0; i < teamMembers.length; i += 5) {
+    const slide = teamMembers.slice(i, i + 5)
+    if (slide.length > 0) { // Solo agregar slides que tengan al menos un miembro
+      teamSlides.push(slide)
+    }
   }
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
+    if (teamSlides.length > 0) {
+      setCurrentSlide((prev) => (prev + 1) % teamSlides.length)
+      setActiveCard(null) // Reset active card when changing slide
+    }
   }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
-    setActiveCard(null) // Reset active card when changing slide
+    if (teamSlides.length > 0) {
+      setCurrentSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length)
+      setActiveCard(null) // Reset active card when changing slide
+    }
   }
 
   const handleEmployeeCardClick = (memberId) => {
     setActiveCard(activeCard === memberId ? null : memberId)
   }
+
+  // Función para manejar el click en cards de aliados
+  const handleAllyCardClick = (allyId) => {
+    setActiveAllyCard(activeAllyCard === allyId ? null : allyId)
+  }
+
+  // Función para manejar el click en cards de clientes
+  const handleClientCardClick = (clientId) => {
+    setActiveClientCard(activeClientCard === clientId ? null : clientId)
+  }
+
+  // Asegurar que currentSlide esté dentro del rango válido
+  const validCurrentSlide = Math.min(currentSlide, teamSlides.length - 1)
 
   // Funciones del componente UnidadesNegocio
   // Función para manejar la selección de cards
@@ -532,6 +626,17 @@ export const CustomProvider = ({ children }) => {
     return techServices // Servicios por defecto
   }
 
+  // Función para WhatsApp
+  const handleWhatsAppClick = () => {
+    // Número de WhatsApp de la empresa (reemplaza con el número real)
+    const phoneNumber = '573001234567'; // Formato: código país + número sin espacios ni símbolos
+    const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre los servicios de Hokma Technologies.');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Abrir WhatsApp en una nueva ventana
+    window.open(whatsappUrl, '_blank');
+  };
+
   // Funciones del componente Header
   // Función para scroll suave a las secciones
   const smoothScrollTo = (e, targetId) => {
@@ -565,14 +670,17 @@ export const CustomProvider = ({ children }) => {
     baseClasses,
     variants,
     activeCard,
-    currentSlide,
+    currentSlide: validCurrentSlide,
     teamSlides,
     isMenuOpen,
     isScrolled,
     currentHeroSlide,
     carouselSlides,
-    currentAllyIndex,
+    // currentAllyIndex, - REMOVIDO porque no se necesita
     allies,
+    activeAllyCard,
+    clients,
+    activeClientCard,
     services,
     techServices,
     energyServices,
@@ -581,6 +689,7 @@ export const CustomProvider = ({ children }) => {
     selectedCard,
     unidades,
     isServicesAnimating,
+    cardsAbout,
     
     // Setters
     setScrollY,
@@ -592,7 +701,9 @@ export const CustomProvider = ({ children }) => {
     setIsMenuOpen,
     setIsScrolled,
     setCurrentHeroSlide,
-    setCurrentAllyIndex,
+    // setCurrentAllyIndex, - REMOVIDO porque no se necesita
+    setActiveAllyCard,
+    setActiveClientCard,
     setSelectedCard,
     setIsServicesAnimating,
     
@@ -604,10 +715,13 @@ export const CustomProvider = ({ children }) => {
     nextSlide,
     prevSlide,
     handleEmployeeCardClick,
+    handleAllyCardClick,
+    handleClientCardClick,
     smoothScrollTo,
     handleCardSelect,
     getContainerColor,
     getCurrentServices,
+    handleWhatsAppClick,
     
     
     // Funciones de animación
