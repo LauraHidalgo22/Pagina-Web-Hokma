@@ -6,8 +6,8 @@ import { useAppContext } from '../context/AppContext'
 const NuestrosAliados = () => {
   const { allies, activeAllyCard, handleAllyCardClick } = useAppContext();
   
-  // Mostrar todas las cards en una sola vista
-  const allySlides = [allies]; // Todas las cards en un solo slide
+  // Mostrar un aliado por slide
+  const allySlides = allies.map(ally => [ally]); // Cada aliado en su propio slide
 
   return (
     <section className="pb-20 bg-white">
@@ -24,12 +24,14 @@ const NuestrosAliados = () => {
           <div className="w-full">
             <Carrusel
               slides={allySlides}
-              gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-              showNavigation={false}
-              showIndicators={false}
+              gridCols="grid-cols-1"
+              showNavigation={true}
+              showIndicators={true}
+              navigationTextColor="text-gray-800"
               onCardClick={handleAllyCardClick}
               activeItem={activeAllyCard}
               setActiveItem={handleAllyCardClick}
+              maxWidth="max-w-2xl"
               cardProps={{
                 imageAspect: "aspect-[3/2]",
                 showOverlay: true,
@@ -40,12 +42,6 @@ const NuestrosAliados = () => {
           </div>
         </div>
 
-        {/* Elementos decorativos */}
-        <div className="relative mt-16">
-          <div className="absolute top-0 left-1/4 w-2 h-2 bg-green-400 rounded-full opacity-40 animate-pulse"></div>
-          <div className="absolute top-8 right-1/4 w-3 h-3 bg-blue-400 rounded-full opacity-30 animate-bounce"></div>
-          <div className="absolute bottom-0 left-1/3 w-1 h-1 bg-gray-400 rounded-full opacity-50 animate-ping"></div>
-        </div>
       </div>
     </section>
   )
