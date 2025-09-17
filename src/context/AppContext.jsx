@@ -548,8 +548,8 @@ export const CustomProvider = ({ children }) => {
 
   // Funciones del componente EquipoTrabajo
   const teamSlides = []
-  for (let i = 0; i < teamMembers.length; i += 5) {
-    const slide = teamMembers.slice(i, i + 5)
+  for (let i = 0; i < teamMembers.length; i += 4) {
+    const slide = teamMembers.slice(i, i + 4)
     if (slide.length > 0) { // Solo agregar slides que tengan al menos un miembro
       teamSlides.push(slide)
     }

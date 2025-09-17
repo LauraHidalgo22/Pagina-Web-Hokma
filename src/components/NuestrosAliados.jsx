@@ -6,8 +6,11 @@ import { useAppContext } from '../context/AppContext'
 const NuestrosAliados = () => {
   const { allies, activeAllyCard, handleAllyCardClick } = useAppContext();
   
-  // Mostrar un aliado por slide
-  const allySlides = allies.map(ally => [ally]); // Cada aliado en su propio slide
+  // Dividir aliados en slides de 4 cards cada uno
+  const allySlides = [];
+  for (let i = 0; i < allies.length; i += 4) {
+    allySlides.push(allies.slice(i, i + 4));
+  }
 
   return (
     <section className="pb-20 bg-white">
@@ -24,14 +27,14 @@ const NuestrosAliados = () => {
           <div className="w-full">
             <Carrusel
               slides={allySlides}
-              gridCols="grid-cols-1"
+              gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
               showNavigation={true}
               showIndicators={true}
               navigationTextColor="text-gray-800"
               onCardClick={handleAllyCardClick}
               activeItem={activeAllyCard}
               setActiveItem={handleAllyCardClick}
-              maxWidth="max-w-2xl"
+              maxWidth="max-w-8xl"
               cardProps={{
                 imageAspect: "aspect-[3/2]",
                 showOverlay: true,
