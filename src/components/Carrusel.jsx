@@ -127,39 +127,35 @@ const Carrusel = ({
 
   return (
     <AnimatedSection animation="fadeInRight" delay={0.3} className="w-full relative">
-      {/* Flechas de navegación */}
-      {showNavigation && slidesData.length > 1 && (
-        <div className="flex justify-between items-center">
-          <button 
-            onClick={handlePrevSlide}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
-            disabled={slidesData.length <= 1}
-          >
-            <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <div className={`text-center ${navigationTextColor}`}>
-            <span className="text-sm opacity-75" style={{ fontFamily: 'Caviar Dreams' }}>
-              {currentIndex + 1} de {slidesData.length}
-            </span>
-          </div>
-          
-          <button 
-            onClick={handleNextSlide}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
-            disabled={slidesData.length <= 1}
-          >
-            <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      )}
-
       {/* Container del slider */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden relative">
+        {/* Flechas de navegación posicionadas en los extremos */}
+        {showNavigation && slidesData.length > 1 && (
+          <>
+            {/* Flecha izquierda */}
+            <button 
+              onClick={handlePrevSlide}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
+              disabled={slidesData.length <= 1}
+            >
+              <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Flecha derecha */}
+            <button 
+              onClick={handleNextSlide}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 shadow-lg"
+              disabled={slidesData.length <= 1}
+            >
+              <svg className={`w-6 h-6 ${navigationTextColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+
         <div 
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -175,6 +171,17 @@ const Carrusel = ({
           ))}
         </div>
       </div>
+
+      {/* Contador de slides centrado */}
+      {showNavigation && slidesData.length > 1 && (
+        <div className="flex justify-center mt-4">
+          <div className={`text-center ${navigationTextColor}`}>
+            <span className="text-sm opacity-75" style={{ fontFamily: 'Caviar Dreams' }}>
+              {currentIndex + 1} de {slidesData.length}
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Indicadores de slides */}
       {showIndicators && slidesData.length > 1 && (
