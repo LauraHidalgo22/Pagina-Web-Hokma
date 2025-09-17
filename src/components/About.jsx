@@ -1,6 +1,6 @@
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
-import IconoHokma from './IconoHokma'
+import CardInformativa from './CardInformativa'
 import { useAppContext } from '../context/AppContext'
 
 const About = () => {
@@ -28,35 +28,14 @@ const About = () => {
 
         {/* Contenedor principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {cardsAbout.map((card, index) => {
-            // Array de colores para los encabezados
-            const colors = ['#95C121', '#3BBEE8', '#F39323', '#8E3089', '#0097DA', '#913B8E'];
-            const headerColor = colors[index % colors.length];
-            
-            return (
-              <AnimatedSection key={index} animation="fadeInUp" delay={0.1 + (index * 0.1)}>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col">
-                  <div 
-                    className="p-4 text-center h-20"
-                    style={{ backgroundColor: headerColor }}
-                  >
-                    <h3 className="text-white font-semibold text-lg" style={{ fontFamily: 'Caviar Dreams' }}>
-                      {card.title}
-                    </h3>
-                  </div>
-                  <div className="p-6 flex-grow">
-                    <p className="text-black text-sm leading-relaxed" style={{ fontFamily: 'Caviar Dreams' }}>
-                      {card.description}
-                    </p>
-                  </div>
-                  {/* Card Footer */}
-                  <div className="p-4 flex justify-end items-center">
-                    <IconoHokma size={42} color="#dfdfdf" />
-                  </div>
-                </div>
-              </AnimatedSection>
-            );
-          })}
+          {cardsAbout.map((card, index) => (
+            <CardInformativa
+              key={index}
+              card={card}
+              index={index}
+              delay={0.1}
+            />
+          ))}
         </div>
       </div>
     </section>
