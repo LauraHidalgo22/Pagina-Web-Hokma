@@ -2,17 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useAppContext } from '../context/AppContext'
 
 const StickyButton = () => {
-  const { isScrolled } = useAppContext();
-
-  const handleWhatsAppClick = () => {
-    // Número de WhatsApp de la empresa (reemplaza con el número real)
-    const phoneNumber = '573001234567'; // Formato: código país + número sin espacios ni símbolos
-    const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre los servicios de Hokma Technologies.');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    // Abrir WhatsApp en una nueva ventana
-    window.open(whatsappUrl, '_blank');
-  };
+  const { isScrolled, handleWhatsAppClick } = useAppContext();
 
   return (
     <>
