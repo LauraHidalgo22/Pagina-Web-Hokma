@@ -2,6 +2,7 @@ import AnimatedSection from './AnimatedSection'
 import SectionTitle from './SectionTitle'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const EquipoTrabajo = () => {
   return (
@@ -19,6 +20,7 @@ const EquipoTrabajo = () => {
           gridCols="grid-cols-1 md:grid-cols-3 lg:grid-cols-5"
         />
       </div>
+      <Separador />
     </section>
   )
 }
