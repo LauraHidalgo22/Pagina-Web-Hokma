@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
+import Separador from './Separador'
 
 const NuestrosClientes = () => {
   const { clients, activeClientCard, handleClientCardClick, setActiveClientCard } = useAppContext();
@@ -45,6 +46,7 @@ const NuestrosClientes = () => {
               />
             </div>
           </div>
+      <Separador /> 
         </div>
       </div>
     </section>
