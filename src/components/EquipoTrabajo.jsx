@@ -6,7 +6,7 @@ import Separador from './Separador'
 
 const EquipoTrabajo = () => {
   return (
-    <section className="pt-5 pb-10 relative overflow-hidden bg-white">
+    <section className="pt-5 relative overflow-hidden bg-white">
       {/* Título */}
       <AnimatedSection animation="fadeInUp" className="">
         <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
