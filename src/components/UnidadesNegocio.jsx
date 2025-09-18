@@ -1,6 +1,7 @@
 import SectionTitle from './SectionTitle'
 import CardUnidadNegocio from './CardUnidadNegocio'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const UnidadesNegocio = () => {
   const { selectedCard, setSelectedCard, unidades, handleCardSelect, getContainerColor } = useAppContext();
@@ -66,10 +67,14 @@ const UnidadesNegocio = () => {
 
       {/* Div inferior como margen */}
       <div 
-        className="md:absolute md:bottom-0 md:left-0 md:right-0 w-full h-[70px] transition-colors duration-300"
+        className="md:absolute md:bottom-0 md:left-0 md:right-0 w-full h-[70px] transition-colors duration-300 flex items-end justify-center"
         style={{ backgroundColor: getContainerColor() }}
-      />
+      >
+        {/* Separador dentro del div inferior */}
+        <Separador />
+      </div>
     </section>
+    
   )
 }
 
