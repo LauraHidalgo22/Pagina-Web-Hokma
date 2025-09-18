@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
+import Separador from './Separador'
 import { style } from 'framer-motion/client'
 
 const Services = () => {
@@ -74,6 +75,9 @@ const Services = () => {
             );
           })}
         </div>
+        
+        {/* Separador al final de la sección */}
+        <Separador />
       </div>
     </section>
   )
