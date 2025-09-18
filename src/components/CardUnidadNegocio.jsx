@@ -9,7 +9,7 @@ const CardUnidadNegocio = ({
 }) => {
   return (
     <div 
-      className={`rounded-3xl px-12 py-3 shadow-2xl drop-shadow-lg transition-all duration-300 cursor-pointer ${
+      className={`rounded-3xl px-6 py-3 shadow-2xl drop-shadow-lg transition-all duration-300 cursor-pointer ${
         isSelected 
           ? 'scale-105 shadow-3xl' 
           : 'transform hover:scale-105 hover:shadow-3xl'
