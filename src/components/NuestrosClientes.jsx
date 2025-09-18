@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
+import Separador from './Separador'
 
 const NuestrosClientes = () => {
   const { clients, activeClientCard, handleClientCardClick, setActiveClientCard } = useAppContext();
@@ -14,7 +15,7 @@ const NuestrosClientes = () => {
     <section className="pt-10 bg-white">
       <div className="mx-auto">
         {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="mb-16 px-4 sm:px-6 lg:px-8">
+        <AnimatedSection animation="fadeInUp" className="pb-5 px-4 sm:px-6 lg:px-8">
           <SectionTitle titleClassName="text-black">
             Confianza que inspira
           </SectionTitle>
@@ -29,7 +30,6 @@ const NuestrosClientes = () => {
                 slides={clientSlides}
                 gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
                 showNavigation={true}
-                showIndicators={true}
                 navigationTextColor="text-gray-white"
                 onCardClick={handleClientCardClick}
                 activeItem={activeClientCard}
@@ -45,6 +45,7 @@ const NuestrosClientes = () => {
               />
             </div>
           </div>
+      <Separador /> 
         </div>
       </div>
     </section>

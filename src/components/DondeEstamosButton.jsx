@@ -24,9 +24,6 @@ const DondeEstamosButton = () => {
         alt="Donde encontrarnos"
         onClick={handleButtonClick}
         className="w-32 h-32 cursor-pointer transition-transform duration-300 hover:scale-110 hover:drop-shadow-lg" 
-        style={{
-          animation: 'float 3s ease-in-out infinite'
-        }}
       />
 
       {/* Modal - ahora el ReactPortal está dentro del componente Modal */}
@@ -41,7 +38,7 @@ const DondeEstamosButton = () => {
             <img 
               src={ImagenDondeEstamos}
               alt="Donde encontrarnos"
-              className="w-full mx-auto mb-4" 
+              className="w-full h-auto max-h-[45vh] object-contain mx-auto mb-4" 
             />
           </div>
           {/*Footer Card*/}

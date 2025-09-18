@@ -2,6 +2,7 @@ import AnimatedSection from './AnimatedSection'
 import SectionTitle from './SectionTitle'
 import IconoHokma from './IconoHokma'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const Contact = () => {
   // Usar el contexto en lugar de estados y funciones locales
@@ -11,7 +12,7 @@ const Contact = () => {
     <>
       <section id="contacto" className='bg-white'>
               {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="mb-16">
+        <AnimatedSection animation="fadeInUp" className="">
           <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
             Conectemos tu idea con la tecnolog&iacute;a
           </SectionTitle>
@@ -135,6 +136,7 @@ const Contact = () => {
           </AnimatedSection>
         </div>
       </div>
+    <Separador />
     </section>
     </>
   )

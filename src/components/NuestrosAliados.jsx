@@ -2,6 +2,7 @@ import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const NuestrosAliados = () => {
   const { allies, activeAllyCard, handleAllyCardClick } = useAppContext();
@@ -13,12 +14,12 @@ const NuestrosAliados = () => {
   }
 
   return (
-    <section className="pb-20 bg-white">
+    <section className="bg-white">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+        <AnimatedSection animation="fadeInUp" className="text-center">
           <SectionTitle className="mb-4">
-            Nuestros Aliados
+            Un ecosistema de alianzas con impacto real
           </SectionTitle>
         </AnimatedSection>
 
@@ -29,7 +30,6 @@ const NuestrosAliados = () => {
               slides={allySlides}
               gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
               showNavigation={true}
-              showIndicators={true}
               navigationTextColor="text-gray-800"
               onCardClick={handleAllyCardClick}
               activeItem={activeAllyCard}
@@ -46,6 +46,7 @@ const NuestrosAliados = () => {
         </div>
 
       </div>
+      <Separador />
     </section>
   )
 }

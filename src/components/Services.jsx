@@ -3,6 +3,7 @@ import AnimatedSection from './AnimatedSection'
 import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
+import Separador from './Separador'
 import { style } from 'framer-motion/client'
 
 const Services = () => {
@@ -10,14 +11,14 @@ const Services = () => {
   const services = getCurrentServices();
   
   return (
-    <section id="servicios" className="py-20 relative overflow-hidden">
+    <section id="servicios" className="pb-10 relative overflow-hidden">
       {/* Background with solid white color behind the image */}
       <div 
         className="absolute inset-0 z-0 bg-white"
       ></div>
       
       <div className="mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-16">
+        <div className="">
           <AnimatedSection animation="fadeInUp">
             <SectionTitle className="mb-4">
               Soluciones tecnol&oacute;gicas
@@ -74,6 +75,9 @@ const Services = () => {
             );
           })}
         </div>
+        
+        {/* Separador al final de la sección */}
+        <Separador />
       </div>
     </section>
   )

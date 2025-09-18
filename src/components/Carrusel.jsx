@@ -16,7 +16,7 @@ const Carrusel = ({
   setActiveItem = null,
   gridCols = "grid-cols-4",
   showNavigation = true,
-  showIndicators = true,
+  showIndicators = false,
   cardProps = {},
   cardType = "carrusel", // Nuevo: tipo de card a renderizar
   customCardRenderer = null, // Nuevo: renderizador personalizado
@@ -167,7 +167,7 @@ const Carrusel = ({
         >
           {slidesData.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
-              <div className={`grid ${gridCols} gap-8 ${maxWidth} mx-auto py-4 px-4`}>
+              <div className={`grid ${gridCols} gap-8 ${maxWidth} mx-auto py-4 px-24`}>
                 {slide.map((item, index) => 
                   renderCard(item, index, slideIndex)
                 )}
@@ -178,7 +178,7 @@ const Carrusel = ({
       </div>
 
       {/* Contador de slides centrado */}
-      {showNavigation && (
+      {showIndicators && (
         <div className="flex justify-center mt-4">
           <div className={`text-center ${navigationTextColor}`}>
             <span className="text-sm opacity-75">

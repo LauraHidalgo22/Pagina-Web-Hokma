@@ -2,12 +2,13 @@ import AnimatedSection from './AnimatedSection'
 import SectionTitle from './SectionTitle'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const EquipoTrabajo = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-white">
+    <section className="pt-5 relative overflow-hidden bg-white">
       {/* Título */}
-      <AnimatedSection animation="fadeInUp" className="mb-16">
+      <AnimatedSection animation="fadeInUp" className="">
         <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
           El talento que impulsa nuestra Innovaci&oacute;n
         </SectionTitle>
@@ -19,6 +20,7 @@ const EquipoTrabajo = () => {
           gridCols="grid-cols-1 md:grid-cols-3 lg:grid-cols-5"
         />
       </div>
+      <Separador />
     </section>
   )
 }
