@@ -13,12 +13,12 @@ const NuestrosAliados = () => {
   }
 
   return (
-    <section className="pb-20 bg-white">
+    <section className="bg-white">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+        <AnimatedSection animation="fadeInUp" className="text-center">
           <SectionTitle className="mb-4">
-            Nuestros Aliados
+            Un ecosistema de alianzas con impacto real
           </SectionTitle>
         </AnimatedSection>
 

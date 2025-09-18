@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <section id="contacto" className='bg-white'>
               {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="mb-16">
+        <AnimatedSection animation="fadeInUp" className="">
           <SectionTitle className="mb-4 px-4 sm:px-6 lg:px-8">
             Conectemos tu idea con la tecnolog&iacute;a
           </SectionTitle>

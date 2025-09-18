@@ -18,10 +18,10 @@ const About = () => {
   }
 
   return (
-    <section id="nosotros" className="py-20 bg-gray-100">
+    <section id="nosotros" className="pt-5 pb-10 bg-gray-100">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="mb-16">
+        <AnimatedSection animation="fadeInUp" className="">
           <SectionTitle className="mb-4">
             Transformamos desaf&iacute;os en oportunidades para tu Compa&ntilde;&iacute;a
           </SectionTitle>

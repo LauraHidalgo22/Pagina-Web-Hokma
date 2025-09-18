@@ -14,7 +14,7 @@ const NuestrosClientes = () => {
     <section className="pt-10 bg-white">
       <div className="mx-auto">
         {/* Título */}
-        <AnimatedSection animation="fadeInUp" className="mb-16 px-4 sm:px-6 lg:px-8">
+        <AnimatedSection animation="fadeInUp" className="pb-5 px-4 sm:px-6 lg:px-8">
           <SectionTitle titleClassName="text-black">
             Confianza que inspira
           </SectionTitle>
