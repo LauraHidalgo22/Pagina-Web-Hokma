@@ -2,6 +2,7 @@ import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
 import Carrusel from './Carrusel'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const NuestrosAliados = () => {
   const { allies, activeAllyCard, handleAllyCardClick } = useAppContext();
@@ -46,6 +47,7 @@ const NuestrosAliados = () => {
         </div>
 
       </div>
+      <Separador />
     </section>
   )
 }
