@@ -2,6 +2,7 @@ import AnimatedSection from './AnimatedSection'
 import SectionTitle from './SectionTitle'
 import IconoHokma from './IconoHokma'
 import { useAppContext } from '../context/AppContext'
+import Separador from './Separador'
 
 const Contact = () => {
   // Usar el contexto en lugar de estados y funciones locales
@@ -135,6 +136,7 @@ const Contact = () => {
           </AnimatedSection>
         </div>
       </div>
+    <Separador />
     </section>
     </>
   )
