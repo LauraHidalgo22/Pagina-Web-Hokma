@@ -178,7 +178,7 @@ const Carrusel = ({
       </div>
 
       {/* Contador de slides centrado */}
-      {showNavigation && (
+      {showIndicators && (
         <div className="flex justify-center mt-4">
           <div className={`text-center ${navigationTextColor}`}>
             <span className="text-sm opacity-75">
