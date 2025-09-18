@@ -30,7 +30,6 @@ const NuestrosAliados = () => {
               slides={allySlides}
               gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
               showNavigation={true}
-              showIndicators={true}
               navigationTextColor="text-gray-800"
               onCardClick={handleAllyCardClick}
               activeItem={activeAllyCard}

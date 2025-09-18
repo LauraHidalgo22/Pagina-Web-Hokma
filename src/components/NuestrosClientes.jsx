@@ -30,7 +30,6 @@ const NuestrosClientes = () => {
                 slides={clientSlides}
                 gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
                 showNavigation={true}
-                showIndicators={true}
                 navigationTextColor="text-gray-white"
                 onCardClick={handleClientCardClick}
                 activeItem={activeClientCard}
