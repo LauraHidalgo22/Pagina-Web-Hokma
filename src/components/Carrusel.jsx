@@ -167,7 +167,7 @@ const Carrusel = ({
         >
           {slidesData.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
-              <div className={`grid ${gridCols} gap-8 ${maxWidth} mx-auto py-4 px-4`}>
+              <div className={`grid ${gridCols} gap-8 ${maxWidth} mx-auto py-4 px-24`}>
                 {slide.map((item, index) => 
                   renderCard(item, index, slideIndex)
                 )}
