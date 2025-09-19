@@ -18,13 +18,13 @@ const CardSinContenido = ({
       className={colSpan === 2 ? "md:col-span-2" : ""}
     >
       <div 
-        className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 relative h-full transform hover:scale-[1.02] hover:z-10"
+        className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 relative h-full transform hover:scale-[1.02] hover:z-10 flex items-center justify-start"
         style={{
-          padding: isLarge ? '2rem' : '1.5rem'
+          padding: isLarge ? '1rem' : '0.5rem'
         }}
       >
         <h3 
-          className={`font-semibold text-xl ${isLarge ? 'mb-4' : 'mb-3'}`}
+          className={`font-semibold text-xl text-left ${isLarge ? 'mb-4' : 'mb-3'}`}
           style={{ 
             color: getContainerColor() != '#F3F4F6' ? 
               getContainerColor() != "#ffffff" ? 
