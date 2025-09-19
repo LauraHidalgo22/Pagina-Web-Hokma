@@ -4,6 +4,7 @@ import fondoSeccionDos from '../assets/fondo_seccion_dos.png'
 import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
 import Separador from './Separador'
+import CardSinContenido from './CardSinContenido'
 import { style } from 'framer-motion/client'
 
 const Services = () => {
@@ -47,31 +48,14 @@ const Services = () => {
             }
             
             return (
-              <AnimatedSection 
+              <CardSinContenido
                 key={index}
-                animation="fadeInUp" 
-                delay={0.2 + (index * 0.2)} 
-                className={colSpan === 2 ? "md:col-span-2" : ""}
-              >
-                <div 
-                  className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 relative h-full transform hover:scale-[1.02] hover:z-10"
-                  style={{
-                    padding: isLarge ? '2rem' : '1.5rem'
-                  }}
-                >
-                  <h3 
-                    className={`font-semibold text-xl ${isLarge ? 'mb-4' : 'mb-3'}`}
-                    style={{ color: getContainerColor() != '#F3F4F6' ? getContainerColor() != "#ffffff" ? getContainerColor() : "#000000" : "#000000" }}
-                  >
-                    {service.title}
-                  </h3>
-                  <div 
-                    className={`absolute ${isLarge ? 'bottom-4 right-4' : 'bottom-3 right-3'}`}
-                  >
-                    <IconoHokma size={isLarge ? 42 : 32} color="#dfdfdf" />
-                  </div>
-                </div>
-              </AnimatedSection>
+                service={service}
+                index={index}
+                colSpan={colSpan}
+                isLarge={isLarge}
+                delay={0.2}
+              />
             );
           })}
         </div>
