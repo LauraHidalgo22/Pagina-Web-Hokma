@@ -12,7 +12,7 @@ const SectionTitle = ({
       <h2 
         className={`relative z-10 text-left font-bold text-gray-800 ${titleClassName}`}
         style={{
-          fontSize: '40pt',
+          fontSize: '30pt',
           lineHeight: '1.1'
         }}
       >
