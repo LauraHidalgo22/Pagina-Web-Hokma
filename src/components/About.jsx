@@ -38,34 +38,50 @@ const About = () => {
         </AnimatedSection>
 
         {/* Contenedor principal */}
-        <div className="space-y-6">
-          {slides.map((slide, slideIndex) => (
-            <div key={slideIndex}>
-              {/* Fila de cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-                {slide.map((card, cardIndex) => {
-                  const globalIndex = slideIndex * cardsPerSlide + cardIndex;
-                  const isLastCard = globalIndex === cardsAbout.length - 1;
-                  const shouldSpanTwoColumns = isLastCard && cardsAbout.length % 4 !== 0;
-                  
-                  return (
-                    <div
-                      key={globalIndex}
-                      className={shouldSpanTwoColumns ? 'md:col-span-2 lg:col-span-2' : ''}
-                    >
-                      <CardInformativa
-                        card={card}
-                        index={globalIndex}
-                        delay={0.1}
-                        isExpanded={expandedCard === globalIndex}
-                        onToggle={handleCardToggle}
-                      />
-                    </div>
-                  );
-                })}
+        <div className="space-y-8">
+          {/* Card expandida centrada - aparece primero si existe */}
+          {expandedCard !== null && (
+            <div className="flex justify-center mb-8">
+              <div className="w-full max-w-2xl">
+                <AnimatedSection animation="fadeInUp" delay={0.1}>
+                  <CardInformativa
+                    card={cardsAbout[expandedCard]}
+                    index={expandedCard}
+                    delay={0}
+                    isExpanded={true}
+                    onToggle={handleCardToggle}
+                  />
+                </AnimatedSection>
               </div>
             </div>
-          ))}
+          )}
+          
+          {/* Grid único para todas las cards no expandidas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+            {cardsAbout.map((card, cardIndex) => {
+              const isThisCardExpanded = expandedCard === cardIndex;
+              
+              // No renderizar la card expandida aquí, ya se renderiza arriba
+              if (isThisCardExpanded) {
+                return null;
+              }
+              
+              return (
+                <div
+                  key={cardIndex}
+                  className="transition-all duration-500 ease-in-out"
+                >
+                  <CardInformativa
+                    card={card}
+                    index={cardIndex}
+                    delay={0.1 + (cardIndex * 0.05)}
+                    isExpanded={false}
+                    onToggle={handleCardToggle}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
         
         {/* Separador al final de la sección */}
