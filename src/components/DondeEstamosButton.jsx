@@ -38,7 +38,7 @@ const DondeEstamosButton = () => {
             <img 
               src={ImagenDondeEstamos}
               alt="Donde encontrarnos"
-              className="w-full h-auto max-h-[45vh] object-contain mx-auto mb-4" 
+              className="w-full h-auto max-h-[56vh] object-contain mx-auto mb-4" 
             />
           </div>
           {/*Footer Card*/}
