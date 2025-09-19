@@ -3,25 +3,17 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Modal = ({ isOpen, onClose, children, title = "", maxWidth = "max-w-4xl" }) => {
-  // Cerrar modal al presionar Escape
+  // Prevenir scroll del body cuando el modal esté abierto
   useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        onClose()
-      }
-    }
-
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
       // Prevenir scroll del body cuando el modal esté abierto
       document.body.style.overflow = 'hidden'
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape)
       document.body.style.overflow = 'unset'
     }
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   // No renderizar nada si el modal no está abierto
   if (!isOpen) return null
@@ -78,7 +70,6 @@ const Modal = ({ isOpen, onClose, children, title = "", maxWidth = "max-w-4xl" }
           {/* Overlay/Backdrop */}
           <motion.div 
             className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
-            onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
