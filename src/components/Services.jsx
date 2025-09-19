@@ -60,7 +60,7 @@ const Services = () => {
                   }}
                 >
                   <h3 
-                    className={`font-semibold ${isLarge ? 'text-2xl mb-4' : 'text-xl mb-3'}`}
+                    className={`font-semibold text-xl ${isLarge ? 'mb-4' : 'mb-3'}`}
                     style={{ color: getContainerColor() != '#F3F4F6' ? getContainerColor() != "#ffffff" ? getContainerColor() : "#000000" : "#000000" }}
                   >
                     {service.title}
