@@ -12,7 +12,7 @@ const NuestrosClientes = () => {
   const clientSlides = [clients];
 
   return (
-    <section className="pt-10 bg-white">
+    <section className="bg-white">
       <div className="mx-auto">
         {/* Título */}
         <AnimatedSection animation="fadeInUp" className="pb-5 px-4 sm:px-6 lg:px-8">
