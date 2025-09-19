@@ -19,41 +19,23 @@ const CardInformativa = ({
 
   return (
     <AnimatedSection animation="fadeInUp" delay={delay + (index * 0.1)}>
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden h-auto transform transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col w-full">
         <div 
-          className="p-4 text-center h-20 flex items-center justify-between cursor-pointer"
+          className="p-4 text-center h-20 flex items-center justify-center cursor-pointer flex-shrink-0"
           style={{ backgroundColor: headerColor }}
           onClick={handleToggle}
         >
           <h3 
-            className="text-white font-semibold text-lg text-center flex-grow"
+            className="text-white font-semibold text-lg text-center"
           >
             {card.title}
           </h3>
-          {/* Icono de acordeón */}
-          <div className="ml-2">
-            <svg 
-              className={`w-6 h-6 text-white transition-transform duration-300 ${
-                expanded ? 'rotate-180' : 'rotate-0'
-              }`}
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M19 9l-7 7-7-7" 
-              />
-            </svg>
-          </div>
         </div>
         
         {/* Contenido con animación de acordeón */}
         <div 
           className={`transition-all duration-500 ease-in-out overflow-hidden ${
-            expanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            expanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="p-6">
@@ -63,11 +45,12 @@ const CardInformativa = ({
               {card.description}
             </p>
           </div>
-          {/* Card Footer */}
+          {/* Card Footer dentro del contenido expandido */}
           <div className="p-4 flex justify-end items-center">
             <IconoHokma size={42} color="#dfdfdf" />
           </div>
         </div>
+      
       </div>
     </AnimatedSection>
   )
