@@ -28,30 +28,6 @@ const Hero = () => {
 
       {/* Dark overlay for better text readability */}
 
-      
-      {/* Animated particles */}
-      <div className="absolute inset-0 z-10">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-cyan-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20">
         <div className="text-center">
           {/* Main Hero Text */}
@@ -163,12 +139,6 @@ const Hero = () => {
               />
             ))}
           </motion.div>
-
-          {/* Geometric elements */}
-          <div className="absolute top-1/4 left-10 w-20 h-20 border border-cyan-400/30 rounded-lg transform rotate-45 animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-10 w-16 h-16 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
         </div>
       </div>
 
