@@ -328,6 +328,20 @@ export const CustomProvider = ({ children }) => {
           "el uso de la energía. Sin esta base digital, ninguna transformación " +
           "sería posible."
         },
+        {
+          title: "La TI es el corazón que conecta todo el ecosistema: " +
+          "alimenta la robótica con inteligencia, potencia la biotecnología " +
+          "con datos, garantiza la seguridad de las comunicaciones y optimiza " +
+          "el uso de la energía. Sin esta base digital, ninguna transformación " +
+          "sería posible."
+        },
+        {
+          title: "La TI es el corazón que conecta todo el ecosistema: " +
+          "alimenta la robótica con inteligencia, potencia la biotecnología " +
+          "con datos, garantiza la seguridad de las comunicaciones y optimiza " +
+          "el uso de la energía. Sin esta base digital, ninguna transformación " +
+          "sería posible."
+        },
     ]
 
     const energyServices = [

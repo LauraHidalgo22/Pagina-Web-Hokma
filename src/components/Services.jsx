@@ -5,6 +5,7 @@ import { useAppContext } from '../context/AppContext'
 import IconoHokma from './IconoHokma'
 import Separador from './Separador'
 import CardSinContenido from './CardSinContenido'
+import CarruselServices from './CarruselServices'
 import { style } from 'framer-motion/client'
 
 const Services = () => {
@@ -27,37 +28,13 @@ const Services = () => {
           </AnimatedSection>
         </div>
 
-        {/* Layout principal: Grid de cards con patrón alternado dinámico */}
+        {/* Layout principal: Carrusel de services */}
         <div 
-          className={`grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-fr transition-opacity duration-300 ${
+          className={`transition-opacity duration-300 ${
             isServicesAnimating ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          {services.map((service, index) => {
-            // Calculamos la posición en el patrón de 6 cards
-            const patternPosition = index % 6;
-            
-            // Definimos las características según la posición en el patrón
-            let colSpan = 1;
-            let isLarge = false;
-            
-            // Patrón: [2 col] [1 col] [1 col] | [1 col] [1 col] [2 col]
-            if (patternPosition === 0 || patternPosition === 5) {
-              colSpan = 2;
-              isLarge = true;
-            }
-            
-            return (
-              <CardSinContenido
-                key={index}
-                service={service}
-                index={index}
-                colSpan={colSpan}
-                isLarge={isLarge}
-                delay={0.2}
-              />
-            );
-          })}
+          <CarruselServices services={services} />
         </div>
         
         {/* Separador al final de la sección */}
