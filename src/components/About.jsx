@@ -14,14 +14,6 @@ const About = () => {
     cardsAbout
   } = useAppContext()
 
-  // Dividir las cards en grupos de 4 para el carrusel
-  const cardsPerSlide = 4
-  const slides = []
-  
-  for (let i = 0; i < cardsAbout.length; i += cardsPerSlide) {
-    slides.push(cardsAbout.slice(i, i + cardsPerSlide))
-  }
-
   // Función para manejar el toggle del acordeón
   const handleCardToggle = (cardIndex) => {
     setExpandedCard(expandedCard === cardIndex ? null : cardIndex)
@@ -37,35 +29,31 @@ const About = () => {
           </SectionTitle>
         </AnimatedSection>
 
-        {/* Contenedor principal */}
-        <div className="space-y-6">
-          {slides.map((slide, slideIndex) => (
-            <div key={slideIndex}>
-              {/* Fila de cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-                {slide.map((card, cardIndex) => {
-                  const globalIndex = slideIndex * cardsPerSlide + cardIndex;
-                  const isLastCard = globalIndex === cardsAbout.length - 1;
-                  const shouldSpanTwoColumns = isLastCard && cardsAbout.length % 4 !== 0;
-                  
-                  return (
-                    <div
-                      key={globalIndex}
-                      className={shouldSpanTwoColumns ? 'md:col-span-2 lg:col-span-2' : ''}
-                    >
-                      <CardInformativa
-                        card={card}
-                        index={globalIndex}
-                        delay={0.1}
-                        isExpanded={expandedCard === globalIndex}
-                        onToggle={handleCardToggle}
-                      />
-                    </div>
-                  );
-                })}
+        {/* Contenedor principal con grid unificado */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start auto-rows-auto">
+          {cardsAbout.map((card, index) => {
+            const isExpanded = expandedCard === index;
+            
+            return (
+              <div
+                key={index}
+                className={`transition-all duration-500 ease-in-out ${
+                  isExpanded ? 'md:col-span-1 lg:col-span-1' : ''
+                }`}
+                style={{
+                  gridRowEnd: isExpanded ? 'span 2' : 'auto'
+                }}
+              >
+                <CardInformativa
+                  card={card}
+                  index={index}
+                  delay={0.1}
+                  isExpanded={isExpanded}
+                  onToggle={handleCardToggle}
+                />
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Separador al final de la sección */}
