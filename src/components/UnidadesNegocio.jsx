@@ -20,28 +20,24 @@ const UnidadesNegocio = () => {
 
       {/* Sección de carrusel - Posicionada en el centro */}
       <div className="relative md:absolute left-0 right-0 top-1/2 bottom-5 transform md:-translate-y-12 z-20 flex justify-center md:justify-start items-center mt-10 md:my-5 w-full">
-        <div className="w-full overflow-x-auto overflow-y-hidden h-auto min-h-[200px] md:min-h-[250px] flex items-center justify-center md:justify-start">
-          <div className="flex flex-col md:flex-row gap-5 justify-center md:justify-start items-center w-max pl-4 pr-8 md:pl-8 md:pr-12 lg:pl-16 lg:pr-16 transition-all duration-500 py-4">
+        <div className="w-full overflow-x-auto overflow-y-hidden h-auto min-h-[200px] md:min-h-[250px] flex items-center justify-center md:justify-start px-4 md:px-8 lg:px-16">
+          <div className="flex flex-col md:flex-row gap-5 justify-center md:justify-start items-center w-max transition-all duration-500 py-4">
             {unidades.map((unidad, index) => {
               const isSelected = selectedCard === unidad.id;
               const selectedIndex = unidades.findIndex(u => u.id === selectedCard);
-              
               // Calcular el desplazamiento hacia la card seleccionada
               let transformStyle = '';
               if (selectedCard && !isSelected) {
-                const direction = index < selectedIndex ? 1 : -1; // 1 = hacia abajo/derecha, -1 = hacia arriba/izquierda
+                const direction = index < selectedIndex ? 1 : -1;
                 const distance = Math.abs(index - selectedIndex);
-                const displacement = Math.min(distance * 15, 30); // Máximo 30px de desplazamiento
-                
-                // En pantallas pequeñas usa translateY, en pantallas medianas y grandes usa translateX
-                const isMobile = window.innerWidth < 768; // md breakpoint es 768px
+                const displacement = Math.min(distance * 15, 30);
+                const isMobile = window.innerWidth < 768;
                 if (isMobile) {
                   transformStyle = `translateY(${direction * displacement}px)`;
                 } else {
                   transformStyle = `translateX(${direction * displacement}px)`;
                 }
               }
-              
               return (
                 <div
                   key={unidad.id}
@@ -61,6 +57,8 @@ const UnidadesNegocio = () => {
                 </div>
               );
             })}
+            {/* Espaciador invisible para margen derecho */}
+            <div className="flex-shrink-0" style={{ width: '5.5rem', minWidth: '4.5rem' }} aria-hidden="true"></div>
           </div>
         </div>
       </div>
