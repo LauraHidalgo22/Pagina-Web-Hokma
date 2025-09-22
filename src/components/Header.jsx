@@ -119,7 +119,7 @@ const Header = () => {
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Ecosistema y Servicios
                   </a>
-                  <a onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#" className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
