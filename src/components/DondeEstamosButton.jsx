@@ -7,8 +7,6 @@ import IconoHokma from './IconoHokma'
 
 const DondeEstamosButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isZoomed, setIsZoomed] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const handleButtonClick = (e) => {
     e.preventDefault()
@@ -20,20 +18,6 @@ const DondeEstamosButton = () => {
     setIsZoomed(false)
   }
 
-  const handleMouseMove = (e) => {
-    const rect = e.target.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width) * 100
-    const y = ((e.clientY - rect.top) / rect.height) * 100
-    setMousePosition({ x, y })
-  }
-
-  const handleMouseEnter = () => {
-    setIsZoomed(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsZoomed(false)
-  }
 
   return (
     <>
@@ -57,22 +41,8 @@ const DondeEstamosButton = () => {
               <img 
                 src={ImagenDondeEstamos}
                 alt="Donde encontrarnos"
-                className={`w-full h-auto max-h-[56vh] object-contain mx-auto mb-4 transition-transform duration-300 cursor-zoom-in ${
-                  isZoomed ? 'scale-150' : 'scale-100'
-                }`}
-                style={{
-                  transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`
-                }}
-                onMouseMove={handleMouseMove}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className="w-full h-auto max-h-[56vh] object-contain mx-auto mb-4"
               />
-              {/* Indicador de lupa */}
-              <div className={`absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm transition-opacity duration-300 ${
-                isZoomed ? 'opacity-100' : 'opacity-0'
-              }`}>
-                🔍 Zoom activo
-              </div>
             </div>
           </div>
           {/*Footer Card*/}

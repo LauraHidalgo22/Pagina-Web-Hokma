@@ -4,9 +4,9 @@ const Idioma = () => {
   return (
     <div className="flex items-center gap-1 text-white">
       <IconoHokma size={12} color="#ffffff" />
-      <b>ES</b>
+      <b className="transition-transform duration-200 hover:scale-110 cursor-pointer">ES</b>
       <b>|</b>
-      <b>US</b>
+      <b className="transition-transform duration-200 hover:scale-110 cursor-pointer">US</b>
       <IconoHokma size={12} color="#ffffff" />
     </div>
   )
