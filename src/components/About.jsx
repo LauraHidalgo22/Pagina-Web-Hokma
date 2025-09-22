@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import SectionTitle from './SectionTitle'
 import AnimatedSection from './AnimatedSection'
 import CardInformativa from './CardInformativa'
@@ -8,6 +8,24 @@ import Separador from './Separador'
 const About = () => {
   // Estado para controlar qué card está expandida
   const [expandedCard, setExpandedCard] = useState(null)
+  const aboutRef = useRef(null)
+  // Colapsar todos los acordeones cuando About sale de la vista
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setExpandedCard(null);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+    return () => {
+      if (aboutRef.current) observer.unobserve(aboutRef.current);
+    };
+  }, []);
   
   // Usar el contexto en lugar de estados locales
   const {
@@ -20,7 +38,7 @@ const About = () => {
   }
 
   return (
-    <section id="nosotros" className="pt-5 pb-10 bg-gray-100">
+  <section id="nosotros" className="pt-5 pb-10 bg-gray-100" ref={aboutRef}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
         <AnimatedSection animation="fadeInUp" className="">
