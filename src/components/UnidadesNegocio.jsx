@@ -19,9 +19,9 @@ const UnidadesNegocio = () => {
       </div>
 
       {/* Sección de carrusel - Posicionada en el centro */}
-      <div className="relative md:absolute left-0 right-0 top-1/2 bottom-5 transform md:-translate-y-12 z-20 flex justify-center items-center mt-10 md:my-5 w-full">
-        <div className="w-full overflow-x-auto overflow-y-hidden h-auto min-h-[200px] md:min-h-[250px] flex items-center justify-start">
-          <div className="flex flex-col md:flex-row gap-5 justify-start items-center w-max px-8 md:px-12 lg:px-16 transition-all duration-500 py-4">
+      <div className="relative md:absolute left-0 right-0 top-1/2 bottom-5 transform md:-translate-y-12 z-20 flex justify-center md:justify-start items-center mt-10 md:my-5 w-full">
+        <div className="w-full overflow-x-auto overflow-y-hidden h-auto min-h-[200px] md:min-h-[250px] flex items-center justify-center md:justify-start">
+          <div className="flex flex-col md:flex-row gap-5 justify-center md:justify-start items-center w-max pl-4 pr-8 md:pl-8 md:pr-12 lg:pl-16 lg:pr-16 transition-all duration-500 py-4">
             {unidades.map((unidad, index) => {
               const isSelected = selectedCard === unidad.id;
               const selectedIndex = unidades.findIndex(u => u.id === selectedCard);
