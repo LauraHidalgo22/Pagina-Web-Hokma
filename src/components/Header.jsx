@@ -119,12 +119,12 @@ const Header = () => {
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Ecosistema y Servicios
                   </a>
-                  <a href="#nosotros" onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a onClick={(e) => smoothScrollTo(e, '#nosotros')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
-                    Insights
+                    Blog
                   </a>
                   <a href="#contacto" onClick={(e) => smoothScrollTo(e, '#contacto')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
