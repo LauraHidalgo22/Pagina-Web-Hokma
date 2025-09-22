@@ -112,7 +112,7 @@ const Header = () => {
                   }`} style={{ fontFamily: 'Caviar Dreams' }}>
                     Home
                   </a>
-                  <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  <a href="#unidades-negocio" onClick={(e) => smoothScrollTo(e, '#unidades-negocio')} className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled 
                       ? 'text-gray-800 hover:text-blue-600' 
                       : 'text-white hover:text-cyan-300'
@@ -200,7 +200,7 @@ const Header = () => {
               }`} style={{ fontFamily: 'Caviar Dreams' }}>
                 Home
               </a>
-              <a href="#servicios" onClick={(e) => smoothScrollTo(e, '#servicios')} className={`block px-3 py-2 text-base font-medium transition-colors ${
+              <a href="#unidades-negocio" onClick={(e) => smoothScrollTo(e, '#unidades-negocio')} className={`block px-3 py-2 text-base font-medium transition-colors ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-blue-600' 
                   : 'text-white hover:text-cyan-300'

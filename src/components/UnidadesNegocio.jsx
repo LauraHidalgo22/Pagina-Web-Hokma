@@ -7,7 +7,7 @@ const UnidadesNegocio = () => {
   const { selectedCard, setSelectedCard, unidades, handleCardSelect, getContainerColor } = useAppContext();
 
   return (
-    <section className="w-full h-auto md:h-[250px] relative" style={{backgroundColor:"#ffffff"}}>
+    <section id='unidades-negocio' className="w-full h-auto md:h-[250px] relative" style={{backgroundColor:"#ffffff"}}>
       {/* Contenedor padre con SectionTitle */}
       <div 
         className="w-full h-[170px] md:h-[80px] flex items-center px-7 transition-colors duration-300"
