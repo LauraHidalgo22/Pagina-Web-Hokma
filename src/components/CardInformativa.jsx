@@ -23,7 +23,7 @@ const CardInformativa = ({
         expanded ? 'shadow-2xl' : ''
       }`}>
         <div 
-          className="p-4 text-center h-20 flex items-center justify-between cursor-pointer flex-shrink-0"
+          className="p-4 text-center h-20 flex items-center justify-between cursor-pointer flex-shrink-0 rounded-xl"
           style={{ backgroundColor: headerColor }}
           onClick={handleToggle}
         >
