@@ -2,7 +2,7 @@ import IconoHokma from './IconoHokma'
 
 const Idioma = () => {
   return (
-    <div className="flex items-center gap-1 text-white">
+    <div className="flex items-center gap-1 text-white text-sm">
       <IconoHokma size={12} color="#ffffff" />
       <b className="transition-transform duration-200 hover:scale-110 cursor-pointer">ES</b>
       <b>|</b>
