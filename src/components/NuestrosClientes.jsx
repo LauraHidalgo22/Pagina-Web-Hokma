@@ -41,6 +41,7 @@ const NuestrosClientes = () => {
                   objectFit: "object-contain",
                   showImage: false, // No mostrar imagen principal
                   overlayType: "image", // Mostrar imagen en el overlay
+                  hideDescription: true
                 }}
               />
             </div>

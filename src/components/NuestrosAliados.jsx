@@ -39,7 +39,8 @@ const NuestrosAliados = () => {
                 imageAspect: "aspect-[3/2]",
                 showOverlay: true,
                 buttonColor: "bg-[#40BAEC]",
-                objectFit: "object-contain"
+                objectFit: "object-contain",
+                hideDescription: true
               }}
             />
           </div>
