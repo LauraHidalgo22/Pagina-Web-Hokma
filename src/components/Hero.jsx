@@ -113,7 +113,7 @@ const Hero = () => {
             </CTAButton>
             
             <CTAButton 
-              href="#servicios"
+              href="#nosotros"
               variant="secondary"
             >
               Descúbrenos
