@@ -113,8 +113,16 @@ const Hero = () => {
             </CTAButton>
             
             <CTAButton 
-              href="#servicios"
+              as="button"
               variant="secondary"
+              href='#'
+              onClick={() => {
+                const target = document.querySelector('#nosotros');
+                if (target) {
+                  const y = target.getBoundingClientRect().top + window.scrollY - 80; // Ajusta el 80 según el alto de tu header
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+              }}
             >
               Descúbrenos
             </CTAButton>
