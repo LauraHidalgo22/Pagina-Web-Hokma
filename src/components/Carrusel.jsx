@@ -18,6 +18,7 @@ const Carrusel = ({
   showNavigation = true,
   showIndicators = false,
   cardProps = {},
+  hideDescription = false,
   cardType = "carrusel", // Nuevo: tipo de card a renderizar
   customCardRenderer = null, // Nuevo: renderizador personalizado
   navigationTextColor = "text-white", // Nuevo: color del texto de navegación
@@ -122,6 +123,7 @@ const Carrusel = ({
             activeCard={activeCardData}
             handleCardClick={handleCardClick}
             buttonColor='bg-[#40BAEC]'
+            hideDescription={hideDescription}
             {...cardProps}
             // Pasar la imagen de overlay específica del item si existe
             imageOverlay={item.imageOverlay || cardProps.imageOverlay}
