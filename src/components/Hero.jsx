@@ -9,6 +9,14 @@ import { useAppContext } from '../context/AppContext'
 const Hero = () => {
   const { currentHeroSlide, setCurrentHeroSlide, carouselSlides } = useAppContext();
 
+  // Avanzar el slide cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroSlide(prev => (prev + 1) % carouselSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [carouselSlides.length, setCurrentHeroSlide]);
+
   return (
     <section 
       id="inicio" 
