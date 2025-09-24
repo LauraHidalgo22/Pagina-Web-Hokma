@@ -6,6 +6,28 @@ import DecisionesEmpresariales from '../assets/CarruselProductos/decisiones_empr
 import InnovacionTecnologica from '../assets/CarruselProductos/innovacion_tecnológica.jpg'
 import SoporteEspecializado from '../assets/CarruselProductos/soporte_especializado.jpg'
 import EmpleadaImg from '../assets/empleada.jpg'
+import JulianImg from '../assets/employees/Julian.png'
+import AlfonsoImg from '../assets/employees/Alfonso.png'
+import LauraImg from '../assets/employees/Laura.png'
+import ValeriaImg from '../assets/employees/Valeria.png'
+import EdwinImg from '../assets/employees/Edwin.png'
+import AldedierImg from '../assets/employees/Aldedier.png'
+import KarenImg from '../assets/employees/Karen.png'
+import DiegoImg from '../assets/employees/Diego.png'
+import JuanImg from '../assets/employees/Juan.png'
+import SantiagoImg from '../assets/employees/Santiago.png'
+import FreddyImg from '../assets/employees/Freddy.png'
+import RonaldImg from '../assets/employees/Ronald.png'
+import JuanDavidImg from '../assets/employees/JuanDavid.png'
+import JohnImg from '../assets/employees/John.png'
+import MarceloImg from '../assets/employees/Marcelo.png'
+import EimyImg from '../assets/employees/Eimy.png'
+import LuzImg from '../assets/employees/Luz.png'
+import SergioBarraganImg from '../assets/employees/SergioBarragan.png'
+import SergioRuizImg from '../assets/employees/SergioRuiz.png'
+import ConsueloImg from '../assets/employees/Consuelo.png'
+import OscarImg from '../assets/employees/Oscar.png'
+import JulianVegaImg from '../assets/employees/JulianVega.png'
 import HokmaFedesoft from '../assets/hokma_fedesoft.png'
 import HokmaMicrosoft from '../assets/hokma_microsoft.png'
 import logoHokmaLight from '../assets/logo-hokma-technologies.png'
@@ -144,60 +166,158 @@ export const CustomProvider = ({ children }) => {
   const teamMembers = [
     {
       id: 1,
-      name: "Valeria Rojas Sanchez",
-      position: "Desarrollador FullStack",
-      photo: EmpleadaImg,
+      name: "Alfonso", 
+      position: "Gerente General",
+      photo: AlfonsoImg,
+      description: "Líder estratégico con más de 10 años de experiencia en gestión empresarial y desarrollo de negocios tecnológicos. Enfocado en la excelencia operacional."
+    },
+    {
+      id: 11,
+      name: "Santiago",
+      position: "Gerente administrativo y financiero",
+      photo: SantiagoImg,
       description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
     },
     {
       id: 2,
-      name: "Alfonso Vasquez Sepulveda", 
-      position: "Gerente General",
-      photo: EmpleadaImg,
-      description: "Líder estratégico con más de 10 años de experiencia en gestión empresarial y desarrollo de negocios tecnológicos. Enfocado en la excelencia operacional."
+      name: "Karen",
+      position: "Asistente Administrativa",
+      photo: KarenImg,
+      description: "Gestora de productos con visión estratégica. Enfocada en el desarrollo de soluciones que generen valor real para los usuarios y el negocio."
     },
     {
       id: 3,
-      name: "Paulo Cesar De La Cruz",
-      position: "CEO",
-      photo: EmpleadaImg,
-      description: "Visionario tecnológico y emprendedor con amplia experiencia en la industria del software. Especializado en transformación digital y estrategia empresarial."
-    },
-    {
-      id: 4,
-      name: "Laura Valentina Hidalgo",
-      position: "Desarrollador FullStack", 
-      photo: EmpleadaImg,
-      description: "Desarrolladora versátil con expertise en tecnologías frontend y backend. Comprometida con la calidad del código y las mejores prácticas de desarrollo."
-    },
-    {
-      id: 5,
-      name: "Carlos Eduardo Martinez",
-      position: "Analista de Sistemas",
-      photo: EmpleadaImg,
-      description: "Experto en análisis y diseño de sistemas empresariales. Especializado en optimización de procesos y arquitectura de software escalable."
-    },
-    {
-      id: 6,
-      name: "Maria Fernanda Lopez",
-      position: "UX/UI Designer",
-      photo: EmpleadaImg,
+      name: "Edwin",
+      position: "Gerente de Desarrollo e Innovación",
+      photo: EdwinImg,
       description: "Diseñadora creativa con enfoque en experiencia de usuario. Apasionada por crear interfaces intuitivas y visualmente atractivas que mejoren la interacción."
     },
     {
-      id: 7,
-      name: "Andrés Felipe Torres",
-      position: "DevOps Engineer",
-      photo: EmpleadaImg,
+      id: 4,
+      name: "Aldedier",
+      position: "Director de Desarrollo e Innovación",
+      photo: AldedierImg,
       description: "Ingeniero especializado en infraestructura y automatización. Experto en deployment continuo, containerización y optimización de sistemas en la nube."
     },
     {
+      id: 15,
+      name: "Marcelo",
+      position: "Gerente de Alianzas Estratégicas",
+      photo: MarceloImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 13,
+      name: "Juan David",
+      position: "Director de Calidad",
+      photo: JuanDavidImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 17,
+      name: "Luz",
+      position: "Directora de BioTecnología",
+      photo: LuzImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 5,
+      name: "Diego",
+      position: "Arquitecto de soluciones",
+      photo: DiegoImg,
+      description: "Ingeniero especializado en infraestructura y automatización. Experto en deployment continuo, containerización y optimización de sistemas en la nube."
+    },
+    {
+      id: 6,
+      name: "Ronald",
+      position: "Desarrollador FullStack",
+      photo: RonaldImg,
+      description: "Ingeniero especializado en infraestructura y automatización. Experto en deployment continuo, containerización y optimización de sistemas en la nube."
+    },
+    {
+      id: 7,
+      name: "Laura",
+      position: "Desarrollador FullStack", 
+      photo: LauraImg,
+      description: "Desarrolladora versátil con expertise en tecnologías frontend y backend. Comprometida con la calidad del código y las mejores prácticas de desarrollo."
+    },
+    {
       id: 8,
-      name: "Isabella Rodriguez Castro",
-      position: "Product Manager",
-      photo: EmpleadaImg,
-      description: "Gestora de productos con visión estratégica. Enfocada en el desarrollo de soluciones que generen valor real para los usuarios y el negocio."
-    }
+      name: "Valeria",
+      position: "Desarrollador FullStack",
+      photo: ValeriaImg,
+      description: "Experto en análisis y diseño de sistemas empresariales. Especializado en optimización de procesos y arquitectura de software escalable."
+    },
+    {
+      id: 9,
+      name: "Juan",
+      position: "Desarrollador FullStack",
+      photo: JuanImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 10,
+      name: "Julián",
+      position: "Desarrollador FullStack",
+      photo: JulianImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 12,
+      name: "Freddy",
+      position: "Desarrollador FullStack",
+      photo: FreddyImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 14,
+      name: "John",
+      position: "Desarrollador FullStack",
+      photo: JohnImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 16,
+      name: "Eimy",
+      position: "Diseñadora UX",
+      photo: EimyImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 18,
+      name: "Sergio",
+      position: "Desarrollador FullStack",
+      photo: SergioBarraganImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 19,
+      name: "Sergio",
+      position: "Desarrollador FullStack",
+      photo: SergioRuizImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 20,
+      name: "Consuelo",
+      position: "Servicios Generales",
+      photo: ConsueloImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 21,
+      name: "Oscar",
+      position: "Director de procesos",
+      photo: OscarImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
+    {
+      id: 22,
+      name: "Julian",
+      position: "Ingeniero de Automatización",
+      photo: JulianVegaImg,
+      description: "Especialista en desarrollo web con experiencia en React, Node.js y bases de datos. Apasionada por crear soluciones innovadoras y interfaces de usuario intuitivas."
+    },
   ]
 
   const carouselSlides = [
