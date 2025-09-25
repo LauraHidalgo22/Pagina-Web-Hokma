@@ -426,7 +426,28 @@ export const CustomProvider = ({ children }) => {
             description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
             color: "#8E3089",
             imageOverlay: SorpresaGobierno
-        }
+        },
+      {
+        id: 205,
+        name: "Sector Banca",
+        description: "“La banca del futuro ya está aquí. ¿Quieres saber cómo la tecnología transforma la confianza y la seguridad financiera? Pregúntanos.”",
+        color: "#36A9E1",
+        imageOverlay: SorpresaGobierno
+      },
+      {
+        id: 206,
+        name: "Sector Educación",
+        description: "“Innovar es educar para el futuro. Descubre cómo la tecnología está revolucionando el aprendizaje y la gestión educativa.”",
+        color: "#95C11F",
+        imageOverlay: SorpresaGobierno
+      },
+      {
+        id: 207,
+        name: "Sector Agropecuario",
+        description: "“El campo también innova. ¿Te imaginas cómo la tecnología puede transformar la productividad y sostenibilidad agropecuaria? Te lo contamos.”",
+        color: "#F39323",
+        imageOverlay: SorpresaGobierno
+      },
     ]
 
     const services = [
