@@ -48,6 +48,9 @@ import SorpresaLogistica from '../assets/Sorpresa-card-logistica.png'
 import SorpresaSalud from '../assets/Sorpresa-card-salud.png'
 import SorpresaFinanzas from '../assets/Sorpresa-card-finanzas.png'
 import SorpresaGobierno from '../assets/Sorpresa-card-gobierno.png'
+import SorpresaBanca from '../assets/Sorpresa-card-banca.png'
+import SorpresaEducacion from '../assets/Sorpresa-card-educacion.png'
+import SorpresaAgropecuario from '../assets/Sorpresa-card-agropecuario.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -427,27 +430,27 @@ export const CustomProvider = ({ children }) => {
             color: "#8E3089",
             imageOverlay: SorpresaGobierno
         },
-      {
-        id: 205,
-        name: "Sector Banca",
-        description: "“La banca del futuro ya está aquí. ¿Quieres saber cómo la tecnología transforma la confianza y la seguridad financiera? Pregúntanos.”",
-        color: "#36A9E1",
-        imageOverlay: SorpresaGobierno
-      },
-      {
-        id: 206,
-        name: "Sector Educación",
-        description: "“Innovar es educar para el futuro. Descubre cómo la tecnología está revolucionando el aprendizaje y la gestión educativa.”",
-        color: "#95C11F",
-        imageOverlay: SorpresaGobierno
-      },
-      {
-        id: 207,
-        name: "Sector Agropecuario",
-        description: "“El campo también innova. ¿Te imaginas cómo la tecnología puede transformar la productividad y sostenibilidad agropecuaria? Te lo contamos.”",
-        color: "#F39323",
-        imageOverlay: SorpresaGobierno
-      },
+        {
+          id: 205,
+          name: "Sector Banca",
+          description: "“La banca del futuro ya está aquí. ¿Quieres saber cómo la tecnología transforma la confianza y la seguridad financiera? Pregúntanos.”",
+          color: "#36A9E1",
+          imageOverlay: SorpresaBanca
+        },
+        {
+          id: 206,
+          name: "Sector Educación",
+          description: "“Innovar es educar para el futuro. Descubre cómo la tecnología está revolucionando el aprendizaje y la gestión educativa.”",
+          color: "#95C11F",
+          imageOverlay: SorpresaEducacion
+        },
+        {
+          id: 207,
+          name: "Sector Agropecuario",
+          description: "“El campo también innova. ¿Te imaginas cómo la tecnología puede transformar la productividad y sostenibilidad agropecuaria? Te lo contamos.”",
+          color: "#F39323",
+          imageOverlay: SorpresaAgropecuario
+        },
     ]
 
     const services = [
