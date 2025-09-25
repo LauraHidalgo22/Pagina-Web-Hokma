@@ -27,6 +27,9 @@ const CardInformativa = ({
           style={{ backgroundColor: headerColor }}
           onClick={handleToggle}
         >
+          <div className='mr-2'>
+            {card.icon}
+          </div>
           <h3 
             className="text-white font-semibold text-lg text-center flex-grow"
           >

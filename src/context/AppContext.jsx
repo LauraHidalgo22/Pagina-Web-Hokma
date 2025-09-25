@@ -1,4 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
+import { CgInsights } from 'react-icons/cg'
+import { FaGears } from 'react-icons/fa6'
+import { IoIosRocket } from 'react-icons/io'
+import { MdOutlineInsights } from 'react-icons/md'
+import { FaRegLightbulb } from 'react-icons/fa'
+import { MdOutlineConnectWithoutContact } from 'react-icons/md'
+import { VscDebugDisconnect } from 'react-icons/vsc'
 import ImpulsoCrecimiento from '../assets/CarruselProductos/impulso_crecimiento 1.jpg'
 import DisenoExitoso from '../assets/CarruselProductos/diseño_exitoso.jpg'
 import EficienciaEmpresarial from '../assets/CarruselProductos/eficiencia_empresarial.jpg'
@@ -518,30 +525,37 @@ export const CustomProvider = ({ children }) => {
 
     const cardsAbout = [
       {
+        icon: <CgInsights className='h-10 w-10 text-white' />,
         title: "1. Crecimiento exponencial impulsado por tecnología",
         description: "Aceleramos la evolución de su negocio mediante soluciones digitales de última generación que generan valor sostenible y escalable."
       },
       {
+        icon: <FaGears className='h-10 w-10 text-white' />,
         title: "2. Procesos inteligentes, diseñados para ganar",
         description: "Integramos metodologías ágiles y herramientas tecnológicas que optimizan cada operación, alineadas con los objetivos estratégicos de su organización."
       },
       {
+        icon: <IoIosRocket className='h-10 w-10 text-white' />,
         title: "3. Entregas ágiles y de alto impacto",
         description: "Con plataformas avanzadas y equipos especializados, garantizamos resultados rápidos, organizados y medibles, en el momento que su empresa los necesita."
       },
       {
+        icon: <MdOutlineInsights className='h-10 w-10 text-white' />,
         title: "4. Decisiones estratégicas basadas en datos",
         description: "Potenciamos su capacidad de decisión con analítica avanzada, inteligencia artificial y tableros de control que aseguran precisión y minimizan riesgos."
       },
       {
+        icon: <FaRegLightbulb className='h-10 w-10 text-white' />,
         title: "5. Innovación disruptiva como ventaja competitiva",
         description: "Le damos acceso a tecnologías emergentes que transforman procesos tradicionales en experiencias digitales únicas, adelantando a su empresa frente al mercado."
       },
       {
+        icon: <MdOutlineConnectWithoutContact className='h-10 w-10 text-white' />,
         title: "6. Acompañamiento experto, siempre conectado",
         description: "Más que soporte, ofrecemos un ecosistema de especialistas y soluciones digitales que garantizan continuidad, seguridad y confianza en cada etapa del camino."
       },
       {
+        icon: <VscDebugDisconnect className='h-10 w-10 text-white' />,
         title: "7. Futuro asegurado con tecnología de vanguardia",
         description: "No solo resolvemos los retos inmediatos de su organización: construimos junto a usted una visión sostenible a largo plazo, apalancada en transformación digital, innovación disruptiva e inteligencia tecnológica que garantizan que su compañía lidere su sector hoy y esté preparada para los desafíos del mañana."
       }
