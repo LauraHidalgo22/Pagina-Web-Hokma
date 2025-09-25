@@ -9,7 +9,10 @@ const NuestrosClientes = () => {
   const { clients, activeClientCard, handleClientCardClick, setActiveClientCard } = useAppContext();
   
   // Mostrar todos los 4 clientes en un solo slide
-  const clientSlides = [clients];
+  const clientSlides = [];
+  for (let i = 0; i < clients.length; i += 4) {
+    clientSlides.push(clients.slice(i, i + 4));
+  }
 
   return (
     <section className="bg-white">

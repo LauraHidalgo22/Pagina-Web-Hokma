@@ -38,7 +38,7 @@ const CardCarrusel = ({
     >
       <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl border border-gray-200 transition-all duration-300 transform hover:scale-105">
         {/* Imagen principal o contenido de texto */}
-        <div className={`${imageAspect} overflow-hidden relative p-6`}>
+        <div className={`${imageAspect} overflow-hidden relative`}>
           {showImage ? (
             <img 
               src={displayData.image}
@@ -62,7 +62,7 @@ const CardCarrusel = ({
           
           {/* Overlay cuando está activo */}
           {activeCard === displayData.id && showOverlay && (
-            <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-4 animate-in fade-in duration-300">
+            <div className="absolute inset-0 bg-black/70 flex items-center justify-center animate-in fade-in duration-300">
               {overlayType === "image" && displayData.overlayImage ? (
                 // Mostrar imagen en el overlay
                 <div className="w-full h-full flex items-center justify-center">

@@ -7,20 +7,20 @@ const UnidadesNegocio = () => {
   const { selectedCard, setSelectedCard, unidades, handleCardSelect, getContainerColor } = useAppContext();
 
   return (
-    <section id='unidades-negocio' className="w-full h-auto md:h-[250px] relative" style={{backgroundColor:"#ffffff"}}>
+    <section id='unidades-negocio' className="w-full h-auto bg-white">
       {/* Contenedor padre con SectionTitle */}
       <div 
-        className="w-full h-[170px] md:h-[80px] flex items-center px-7 transition-colors duration-300"
+        className="w-full h-[170px] md:h-[80px] flex items-center px-7 transition-colors duration-300 bg-white"
         style={{ backgroundColor: getContainerColor() }}
       >
-        <h5 className={`${getContainerColor() == '#ffffff' || getContainerColor() == '#F3F4F6' ? 'text-black' : 'text-white'} text-3xl font-bold mb-12`}>
+        <SectionTitle titleClassName={`${getContainerColor() == '#ffffff' || getContainerColor() == '#F3F4F6' ? 'text-black' : 'text-white'}`}>
           Unidades de Negocio
-        </h5>
+        </SectionTitle>
       </div>
 
-      {/* Sección de carrusel - Posicionada en el centro */}
-      <div className="relative md:absolute left-0 right-0 top-1/2 bottom-5 transform md:-translate-y-12 z-20 flex justify-center md:justify-start items-center mt-10 md:my-5 w-full">
-        <div className="w-full overflow-x-auto overflow-y-hidden h-auto min-h-[200px] md:min-h-[250px] flex items-center justify-center md:justify-start px-4 md:px-8 lg:px-16">
+      {/* Sección de carrusel - ahora fuera del fondo blanco */}
+      <div className="flex justify-center md:justify-start items-center w-full h-[200px]" style={{background: 'transparent'}}>
+        <div className="w-full h-full flex items-center justify-center md:justify-start px-4 md:px-8 lg:px-16 overflow-x-auto overflow-y-hidden min-h-[250px]">
           <div className="flex flex-col md:flex-row gap-5 justify-center md:justify-start items-center w-max transition-all duration-500 py-4">
             {unidades.map((unidad, index) => {
               const isSelected = selectedCard === unidad.id;
@@ -29,7 +29,7 @@ const UnidadesNegocio = () => {
               let transformStyle = '';
               if (selectedCard && !isSelected) {
                 const direction = index < selectedIndex ? 1 : -1;
-                const distance = Math.abs(index - selectedIndex);
+                const distance = Math.abs(index - selectedCard);
                 const displacement = Math.min(distance * 15, 30);
                 const isMobile = window.innerWidth < 768;
                 if (isMobile) {
@@ -43,8 +43,7 @@ const UnidadesNegocio = () => {
                   key={unidad.id}
                   className="transition-all duration-500 ease-in-out flex-shrink-0"
                   style={{
-                    transform: `${transformStyle} ${isSelected ? 'scale(1.2)' : 'scale(1)'}`,
-                    zIndex: isSelected ? 20 : 10
+                    transform: `${transformStyle} ${isSelected ? 'scale(1.2)' : 'scale(1)'}`
                   }}
                 >
                   <CardUnidadNegocio
@@ -65,10 +64,9 @@ const UnidadesNegocio = () => {
 
       {/* Div inferior como margen */}
       <div 
-        className="md:absolute md:bottom-0 md:left-0 md:right-0 w-full h-[70px] transition-colors duration-300 flex items-end justify-center"
+        className="w-full h-[70px] transition-colors duration-300 bg-white"
         style={{ backgroundColor: getContainerColor() }}
       >
-        {/* Separador dentro del div inferior */}
         <Separador />
       </div>
     </section>
