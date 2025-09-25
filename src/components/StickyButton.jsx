@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaWhatsapp } from "react-icons/fa";
 import { BsTelephoneOutboundFill } from "react-icons/bs";
 import { BiMessage } from "react-icons/bi";
+import { IoMdClose } from "react-icons/io";
 import { useAppContext } from '../context/AppContext';
 
 const StickyButton = () => {
@@ -76,16 +77,11 @@ const StickyButton = () => {
                       aria-label="Cerrar mensaje"
                       style={{ lineHeight: 0 }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="4" y1="4" x2="16" y2="16" />
-                        <line x1="16" y1="4" x2="4" y2="16" />
-                      </svg>
+                      <IoMdClose />
                     </button>
                     <div className="flex items-center justify-center w-full cursor-pointer">
                       <span className="text-gray-900 text-base font-semibold mr-2" style={{ fontFamily: 'Caviar Dreams' }}>Chatea con nosotros</span>
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#292C3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                      </svg>
+                      <BiMessage className='w-7 h-7 text-[#292C3A]' />
                     </div>
                   </motion.div>
                 )}
@@ -105,16 +101,11 @@ const StickyButton = () => {
                       aria-label="Cerrar mensaje"
                       style={{ lineHeight: 0 }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="4" y1="4" x2="16" y2="16" />
-                        <line x1="16" y1="4" x2="4" y2="16" />
-                      </svg>
+                      <IoMdClose />
                     </button>
                     <div className="flex items-center justify-center w-full cursor-pointer">
                       <span className="text-gray-900 text-base font-semibold mr-2" style={{ fontFamily: 'Caviar Dreams' }}>Llámanos: +57&nbsp;601 3572954</span>
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#292C3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0 1 22 16.92z" />
-                      </svg>
+                      <BsTelephoneOutboundFill className='w-6 h-6 text-[#292C3A]' />
                     </div>
                   </motion.div>
                 )}
