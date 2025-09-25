@@ -23,7 +23,7 @@ const StickyButton = () => {
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
             {!showMessage && !showPhone ? (
-              <div className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden divide-y divide-gray-200">
+              <div className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
                 {/* Botón de mensaje */}
                 <button
                   className="flex items-center justify-center p-4 hover:bg-gray-100 transition-colors duration-200"
@@ -33,6 +33,9 @@ const StickyButton = () => {
                   {/* Icono de mensaje */}
                   <BiMessage className='w-7 h-7 text-[#292C3A]' />
                 </button>
+                <div className='w-full flex justify-center items-center'>
+                  <div className='border border-gray w-8'></div>
+                </div>
                 {/* Botón de teléfono */}
                 <button
                   className="flex items-center justify-center p-4 hover:bg-gray-100 transition-colors duration-200"
@@ -40,8 +43,11 @@ const StickyButton = () => {
                   aria-label="Llamar"
                 >
                   {/* Icono de teléfono */}
-                  <BsTelephoneOutboundFill className='w-7 h-7 text-[#292C3A]' />
+                  <BsTelephoneOutboundFill className='w-6 h-6 text-[#292C3A]' />
                 </button>
+                <div className='w-full flex justify-center items-center'>
+                  <div className='border border-gray w-8'></div>
+                </div>
                 {/* Botón de WhatsApp */}
                 <button
                   className="flex items-center justify-center p-4 hover:bg-gray-100 transition-colors duration-200"
