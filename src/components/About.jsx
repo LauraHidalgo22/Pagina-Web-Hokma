@@ -38,7 +38,7 @@ const About = () => {
   }
 
   return (
-  <section id="nosotros" className="pt-5 pb-10 bg-gray-100" ref={aboutRef}>
+  <section id="nosotros" className="pt-5 bg-gray-100" ref={aboutRef}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título */}
         <AnimatedSection animation="fadeInUp" className="">

@@ -73,7 +73,7 @@ const Header = () => {
             >
               <div className={`backdrop-blur-md rounded-full px-8 py-3 border transition-all duration-500 ${
                 isScrolled 
-                  ? 'bg-gray-100/80 border-gray-300/30' 
+                  ? 'bg-white' 
                   : 'bg-white/10 border-white/20'
               }`}>
                 <div className="flex items-center space-x-8">

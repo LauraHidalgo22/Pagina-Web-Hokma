@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import AlertaCookies from './components/AlertaCookies'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
@@ -17,7 +18,8 @@ function App() {
   return (
     <CustomProvider>
       <div className="relative min-h-screen">
-      <Background />
+  <Background />
+  <AlertaCookies />
       <Header />
       <Hero />
       <UnidadesNegocio />
@@ -25,8 +27,8 @@ function App() {
       <About />
       <EquipoTrabajo />
       <NuestrosAliados />
-      <Contact />
       <NuestrosClientes />
+      <Contact />
       <Footer />
       
       {/* Sticky Button Component */}

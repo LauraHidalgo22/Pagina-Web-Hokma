@@ -1,4 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
+import { CgInsights } from 'react-icons/cg'
+import { FaGears } from 'react-icons/fa6'
+import { IoIosRocket } from 'react-icons/io'
+import { MdOutlineInsights } from 'react-icons/md'
+import { FaRegLightbulb } from 'react-icons/fa'
+import { MdOutlineConnectWithoutContact } from 'react-icons/md'
+import { VscDebugDisconnect } from 'react-icons/vsc'
 import ImpulsoCrecimiento from '../assets/CarruselProductos/impulso_crecimiento 1.jpg'
 import DisenoExitoso from '../assets/CarruselProductos/diseño_exitoso.jpg'
 import EficienciaEmpresarial from '../assets/CarruselProductos/eficiencia_empresarial.jpg'
@@ -30,6 +37,8 @@ import OscarImg from '../assets/employees/Oscar.png'
 import JulianVegaImg from '../assets/employees/JulianVega.png'
 import HokmaFedesoft from '../assets/hokma_fedesoft.png'
 import HokmaMicrosoft from '../assets/hokma_microsoft.png'
+import HokmaCertmind from '../assets/hokma_certmind.png'
+import HokmaCisco from '../assets/hokma_cisco.png'
 import logoHokmaLight from '../assets/logo-hokma-technologies.png'
 import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
@@ -39,6 +48,9 @@ import SorpresaLogistica from '../assets/Sorpresa-card-logistica.png'
 import SorpresaSalud from '../assets/Sorpresa-card-salud.png'
 import SorpresaFinanzas from '../assets/Sorpresa-card-finanzas.png'
 import SorpresaGobierno from '../assets/Sorpresa-card-gobierno.png'
+import SorpresaBanca from '../assets/Sorpresa-card-banca.png'
+import SorpresaEducacion from '../assets/Sorpresa-card-educacion.png'
+import SorpresaAgropecuario from '../assets/Sorpresa-card-agropecuario.png'
 
 // Crear el contexto
 const AppContext = createContext()
@@ -369,6 +381,22 @@ export const CustomProvider = ({ children }) => {
             alt: "Hokma Technologies - Aliado Microsoft",
             subtitle: "Tecnología de clase mundial",
             description: "Partner estratégico que nos permite ofrecer soluciones empresariales con tecnología Microsoft de última generación."
+        },
+        {
+          id: 103,
+          name: "Certmind",
+          image: HokmaCertmind,
+          alt: "Hokma Technologies - Aliado Certmind",
+          subtitle: "Aliado estratégico en desarrollo e innovación",
+          description: "Certmind potencia nuestras capacidades de innovación y desarrollo, aportando certificaciones, metodologías y experiencia para impulsar proyectos tecnológicos de alto impacto."
+        },
+        {
+          id: 104,
+          name: "Cisco",
+          image: HokmaCisco,
+          alt: "Hokma Technologies - Aliado Cisco",
+          subtitle: "Alianza estratégica en redes y conectividad global",
+          description: "Cisco fortalece nuestra oferta tecnológica con soluciones avanzadas de redes, seguridad y colaboración, permitiendo a nuestros clientes acceder a infraestructura de clase mundial."
         }
     ]
 
@@ -401,7 +429,28 @@ export const CustomProvider = ({ children }) => {
             description: "“La innovación también toca las puertas del gobierno … aunque no lo publiquemos aquí.”",
             color: "#8E3089",
             imageOverlay: SorpresaGobierno
-        }
+        },
+        {
+          id: 205,
+          name: "Sector Banca",
+          description: "“La banca del futuro ya está aquí. ¿Quieres saber cómo la tecnología transforma la confianza y la seguridad financiera? Pregúntanos.”",
+          color: "#36A9E1",
+          imageOverlay: SorpresaBanca
+        },
+        {
+          id: 206,
+          name: "Sector Educación",
+          description: "“Innovar es educar para el futuro. Descubre cómo la tecnología está revolucionando el aprendizaje y la gestión educativa.”",
+          color: "#95C11F",
+          imageOverlay: SorpresaEducacion
+        },
+        {
+          id: 207,
+          name: "Sector Agropecuario",
+          description: "“El campo también innova. ¿Te imaginas cómo la tecnología puede transformar la productividad y sostenibilidad agropecuaria? Te lo contamos.”",
+          color: "#F39323",
+          imageOverlay: SorpresaAgropecuario
+        },
     ]
 
     const services = [
@@ -518,30 +567,37 @@ export const CustomProvider = ({ children }) => {
 
     const cardsAbout = [
       {
+        icon: <CgInsights className='h-10 w-10 text-white' />,
         title: "1. Crecimiento exponencial impulsado por tecnología",
         description: "Aceleramos la evolución de su negocio mediante soluciones digitales de última generación que generan valor sostenible y escalable."
       },
       {
+        icon: <FaGears className='h-10 w-10 text-white' />,
         title: "2. Procesos inteligentes, diseñados para ganar",
         description: "Integramos metodologías ágiles y herramientas tecnológicas que optimizan cada operación, alineadas con los objetivos estratégicos de su organización."
       },
       {
+        icon: <IoIosRocket className='h-10 w-10 text-white' />,
         title: "3. Entregas ágiles y de alto impacto",
         description: "Con plataformas avanzadas y equipos especializados, garantizamos resultados rápidos, organizados y medibles, en el momento que su empresa los necesita."
       },
       {
+        icon: <MdOutlineInsights className='h-10 w-10 text-white' />,
         title: "4. Decisiones estratégicas basadas en datos",
         description: "Potenciamos su capacidad de decisión con analítica avanzada, inteligencia artificial y tableros de control que aseguran precisión y minimizan riesgos."
       },
       {
+        icon: <FaRegLightbulb className='h-10 w-10 text-white' />,
         title: "5. Innovación disruptiva como ventaja competitiva",
         description: "Le damos acceso a tecnologías emergentes que transforman procesos tradicionales en experiencias digitales únicas, adelantando a su empresa frente al mercado."
       },
       {
+        icon: <MdOutlineConnectWithoutContact className='h-10 w-10 text-white' />,
         title: "6. Acompañamiento experto, siempre conectado",
         description: "Más que soporte, ofrecemos un ecosistema de especialistas y soluciones digitales que garantizan continuidad, seguridad y confianza en cada etapa del camino."
       },
       {
+        icon: <VscDebugDisconnect className='h-10 w-10 text-white' />,
         title: "7. Futuro asegurado con tecnología de vanguardia",
         description: "No solo resolvemos los retos inmediatos de su organización: construimos junto a usted una visión sostenible a largo plazo, apalancada en transformación digital, innovación disruptiva e inteligencia tecnológica que garantizan que su compañía lidere su sector hoy y esté preparada para los desafíos del mañana."
       }
