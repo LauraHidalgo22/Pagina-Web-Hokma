@@ -25,8 +25,8 @@ function App() {
       <About />
       <EquipoTrabajo />
       <NuestrosAliados />
-      <Contact />
       <NuestrosClientes />
+      <Contact />
       <Footer />
       
       {/* Sticky Button Component */}
