@@ -37,6 +37,8 @@ import OscarImg from '../assets/employees/Oscar.png'
 import JulianVegaImg from '../assets/employees/JulianVega.png'
 import HokmaFedesoft from '../assets/hokma_fedesoft.png'
 import HokmaMicrosoft from '../assets/hokma_microsoft.png'
+import HokmaCertmind from '../assets/hokma_certmind.png'
+import HokmaCisco from '../assets/hokma_cisco.png'
 import logoHokmaLight from '../assets/logo-hokma-technologies.png'
 import logoHokmaRobotics from '../assets/logo-hokma-robotics.png'
 import logoHokmaEnergy from '../assets/logo-hokma-energy.png'
@@ -376,6 +378,22 @@ export const CustomProvider = ({ children }) => {
             alt: "Hokma Technologies - Aliado Microsoft",
             subtitle: "Tecnología de clase mundial",
             description: "Partner estratégico que nos permite ofrecer soluciones empresariales con tecnología Microsoft de última generación."
+        },
+        {
+          id: 103,
+          name: "Certmind",
+          image: HokmaCertmind,
+          alt: "Hokma Technologies - Aliado Certmind",
+          subtitle: "Aliado estratégico en desarrollo e innovación",
+          description: "Certmind potencia nuestras capacidades de innovación y desarrollo, aportando certificaciones, metodologías y experiencia para impulsar proyectos tecnológicos de alto impacto."
+        },
+        {
+          id: 104,
+          name: "Cisco",
+          image: HokmaCisco,
+          alt: "Hokma Technologies - Aliado Cisco",
+          subtitle: "Alianza estratégica en redes y conectividad global",
+          description: "Cisco fortalece nuestra oferta tecnológica con soluciones avanzadas de redes, seguridad y colaboración, permitiendo a nuestros clientes acceder a infraestructura de clase mundial."
         }
     ]
 
